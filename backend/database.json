@@ -1,0 +1,192 @@
+{
+	"expanded-classes":[
+		{
+			"index": "artificer",
+			"name": "Artificer",
+			"url": "/api/expanded-classes/artificer"
+		},
+		{
+			"index": "bloodhunter",
+			"name": "BloodHunter",
+			"url": "/api/expanded-classes/bloodhunter"
+		}
+	],
+
+    "expanded-races":[
+        {
+            "index": "leonin",
+            "name": "Leonin",
+            "url": "/api/expanded-races/leonin"      
+        },
+        {
+            "index": "satyr",
+            "name": "Satyr",
+            "url": "/api/expanded-races/satyr"      
+        },
+        {
+            "index": "arakocra",
+            "name": "Arakocra",
+            "url": "/api/expanded-races/arakocra"      
+        },
+        {
+            "index": "genasi",
+            "name": "Genasi",
+            "url": "/api/expanded-races/Genasi"      
+        },
+        {
+            "index": "goliath",
+            "name": "Goliath",
+            "url": "/api/expanded-races/goliath"      
+        },
+        {
+            "index": "aasimar",
+            "name": "Aasimar",
+            "url": "/api/expanded-races/aasimar"      
+        },
+        {
+            "index": "bugbear",
+            "name": "Bugbear",
+            "url": "/api/expanded-races/bugbear"
+        },
+        {
+            "index": "firbolg",
+            "name": "Firbolg",
+            "url": "/api/expanded-races/firbolg"
+        },
+        {
+            "index": "goblin",
+            "name": "Goblin",
+            "url": "/api/expanded-races/goblin"
+        },
+        {
+            "index": "hobgoblin",
+            "name": "Hobgoblin",
+            "url": "/api/expanded-races/hobgoblin"
+        },
+        {
+            "index": "bugbear",
+            "name": "Bugbear",
+            "url": "/api/expanded-races/bugbear"
+        },
+        {
+            "index": "bugbear",
+            "name": "Bugbear",
+            "url": "/api/expanded-races/bugbear"
+        },
+        {
+            "index": "kenku",
+            "name": "Kenku",
+            "url": "/api/expanded-races/kenku"
+        },
+        {
+            "index": "kobold",
+            "name": "Kobold",
+            "url": "/api/expanded-races/kobold"
+        },
+        {
+            "index": "lizardfolk",
+            "name": "Lizardfolk",
+            "url": "/api/expanded-races/lizardfolk"
+        },
+        {
+            "index": "orc",
+            "name": "Orc",
+            "url": "/api/expanded-races/orc"
+        },
+        {
+            "index": "tabaxi",
+            "name": "Tabaxi",
+            "url": "/api/expanded-races/tabaxi"
+        },
+        {
+            "index": "triton",
+            "name": "Triton",
+            "url": "/api/expanded-races/triton"
+        },
+        {
+            "index": "yuan-ti-pureblood",
+            "name": "Yuan-Ti-Pureblood",
+            "url": "/api/expanded-races/yuan-ti-pureblood"
+        },
+        {
+            "index": "feral-tiefling",
+            "name": "Feral-Tiefling",
+            "url": "/api/expanded-races/feral-tiefling"
+        },
+        {
+            "index": "tortle",
+            "name": "Tortle",
+            "url": "/api/expanded-races/tortle"
+        },
+        {
+            "index": "changeling",
+            "name": "Changeling",
+            "url": "/api/expanded-races/changeling"
+        },
+        {
+            "index": "kalashtar",
+            "name": "Kalashtar",
+            "url": "/api/expanded-races/kalashtar"
+        },
+        {
+            "index": "orc-of-eberron",
+            "name": "Orc-of-Eberron",
+            "url": "/api/expanded-races/orc-of-eberron"
+        },
+        {
+            "index": "shifter",
+            "name": "Shifter",
+            "url": "/api/expanded-races/shifter"
+        },
+        {
+            "index": "warforged",
+            "name": "Warforged",
+            "url": "/api/expanded-races/warforged"
+        },
+        {
+            "index": "gith",
+            "name": "Gith",
+            "url": "/api/expanded-races/gith"
+        },
+        {
+            "index": "centaur",
+            "name": "Centaur",
+            "url": "/api/expanded-races/centaur"
+        },
+        {
+            "index": "loxodon",
+            "name": "Loxodon",
+            "url": "/api/expanded-races/loxodon"
+        },
+        {
+            "index": "minotaur",
+            "name": "Minotaur",
+            "url": "/api/expanded-races/minotaur"
+        },
+        {
+            "index": "simic-hybrid",
+            "name": "Simic-Hybrid",
+            "url": "/api/expanded-races/simic-hybrid"
+        },
+        {
+            "index": "vedalken",
+            "name": "Vedalken",
+            "url": "/api/expanded-races/vedalken"
+        },
+        {
+            "index": "verdan",
+            "name": "Verdan",
+            "url": "/api/expanded-races/verdan"
+        },
+        {
+            "index": "locathath",
+            "name": "Locathath",
+            "url": "/api/expanded-races/locathath"
+        },
+        {
+            "index": "grung",
+            "name": "Grung",
+            "url": "/api/expanded-races/grung"
+        }
+    ]
+}
