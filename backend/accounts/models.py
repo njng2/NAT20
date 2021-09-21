@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionMix, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionMixin, BaseUserManager
 
 class UserAccountManager(BaseUserManager):
     def create_user(self, email, name, password=None): #allows you to create user 
@@ -16,7 +16,7 @@ class UserAccountManager(BaseUserManager):
 
         return user
 
-class UserAccount(Abstract BaseUser, PermissionMixin):
+class UserAccount(AbstractBaseUser, PermissionMixin):
     email = models.EmailField(max_length = 255, unique = True)
     name = models.CharField(max_length = 255)
     is_active = models.BooleanField(default = True)
