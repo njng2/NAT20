@@ -39,9 +39,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'accounts',
+    'social_django',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist'
 ]
 
 MIDDLEWARE = [
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect'
             ],
         },
     },
@@ -84,10 +90,6 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
-
-#EMAIL
-#email account: nat20dnd.host@gmail.com
-# app password: tvixxqseobrbrifv
 
 EMAIL_BACKENED = 'django.core.mail.backends.smtmp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -133,18 +135,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#our URL
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static')
 ]
+
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        (...)
     ),
 }
 
@@ -170,7 +173,6 @@ DJOSER = {
         'user_delete': 'djoser.serializer.UserDeleteSerializer',
     }
 }
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.UserAccount'
