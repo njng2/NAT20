@@ -23,7 +23,7 @@ const Login = ({ login }) => {
 
    const onSubmit = e => {
        e.preventDefault();
-       login(email. password)
+       login(email, password)
    }
 
    //if user is authenticate, redirect them to the home page
