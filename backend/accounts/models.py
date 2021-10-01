@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from django.db.models.fields import CharField
 
 class UserAccountManager(BaseUserManager):
     def create_user(self, email, name, date_of_birth, password=None): #allows you to create user 
@@ -39,6 +40,37 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self): 
         return self.email
+
+class UserHeroes(models.Model):
+    RACE_TYPES = (
+        (1, 'Dragonborn')
+        (2, 'Dwarf')
+        (3, 'Elf')
+        (4, 'Gnome')
+        (5, 'Half-Elf')
+        (6, 'Half-Orc')
+        (7, 'Hafling')
+        (8, 'Human')
+        (9, 'Tiefling')
+    )
+    CLASS_TYPES = (
+        (1, 'Barbarian')
+        (2, 'Bard')
+        (3, 'Cleric')
+        (4, 'Druid')
+        (5, 'Fighter')
+        (6, 'Monk')
+        (7, 'Paladin')
+        (8, 'Ranger')
+        (9, 'Rogue')
+        (10, 'Sorcerer')
+        (11, 'Warlock')
+        (12, 'Wizard')
+    )
+    #This update says that every hero must now be associated with a user
+    race_type = models.IntegerField(choices=RACE_TYPES, default=1)
+    class_type = models.IntegerField(choices=CLASS_TYPES, default=1)
+    hero = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
 
 # Create your models here.
 
