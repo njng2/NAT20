@@ -1,5 +1,5 @@
-
 import React from 'react';
+import Logo from '../../media/Logo.png';
 import {
   Nav,
   NavLink,
@@ -14,22 +14,17 @@ const Navbar = () => {
       <>
         <Nav>
           <NavLink to='/'>
-            <h1>Logo</h1>
+            <img src={Logo} alt="Logo" style={{height: '100px'}}/>
           </NavLink>
           <Bars />
           <NavMenu>
-            <NavLink to='/about' activeStyle>
-              About
+            <NavLink to='/dice'>
+              Dice
             </NavLink>
-            <NavLink to='/home' activeStyle>
-              Home
-            </NavLink>
-            <NavLink to='/login' activeStyle>
-              Login
-            </NavLink>
+            {/*TODO: Add Builds and Library NavLink*/}
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+            <NavBtnLink to='/login'>Login</NavBtnLink>
           </NavBtn>
         </Nav>
       </>

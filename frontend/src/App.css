@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+    font-family: 'Righteous', cursive;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
