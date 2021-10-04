@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import container from '../components/container'
 import { login } from '../actions/auth';
-
+import background from '../media/images/fantasy.webp'
 
 const Login = ({ login }) => {
    /**  Information required to Login
@@ -29,6 +29,19 @@ const Login = ({ login }) => {
    //if user is authenticate, redirect them to the home page
 
     return (
+       <div style={{ 
+           backgroundImage: `url(${background})`, 
+           backgroundPosition: 'center',
+           backgroundSize: 'cover',
+           backgroundRepeat: 'no-repeat',
+           width: '100vw',
+           height: '100vh',
+           marginTop: '-47px'
+
+       
+       
+       }}>
+
         <div className="container mt-5">
             <h1>Sign In</h1>
             <p>Sign into your account</p>
@@ -69,6 +82,7 @@ const Login = ({ login }) => {
                 Forgot your password? <Link to='/signup'>Reset Password Here.</Link>
             </p>
         </div>
+        </div> //background
     )
 };
 
