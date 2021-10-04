@@ -22,6 +22,12 @@ const Navbar = () => {
               Dice
             </NavLink>
             {/*TODO: Add Builds and Library NavLink*/}
+            <NavLink to='/builds'>
+              Builds
+            </NavLink>
+            <NavLink to='/library'>
+              Library
+            </NavLink>
           </NavMenu>
           <NavBtn>
             <NavBtnLink to='/login'>Login</NavBtnLink>
