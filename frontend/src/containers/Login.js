@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import container from '../components/container'
 import { login } from '../actions/auth';
-import background from '../media/images/fantasy.webp'
+import background from '../media/images/dope333.webp'
 
 const Login = ({ login }) => {
    /**  Information required to Login
@@ -36,7 +36,7 @@ const Login = ({ login }) => {
            backgroundRepeat: 'no-repeat',
            width: '100vw',
            height: '100vh',
-           marginTop: '-47px'
+           marginTop: '-50px'
 
        
        
@@ -73,7 +73,8 @@ const Login = ({ login }) => {
                         required
                     />
                 </div>
-                <button className='btn btn-primary' type='submit'>Login</button>
+                <button className='btn btn-primary' 
+                        type='submit'>Login</button>
             </form>
             <p className='mt-3'>
                 Don't have an account? <Link to='/signup'>Sign Up Here.</Link>
