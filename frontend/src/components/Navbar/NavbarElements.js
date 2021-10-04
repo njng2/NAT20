@@ -22,10 +22,10 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   &:hover {
-    color: #ff5e00;
+    color: #452487;
   }
   &.active {
-    color: #d90000;
+    color: #6f44c7;
   }
 `;
 
@@ -64,7 +64,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #d90000;
+  background: #452487;
   padding: 10px 22px;
   color: #fff;
   outline: none;
@@ -75,7 +75,7 @@ export const NavBtnLink = styled(Link)`
   margin-left: 24px;
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #db4444;
+    background: #6f44c7;
     color: #fff;
   }
 `;
