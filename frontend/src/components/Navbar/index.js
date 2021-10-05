@@ -9,14 +9,14 @@ import {
   NavBtnLink
 } from './NavbarElements';
 
-const Navbar = () => {
+const Navbar = ({toggle}) => {
     return (
       <>
         <Nav>
           <NavLink to='/'>
             <img src={Logo} alt="Logo" style={{height: '100px'}}/>
           </NavLink>
-          <Bars />
+          <Bars onClick={toggle}/>
           <NavMenu>
             <NavLink to='/dice'>
               Dice

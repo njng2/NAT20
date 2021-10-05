@@ -1,6 +1,4 @@
 import React from 'react';
-//import { Router } from 'react-router';
-import Navbar from '../components/Navbar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from '../containers/Home';
 import Login from '../containers/Login';
@@ -11,20 +9,7 @@ import Builds from '../containers/Builds';
 function Layout(){
     return (
         <Router>
-            <Navbar />
-            <Switch>
-                    {/* Home Route */}
-                    <Route exact path='/' component={Home} /> 
-                    {/* Log-in Route */}
-                    <Route exact path='/login' component={Login} />
-                    {/* Dice Route */}
-                    <Route exact path='/dice' component={Dice} />
-                    {/* Builds Route */}
-                    <Route exact path='/builds' component={Builds} />
-                     {/* Libary Route */}
-                    <Route exact path='/library' component={Library} />
-
-            </Switch>
+            <Home />
         </Router>
     )
 }
