@@ -3,7 +3,9 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import container from '../components/container'
 import { login } from '../actions/auth';
-import background from '../media/images/dope333.webp'
+import background from '../media/images/dope333.webp';
+import Sidebar from '../components/Sidebar';
+import Navbar from '../components/Navbar';
 
 const Login = ({ login }) => {
    /**  Information required to Login
@@ -14,6 +16,12 @@ const Login = ({ login }) => {
        email: '',
        password: ''
    });
+
+   const [isOpen, setIsOpen] = useState(false)
+
+   const toggle = () => {
+       setIsOpen(!isOpen)
+   }
 
    //Setting email and password of formData
    const { email, password } = formData;
@@ -29,62 +37,63 @@ const Login = ({ login }) => {
    //if user is authenticate, redirect them to the home page
 
     return (
-       <div style={{ 
-           backgroundImage: `url(${background})`, 
-           backgroundPosition: 'center',
-           backgroundSize: 'cover',
-           backgroundRepeat: 'no-repeat',
-           width: '100vw',
-           height: '100vh',
-           marginTop: '-50px'
+        <>
+            <Sidebar isOpen={isOpen} toggle={toggle}/>
+            <Navbar toggle={toggle}/>
+        
+            <div style={{ 
+            backgroundImage: `url(${background})`, 
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            width: '100vw',
+            height: '100vh',
+            marginTop: '-50px'       
+            }}>
 
-       
-       
-       }}>
+                <div className="container mt-5">
+                    <h1>Sign In</h1>
+                    <p>Sign into your account</p>
 
-        <div className="container mt-5">
-            <h1>Sign In</h1>
-            <p>Sign into your account</p>
-
-            {/* Call onSubmit function to login on submit of form*/}
-            <form onSubmit={e => onSubmit(e)}>
-                {/* Email Form */}
-                <div className='form-group'>
-                    <input
-                        className='form-control'
-                        type='email'
-                        placeholder='Email'
-                        name='email'
-                        value={email}
-                        onChange={e => onChange(e)}
-                        required
-                    />
+                    {/* Call onSubmit function to login on submit of form*/}
+                    <form onSubmit={e => onSubmit(e)}>
+                        {/* Email Form */}
+                        <div className='form-group'>
+                            <input
+                            className='form-control'
+                            type='email'
+                            placeholder='Email'
+                            name='email'
+                            value={email}
+                            onChange={e => onChange(e)}
+                            required
+                            />
+                        </div>
+                        {/* Password Form */}
+                        <div className='form-group'>
+                            <input
+                                className='form-control'
+                                type='password'
+                                placeholder='Password'
+                                name='password'
+                                value={password}
+                                onChange={e => onChange(e)}
+                                minLength='6'
+                                required
+                            />
+                        </div>
+                        <button className='btn btn-primary' type='submit'>Login</button>
+                    </form>
+                    <p className='mt-3'>
+                        Don't have an account? <Link to='/signup'>Sign Up Here.</Link>
+                    </p>
+                    <p className='mt-3'>
+                        Forgot your password? <Link to='/signup'>Reset Password Here.</Link>
+                    </p>
                 </div>
-                {/* Password Form */}
-                <div className='form-group'>
-                    <input
-                        className='form-control'
-                        type='password'
-                        placeholder='Password'
-                        name='password'
-                        value={password}
-                        onChange={e => onChange(e)}
-                        minLength='6'
-                        required
-                    />
-                </div>
-                <button className='btn btn-primary' 
-                        type='submit'>Login</button>
-            </form>
-            <p className='mt-3'>
-                Don't have an account? <Link to='/signup'>Sign Up Here.</Link>
-            </p>
-            <p className='mt-3'>
-                Forgot your password? <Link to='/signup'>Reset Password Here.</Link>
-            </p>
-        </div>
-        </div> //background
-    )
+            </div> 
+        </>
+    )//background
 };
 
 // const mapStateToProps = state => ({
