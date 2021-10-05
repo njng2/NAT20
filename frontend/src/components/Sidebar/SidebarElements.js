@@ -34,7 +34,7 @@ export const SidebarWrapper = styled.div`
     color: #fff;
 `
 
-export const SidebarLink = styled(LinkS)`
+export const SidebarLink = styled(LinkR, LinkS)`
     display: flex;
     align-items: center;
     justify-content: center;
