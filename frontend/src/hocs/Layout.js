@@ -1,24 +1,27 @@
 import React from 'react';
-//import { Router } from 'react-router';
-import Navbar from '../components/Navbar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from '../containers/Home';
 import Login from '../containers/Login';
 import Dice from '../containers/Dice';
+import Library from '../containers/Library';
+import Builds from '../containers/Builds';
+import Navbar from '../components/Navbar';
 
 function Layout(){
     return (
         <Router>
-            <Navbar />
             <Switch>
                     {/* Home Route */}
                     <Route exact path='/' component={Home} /> 
                     {/* Log-in Route */}
                     <Route exact path='/login' component={Login} />
-                    {/* Sign-up Route */}
+                    {/* Dice Route */}
                     <Route exact path='/dice' component={Dice} />
-                    {/* Reset Password Route */}
-                    {/*TODO: Add Route for Builds and Library */}
+                    {/* Builds Route */}
+                    <Route exact path='/builds' component={Builds} />
+                     {/* Libary Route */}
+                    <Route exact path='/library' component={Library} />
+
             </Switch>
         </Router>
     )
