@@ -30,7 +30,7 @@ const BannerSection = () => {
                     Creating your hero has never been easy before! Start building today!
                 </BannerP>
                 <BannerBtnWrapper>
-                    <Button to="signup" onMouseEnter={onHover} onMouseLeave = {onHover}
+                    <Button to='/signup' onMouseEnter={onHover} onMouseLeave = {onHover}
                     primary='true'
                     dark='true'>
                         Get started {hover ? <ArrowForward /> : <ArrowRight />}
