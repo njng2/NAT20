@@ -1,12 +1,11 @@
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
-from chat.views import index
 
 urlpatterns = [
     path('auth/', include('djoser.urls')),
     #to get json token path
     path('auth/', include('djoser.urls.jwt')),
-    path('', index, name='index')
+    path('chat/', include('chat.urls', namespace='chat')),
 ]
 
 
