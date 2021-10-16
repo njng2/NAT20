@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import background from '../media/images/buildsbg2.png';
 //import example from '../media/images/ExamplePlayer.jpg';
+//import DropDown from '../components/DropDown';
 
 const Builds = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -89,12 +90,10 @@ const Builds = () => {
                         options = {data4} // set list of the data
                         onChange = {handleChange} // assign onChange function
                     />
-
                     </div>
                 </div>
             </div>
         </>
     )
 }
-
 export default Builds;
