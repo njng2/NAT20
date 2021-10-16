@@ -48,7 +48,8 @@ which sends it to the chat socket and will return a message as be sent  -->
             const messageInputDom = document.querySelector('#chat-message-input');
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
-                'message': message
+                'message': message,
+                'command': 'new_message'
             }));
             messageInputDom.value = '';
         };
