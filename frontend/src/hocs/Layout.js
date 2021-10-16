@@ -6,6 +6,7 @@ import Dice from '../containers/Dice';
 import Library from '../containers/Library';
 import Builds from '../containers/Builds';
 import Signup from '../containers/Signup';
+import Chat from '../containers/Chat';
 
 function Layout(){
     return (
@@ -23,6 +24,8 @@ function Layout(){
                     <Route exact path='/library' component={Library} />
 
                     <Route exact path='/signup' component={Signup} />
+
+                    <Route exact path='/chat' component={Chat} />
 
             </Switch>
         </Router>
