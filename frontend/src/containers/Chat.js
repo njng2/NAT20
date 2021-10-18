@@ -1,4 +1,3 @@
-import { ChatEngine } from 'react-chat-engine';
 import React, {useState} from 'react';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
