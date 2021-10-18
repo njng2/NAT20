@@ -68,6 +68,7 @@ const Login = ({ login }) => {
                             onChange={e => onChange(e)}
                             required
                             />
+                            <label></label>
                         </div>
                         {/* Password Form */}
                         <div className='form-group'>
@@ -81,6 +82,7 @@ const Login = ({ login }) => {
                                 minLength='6'
                                 required
                             />
+                            <label></label>
                         </div>
                         <button className='btn btn-primary' type='submit'>Login</button>
                     </form>
