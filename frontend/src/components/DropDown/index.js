@@ -1,40 +1,98 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from 'react-select';
 import { Button } from 'react-scroll';
 import { BackgroundContainer, BuildTitle, DropDownStyle } from './DropDownElements';
+import Axios from 'axios';
+import { get } from "react-scroll/modules/mixins/scroller";
+
 //Add the Components for the drop down elements here 
 //Basically the CSS components
 
 const DropDown = () => {
-    const data = [
-        {value: 1, label: "Dragonborn"},{ value: 2,label: "Dwarf"},{value: 3,label: "Elf"},
-        {value: 4,label: "Genassi"},{value: 5,label: "Grung"},{value: 6,label: "Locathah"}
-      ];
-   
-    const [selectedValue, setSelectedValue] = useState(0);
+
+    const [raceOptions, setRaceOptions] = useState([]);
+
+    const [selectedValue, setSelectedValue] = useState('none');
     const handleChange = e => {
-        setSelectedValue(e.value);
+        // console.log("testsdfsdf",e.target.data)
+        setSelectedValue(e.target.value);
     }
 
-    return(
+    // get race api call
+    const [allRaces, setAllRaces] = useState("");
+    const getAllRaces = async () => {
+        await Axios.get("https://www.dnd5eapi.co/api/races").then(resp =>{
+            console.log(resp.data.results)
+            const options = resp.data.results.map((race) => {
+                return ({
+                    value: race.index,
+                    label: race.name
+                })
+            })
+            setAllRaces(resp.data);
+            setRaceOptions(options);
+
+        }).catch(err =>{
+            console.error(err);
+        });
+    };
+    
+    //const newArr = allRaces.map()
+    const [race,setRace] = useState("");
+    const getRace = (label) =>{
+        // console.log(allRaces);
+        // console.log("tes:", label);
+        Axios.get(`https://www.dnd5eapi.co/api/races/${label}`).then(resp =>{
+            // console.log(resp);
+            setRace(resp.data);
+        }).catch(err =>{
+            console.error(err);
+        })
+        // console.log(selectedValue)
+    };
+    
+    useEffect(() => {
+        getAllRaces();
+    }, [])
+
+    useEffect( () =>{
+        console.log(raceOptions)
+    },[raceOptions])
+
+    useEffect( () =>{
+        console.log('Selected value', selectedValue)
+        getRace(selectedValue);
+    },[selectedValue])
+
+   
+    return (
         <BackgroundContainer>
-           <BuildTitle>
-            <h1>Character Builder</h1>
-            <DropDownStyle>
-            <br /><br />
-            <a style = {{color: 'white'}}>Race</a>
+            <BuildTitle>
+                <h1>Character Builder</h1>
 
-            <Select
-                placeholder="Select"
-                value = {data.find(obj => obj.value === selectedValue)} // set selected value
-                options = {data} // set list of the data
-                onChange = {handleChange} // assign onChange function
-            />
+                <DropDownStyle>
+                    <br /><br />
+                    <a style={{ color: 'white' }}>Race</a>
 
-            <br /><br />
+                    <select value={selectedValue} onChange={handleChange}>
+                        <option value='none'> Select a race </option>
+                        {raceOptions.map((race) => {
+                            return(
+                                <option value={race.value}>
+                                    {race.label}
+                                </option>
+                            )
+                        })}
+                    </select>
+
+                    <br /><br />
+                        <button onClick={getAllRaces}>TEst</button>
+                        <h1>{race.age}</h1>
                 </DropDownStyle>
-           </BuildTitle>
+            </BuildTitle>
+            
         </BackgroundContainer>
     )
+    
 }
 export default DropDown
