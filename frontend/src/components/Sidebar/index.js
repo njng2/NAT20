@@ -27,6 +27,9 @@ const Sidebar = ({isOpen, toggle}) => {
                     <SidebarLink to='/library' onClick={toggle}>
                        Library 
                     </SidebarLink>
+                    <SidebarLink to='/chat' onClick={toggle}>
+                       Chat 
+                    </SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
                     <SidebarRoute to="/login">Login</SidebarRoute>

@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/njng2/NAT20/issues"
   },
-  "homepage": "https://github.com/njng2/NAT20#readme"
+  "homepage": "https://github.com/njng2/NAT20#readme",
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "axios": "^0.23.0",
+    "react-chat-engine": "^1.11.16"
+  }
 }
