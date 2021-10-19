@@ -3,7 +3,7 @@ const ChatFeed = (props) => {
 
     return(
         <div>
-            ChatFeed your at 15:51
+            ChatFeed your at 16:26
         </div>
     );
 }
