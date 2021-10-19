@@ -5,13 +5,13 @@ const MyMessage = ({ message }) => {
           src={message.attachments[0].file}
           alt="message-attachment"
           className="message-image"
-          style={{ float: 'right' }}
+          style={{ float: 'right', height: '30px' }}
         />
       );
     }
   
     return (
-      <div className="message" style={{ float: 'right', marginRight: '18px', color: 'white', backgroundColor: '#3B2A50' }}>
+      <div className="message" style={{ float: 'right', marginRight: '18px', color: 'white', backgroundColor: '#3B2A50', fontFamily: 'Helvetica' }}>
         {message.text}
       </div>
     );

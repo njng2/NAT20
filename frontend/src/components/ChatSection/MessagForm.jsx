@@ -14,7 +14,6 @@ const MessageForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const text = value.trim();
 
     if (text.length > 0) {
@@ -24,10 +23,12 @@ const MessageForm = (props) => {
     setValue('');
   };
 
+  //sends the image
   const handleUpload = (event) => {
     sendMessage(creds, chatId, { files: event.target.files, text: '' });
   };
 
+    //for picture upload and icon
   return (
     <form className="message-form" onSubmit={handleSubmit}>
       <input
@@ -36,6 +37,7 @@ const MessageForm = (props) => {
         value={value}
         onChange={handleChange}
         onSubmit={handleSubmit}
+        style={{fontFamily:'Helvetica'}}
       />
       <label htmlFor="upload-button">
         <span className="image-button">

@@ -8,7 +8,7 @@ const ChatFeed = (props) => {
     const chat = chats && chats[activeChat];
   
     /**detetermins the read receipts depending on who send the message */
-    const renderReadReceipts = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
+    const renderReadReceipts = (message, isMyMessage) => chat.people.map((person, index)=> person.last_read === message.id && (
       <div
         key={`read_${index}`}
         className="read-receipt"
