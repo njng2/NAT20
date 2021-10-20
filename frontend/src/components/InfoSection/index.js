@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '../ButtonElement'
+import { TwitterTweetEmbed, TwitterTimelineEmbed } from 'react-twitter-embed'
 import { 
     InfoContainer,
     InfoWrapper,
@@ -30,7 +31,13 @@ const InfoSection = ({lightBg, id, topLine, lightText, darkText, headline, descr
                     </TextWrapper>
                     </Column1>
                     <Column2>
-                        
+                    <TwitterTimelineEmbed
+                        sourceType="profile"
+                        // The preferred screen name goes next: 
+                        screenName="Wizards_DnD"
+                        // Style options goes here:
+                        options={{ height: "600px" }}
+                    />
                     </Column2>
                 </InfoRow>
             </InfoWrapper>
