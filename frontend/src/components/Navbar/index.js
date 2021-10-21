@@ -27,6 +27,9 @@ const Navbar = ({toggle}) => {
             <NavLink to='/library'>
               Library
             </NavLink>
+            <NavLink to='/chat'>
+              Chat
+            </NavLink>
           </NavMenu>
           <NavBtn>
             <NavBtnLink to='/login'>Login</NavBtnLink>

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from 'react-scroll'
+import { Button } from '../ButtonElement'
+import { TwitterTweetEmbed, TwitterTimelineEmbed } from 'react-twitter-embed'
 import { 
     InfoContainer,
     InfoWrapper,
@@ -11,30 +12,32 @@ import {
     Heading,
     Subtitle,
     BtnWrap,
-    Img,
-    ImgWrap 
 } from './InfoElements'
 
-const InfoSection = () => {
+const InfoSection = ({lightBg, id, topLine, lightText, darkText, headline, description, buttonLabel}) => {
     return (
         <>
-        <InfoContainer>
+        <InfoContainer lightBg={lightBg} id={id}>
             <InfoWrapper>
                 <InfoRow>
                     <Column1>
                     <TextWrapper>
-                        <TopLine>TopLine</TopLine>
-                        <Heading>Heading</Heading>
-                        <Subtitle>Subtitle</Subtitle>
+                        <TopLine>{topLine}</TopLine>
+                        <Heading lightText={lightText}>{headline}</Heading>
+                        <Subtitle darkText ={darkText}>{description}</Subtitle>
                         <BtnWrap>
-                            <Button to="home"/>
+                            <Button to='/login'>{buttonLabel}</Button>
                         </BtnWrap>
                     </TextWrapper>
                     </Column1>
                     <Column2>
-                        <ImgWrap>
-                            <Img />
-                        </ImgWrap>
+                    <TwitterTimelineEmbed
+                        sourceType="profile"
+                        // The preferred screen name goes next: 
+                        screenName="Wizards_DnD"
+                        // Style options goes here:
+                        options={{ height: "600px" }}
+                    />
                     </Column2>
                 </InfoRow>
             </InfoWrapper>
