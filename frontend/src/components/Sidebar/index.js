@@ -18,9 +18,6 @@ const Sidebar = ({isOpen, toggle}) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to='/dice' onClick={toggle}>
-                       Dice 
-                    </SidebarLink>
                     <SidebarLink to='/builds' onClick={toggle}>
                        Builds 
                     </SidebarLink>
