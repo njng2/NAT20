@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from 'react-select';
 import { Button } from 'react-scroll';
-import { BackgroundContainer, BuildTitle, DropDownStyle } from './DropDownElements';
+import { BackgroundContainer, BuildGrid, BuildTitle, DropDownStyle, RaceTextBox } from './DropDownElements';
 import Axios from 'axios';
 import { get } from "react-scroll/modules/mixins/scroller";
 
@@ -66,10 +66,11 @@ const DropDown = () => {
 
    
     return (
+    
         <BackgroundContainer>
             <BuildTitle>
                 <h1>Character Builder</h1>
-
+                <BuildGrid>
                 <DropDownStyle>
                     <br /><br />
                     <a style={{ color: 'white' }}>Race</a>
@@ -86,13 +87,23 @@ const DropDown = () => {
                     </select>
 
                     <br /><br />
-                        <button onClick={getAllRaces}>TEst</button>
-                        <h1>{race.age}</h1>
+                    <RaceTextBox>
+                        <h3>Alignment</h3>
+                        <a>{race.alignment}</a>
+                        <h3>Age</h3>
+                        <a>{race.age}</a>
+                        <h3>Size</h3>
+                        <a>{race.size}</a>
+                        <h3>Speed</h3>
+                        <a>{race.speed}</a>
+                        <h3>Languages</h3>
+                        <a>{race.language_desc}</a>
+                    </RaceTextBox>
                 </DropDownStyle>
+                </BuildGrid>
             </BuildTitle>
-            
         </BackgroundContainer>
-    )
     
+    )
 }
 export default DropDown
