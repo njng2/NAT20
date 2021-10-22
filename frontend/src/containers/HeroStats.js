@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import Incrementor from '../components/Incrementor/Incrementor';
 import styled from "styled-components";
-import './stats.css';
+import '../stats.css';
 
 
 const min = 8;
@@ -21,7 +21,7 @@ const HeroStats = () => {
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
             <h1 className="HeroHeading">Point-Buy Calculator</h1>
-            <div className="container">
+            <div className="statsContainer">
                 <div className="Holder">
                     <div className="Left">
                         <div className="Display">{value}</div>
