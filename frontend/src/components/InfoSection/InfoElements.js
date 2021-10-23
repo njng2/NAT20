@@ -57,6 +57,7 @@ export const TopLine = styled.p`
     letter-spacing: 1.4px;
     text-transform; uppercase;
     margin-bottom: 16px;
+    font-family: "Helvetica";
 `
 
 export const Heading = styled.h1`
@@ -65,10 +66,11 @@ export const Heading = styled.h1`
     line-height: 1.1;
     font-weight: 600;
     color: #fff;
-
+    font-family: "Helvetica";
     @media screen and (max-width: 480px){
         font-size: 32px;
     }
+    
 `
 
 export const Subtitle = styled.p`
@@ -77,19 +79,9 @@ export const Subtitle = styled.p`
     font-size: 18px;
     line-height: 24px;
     color: #fff;
+    font-family: "Helvetica";
 `
 export const BtnWrap = styled.div`
     display: flex;
     justify-content: flex-start;
-`
-
-export const ImgWrap = styled.div`
-    max-width: 555px;
-    height: 100%;
-`
-
-export const Img = styled.img`
-    width: 100%;
-    margin: 0 0 10px 0;
-    padding-right: 0;
 `

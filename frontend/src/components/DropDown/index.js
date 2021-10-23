@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from 'react-select';
 import { Button } from 'react-scroll';
-import { BackgroundContainer, BuildGrid, BuildTitle, DropDownStyle, RaceTextBox } from './DropDownElements';
+import { BackgroundContainer, BuildTitle, DropDownStyle, RaceAgeBox, RaceLanguageBox, RaceSizeBox, RaceSpeedBox, RaceTextBox } from './DropDownElements';
 import Axios from 'axios';
 import { get } from "react-scroll/modules/mixins/scroller";
 
@@ -98,7 +98,9 @@ const DropDown = () => {
                         <a>{race.speed}</a>
                         <h3>Languages</h3>
                         <a>{race.language_desc}</a>
+                        
                     </RaceTextBox>
+                    
                 </DropDownStyle>
                 </BuildGrid>
             </BuildTitle>

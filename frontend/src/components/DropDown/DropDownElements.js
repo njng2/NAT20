@@ -16,7 +16,6 @@ export const DropDownStyle = styled.div`
     width: 10vw;
     height: 10vh;
     postion: absolute;
-    text-color: red;
     color: black;
     grid-area: dropdown;
 `
@@ -50,3 +49,12 @@ export const BuildGrid = styled.div`
     text-align: left;
     grid-gap: 0.25rem;
 `
+export const RaceTextBox = styled.div`
+    position: absolute;
+    text-color: black;
+    background-color: #000;
+    color: #fff;
+    opacity: .5;
+    justify-content: center;
+`
+
