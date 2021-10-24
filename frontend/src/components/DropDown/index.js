@@ -76,7 +76,7 @@ const DropDown = () => {
                     <a style={{ color: 'white' }}>Race</a>
 
                     <select value={selectedValue} onChange={handleChange}>
-                        <option value='none'> Select a race </option>
+                        <option value = 'none'> Select a race </option>
                         {raceOptions.map((race) => {
                             return(
                                 <option value={race.value}>
@@ -87,19 +87,23 @@ const DropDown = () => {
                     </select>
 
                     <br /><br />
-                    <RaceTextBox>
-                        <h3>Alignment</h3>
-                        <a>{race.alignment}</a>
-                        <h3>Age</h3>
-                        <a>{race.age}</a>
-                        <h3>Size</h3>
-                        <a>{race.size}</a>
-                        <h3>Speed</h3>
-                        <a>{race.speed}</a>
-                        <h3>Languages</h3>
-                        <a>{race.language_desc}</a>
+                    {
+                        //if selectedValue is not none, show all attributes
+                        selectedValue !== 'none' ?  
+                        <RaceTextBox>
+                            <a> <h3>Alignment</h3>{race.alignment}</a>
                         
-                    </RaceTextBox>
+                            <a> <h3>Age</h3>{race.age}</a>
+                            
+                            <a><h3>Size</h3>{race.size}</a>
+                            
+                            <a><h3>Speed</h3>{race.speed}</a>
+                            
+                            <a><h3>Languages</h3>{race.language_desc}</a> 
+                        </RaceTextBox>
+                        //else render nothing  
+                        : null
+                    }
                     
                 </DropDownStyle>
                 </BuildGrid>
