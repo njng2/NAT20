@@ -19,6 +19,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "axios": "^0.23.0",
-    "react-chat-engine": "^1.11.16"
+    "react-chat-engine": "^1.11.16",
+    "react-twitch-embed": "^2.1.0"
   }
 }
