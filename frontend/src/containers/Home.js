@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import BannerSection from '../components/BannerSection';
 import InfoSection from '../components/InfoSection';
 import { homeObjOne } from '../components/InfoSection/Data';
+import TwitchSection from '../components/TwitchWidget';
+import { homeObjTwo } from '../components/TwitchWidget/Data';
 
 
 const Home = () => {
@@ -19,6 +21,7 @@ const Home = () => {
             <Navbar toggle={toggle}/>
             <BannerSection />
             <InfoSection {...homeObjOne}/>
+            <TwitchSection {...homeObjTwo}/>
         </>
     )
 }
