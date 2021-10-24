@@ -18,12 +18,11 @@ const Incrementor = ({min, max, value, onChange}) => {
     return (
         <IncContainer>
             <IncButton onClick={() => onChange(clampV(value - 1))} disabled={disableMin}>
-
-                <FontAwesomeIcon icon={faMinusSquare} />
+                <FontAwesomeIcon icon={faMinusSquare} style={{ width: '60%' }}/>
             </IncButton>
                 <IncValue>{value}</IncValue>
             <IncButton onClick={ () => onChange(clampV(value + 1))} disabled={disableMax}>
-                <FontAwesomeIcon icon={faPlusSquare} />
+                <FontAwesomeIcon icon={faPlusSquare} style={{ width: '60%', margin: '0'}}/>
             </IncButton>
         </IncContainer>
     );
