@@ -18,6 +18,7 @@
   "homepage": "https://github.com/njng2/NAT20#readme",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "axios": "^0.23.0",
     "react-chat-engine": "^1.11.16"
   }
