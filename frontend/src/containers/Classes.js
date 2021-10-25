@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 //import background from '../media/images/buildsbg2.png';
 //import example from '../media/images/ExamplePlayer.jpg';
-
+import ClassesSection from '../components/ClassesSection';
 
 const Classes = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -17,9 +17,7 @@ const Classes = () => {
     <>
         <Sidebar isOpen={isOpen} toggle={toggle}/>
         <Navbar toggle={toggle}/>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh'}}>
-                <h1>Classes</h1>
-            </div>
+       <ClassesSection/>
     </>
     )
 }

@@ -18,7 +18,6 @@ const Builds = () => {
         <Sidebar isOpen={isOpen} toggle={toggle}/>
         <Navbar toggle={toggle}/>
         <DropDown/>
-        
     </>
     )
 }

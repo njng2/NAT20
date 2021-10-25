@@ -7,6 +7,7 @@ import Builds from '../containers/Builds';
 import Signup from '../containers/Signup';
 import Chat from '../containers/Chat';
 import HeroStats from '../containers/HeroStats';
+import Classes from '../containers/Classes';
 
 function Layout(){
     return (
@@ -26,6 +27,8 @@ function Layout(){
                     <Route exact path='/chat' component={Chat} />
 
                     <Route exact path='/heroStats' component={HeroStats} />
+
+                    <Route exact path ='/classes' component = {Classes}/>
 
             </Switch>
         </Router>
