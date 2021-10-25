@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import '../stats.css';
 import Incrementor from '../components/Incrementor/Inc';
+import { Link } from 'react-router-dom';
 
 
 const min = 8;
@@ -201,6 +202,10 @@ const HeroStats = () => {
                         <tr></tr>
                     </tbody>
                 </table>
+                <Link to ="/classes"><button>⇦ Classes </button></Link>
+                <br />
+                <Link to ="/heroStats"><button> Finish ⇨</button></Link>
+                
             </body>
         </>
     )
