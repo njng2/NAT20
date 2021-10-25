@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Select from 'react-select';
-import { Button } from 'react-scroll';
-import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, RaceImageBox } from './DropDownElements';
+// import Select from 'react-select';
+// import { Button } from 'react-scroll';
+import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, } from './DropDownElements';
 import Axios from 'axios';
-
-import { get } from "react-scroll/modules/mixins/scroller";
+// import { get } from "react-scroll/modules/mixins/scroller";
 
 //Add the Components for the drop down elements here 
 //Basically the CSS components
