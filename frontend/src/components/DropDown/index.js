@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import Select from 'react-select';
 // import { Button } from 'react-scroll';
 import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, } from './DropDownElements';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 // import { get } from "react-scroll/modules/mixins/scroller";
 
@@ -86,9 +87,12 @@ const DropDown = () => {
                         })}
                     </select>
 
+                    <Link to ="/classes"><button> Classes ⇨ </button></Link>
+                    
                     <br /><br />
                     {
                         //if selectedValue is not none, show all attributes
+                        
                         selectedValue !== 'none' ?  
                         <RaceTextBox>
                             {/* If name matches, image will render */}
