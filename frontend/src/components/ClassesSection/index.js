@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import Axios from 'axios';
 // import { get } from "react-scroll/modules/mixins/scroller";
 import { BGContainer, ClassTitle, ClassSectionStyle, ClassTextBox} from './ClassesElements';
+import { Link } from 'react-router-dom';
+
 
 
 //Add the Components for the drop down elements here 
@@ -83,7 +85,9 @@ const ClassesSection = () => {
                             )
                         })}
                     </select>
-
+                    
+                    <Link to ="/heroStats"><button> Hero Stats ⇨</button></Link>
+                    <Link to ="/builds"><button>⇦ Builds </button></Link>
                     <br /><br />
                     {
                         //if selectedValue is not none, show all attributes
