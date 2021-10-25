@@ -30,6 +30,9 @@ const Navbar = ({toggle}) => {
             <NavLink to='/heroStats'>
               Stats
             </NavLink>
+             <NavLink to='/classes'>
+              Classes
+            </NavLink>
           </NavMenu>
           <NavBtn>
             <NavBtnLink to='/login'>Login</NavBtnLink>

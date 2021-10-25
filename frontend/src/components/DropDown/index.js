@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Select from 'react-select';
 import { Button } from 'react-scroll';
-import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox } from './DropDownElements';
+import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, RaceImageBox } from './DropDownElements';
 import Axios from 'axios';
+
 import { get } from "react-scroll/modules/mixins/scroller";
 
 //Add the Components for the drop down elements here 
@@ -91,20 +92,16 @@ const DropDown = () => {
                         //if selectedValue is not none, show all attributes
                         selectedValue !== 'none' ?  
                         <RaceTextBox>
+                            {/* If name matches, image will render */}
                             <a> <h3>Alignment</h3>{race.alignment}</a>
-                        
                             <a> <h3>Age</h3>{race.age}</a>
-                            
                             <a><h3>Size</h3>{race.size}</a>
-                            
                             <a><h3>Speed</h3>{race.speed}</a>
-                            
                             <a><h3>Languages</h3>{race.language_desc}</a> 
                         </RaceTextBox>
                         //else render nothing  
                         : null
                     }
-                    
                 </DropDownStyle>
                 </BuildGrid>
             </BuildTitle>
