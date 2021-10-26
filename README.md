@@ -25,8 +25,8 @@ clone the repository:
 
 - in the frontend folder, run: npm install, this will install the required frontend packages
 - in the frontend folder, run: npm run build, this will make a build folder and copy it into the backend folder
-- then activate the virtual environment by running: source venv/bin/activate
-- in the backend folder, run: pip install -r requirements.txt
+- then activate the virtual environment by running: $ source venv/bin/activate
+- in the backend folder, run: $ pip install -r requirements.txt
 
 Then under backend/auth_system/settings.py:
 
