@@ -25,7 +25,7 @@ clone the repository:
 
 - in the frontend folder, run: npm install, this will install the required frontend packages
 - in the frontend folder, run: npm run build, this will make a build folder and copy it into the backend folder
-- then activate the virtual environment by running: 
+- then cd to the backend folder to activate the virtual environment in by running: 
 
 $ source venv/bin/activate
 
