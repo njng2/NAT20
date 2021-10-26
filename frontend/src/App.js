@@ -12,6 +12,10 @@ import Activate from './containers/Activate';
 import ResetPassword from './containers/ResetPassword';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import Layout from './hocs/Layout';
+import Dice from './containers/Dice';
+import Library from './containers/Library';
+import Builds from './containers/Builds';
+import Chat from './containers/Chat';
 
 const App = () => {
  
@@ -32,6 +36,14 @@ const App = () => {
                     <Route exact path='/password/reset/confirm/:uid/:token' component={ResetPasswordConfirm} />
                     {/* Activate Account Route */}
                     <Route exact path='/activate/:uid/:token' component={Activate} />
+                    {/* Dice Route */}
+                    <Route exact path='/dice' component={Dice} />
+                    {/* Builds Route */}
+                    <Route exact path='/builds' component={Builds} />
+                    {/* Libary Route */}
+                    <Route exact path='/library' component={Library} />
+                    {/* Chat Route */}
+                    <Route exact path='/chat' component={Chat} />
                 </Switch>
             </Layout>
         </Router>

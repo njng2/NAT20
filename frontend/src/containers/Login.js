@@ -7,7 +7,7 @@ import background from '../media/images/dope333.webp';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 
-const Login = ({ login }) => {
+const Login = ({ login, isAuthenticated }) => {
    /**  Information required to Login
     * @formData : State, object holding form email and password
     * @setFormData : State modifier function 
@@ -34,8 +34,11 @@ const Login = ({ login }) => {
        login(email, password)
    }
 
-   //if user is authenticate, redirect them to the home page
 
+   //if user is authenticate, redirect them to the home page
+    if(isAuthenticated) {
+        return <Redirect to='/' />
+    }
     return (
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
@@ -90,7 +93,7 @@ const Login = ({ login }) => {
                         Don't have an account? <Link to='/signup'>Sign Up Here.</Link>
                     </p>
                     <p className='mt-3'>
-                        Forgot your password? <Link to='/signup'>Reset Password Here.</Link>
+                        Forgot your password? <Link to='/reset-password'>Reset Password Here.</Link>
                     </p>
                 </div>
             </div> 
@@ -98,8 +101,8 @@ const Login = ({ login }) => {
     )//background
 };
 
-// const mapStateToProps = state => ({
-//     //Is authenticated?
-// });
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
 
-export default connect(null, { login } )(Login);
+export default connect(mapStateToProps, { login } )(Login);

@@ -97,9 +97,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'auth_system',
         'USER': 'postgres',
-        'PASSWORD': 'postgres123',
-        'HOST': '35.203.105.36',
-        'PORT': '5432',
+        
+        #local
+        'PASSWORD': 'password123',
+        'HOST': 'localhost'
+
+        #server
+        # 'PASSWORD': 'postgres123',
+        # 'HOST': '35.203.105.36',
+        # 'PORT': '5432',
+
+
         #  'OPTIONS': {
         #     'sslmode': 'verify-ca', 
         #     'sslrootcert': '../server-ca.pem',
