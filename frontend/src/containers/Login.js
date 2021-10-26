@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import container from '../components/container'
 import { login } from '../actions/auth';
 import background from '../media/images/dope333.webp';
-import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
+
 
 const Login = ({ login, isAuthenticated }) => {
    /**  Information required to Login
@@ -17,11 +16,7 @@ const Login = ({ login, isAuthenticated }) => {
        password: ''
    });
 
-   const [isOpen, setIsOpen] = useState(false)
-
-   const toggle = () => {
-       setIsOpen(!isOpen)
-   }
+ 
 
    //Setting email and password of formData
    const { email, password } = formData;
@@ -41,8 +36,7 @@ const Login = ({ login, isAuthenticated }) => {
     }
     return (
         <>
-            <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+          
         
             <div style={{ 
             backgroundImage: `url(${background})`, 
