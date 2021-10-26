@@ -16,6 +16,8 @@ import Dice from './containers/Dice';
 import Library from './containers/Library';
 import Builds from './containers/Builds';
 import Chat from './containers/Chat';
+import HeroStats from './containers/HeroStats';
+import Classes from './containers/Classes';
 
 const App = () => {
  
@@ -44,6 +46,10 @@ const App = () => {
                     <Route exact path='/library' component={Library} />
                     {/* Chat Route */}
                     <Route exact path='/chat' component={Chat} />
+                    {/* HeroStats Route */}
+                    <Route exact path='/heroStats' component={HeroStats} />
+                    {/* Ckasses Route */}
+                    <Route exact path ='/classes' component = {Classes}/>
                 </Switch>
             </Layout>
         </Router>
