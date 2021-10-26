@@ -6,6 +6,9 @@ This code is for CAPSTONE 49900 02 11973. It is a Website that supplies a charac
 
 # BACK END: Setting up Django Project
 Template is written with django 3.2.7 and python 3 in mind.
+If you don't have django installed for python 3 then run:
+
+    $ pip3 install django
 
 ### Main features
 
