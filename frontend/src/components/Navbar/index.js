@@ -18,9 +18,6 @@ const Navbar = ({toggle}) => {
           </NavLink>
           <Bars onClick={toggle}/>
           <NavMenu>
-            <NavLink to='/dice'>
-              Dice
-            </NavLink>
             <NavLink to='/builds'>
               Builds
             </NavLink>
@@ -29,6 +26,12 @@ const Navbar = ({toggle}) => {
             </NavLink>
             <NavLink to='/chat'>
               Chat
+            </NavLink>
+            <NavLink to='/heroStats'>
+              Stats
+            </NavLink>
+             <NavLink to='/classes'>
+              Classes
             </NavLink>
           </NavMenu>
           <NavBtn>
