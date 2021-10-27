@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
+
 import '../stats.css';
 import Incrementor from '../components/Incrementor/Inc';
 import { Link } from 'react-router-dom';
@@ -10,7 +9,7 @@ const min = 8;
 const max = 15;
 
 const HeroStats = () => {
-    const [isOpen, setIsOpen] = useState(false)
+
     const [valueStr, setStrValue] = useState(min)
     const [valueDex, setDexValue] = useState(min)
     const [valueCon, setConValue] = useState(min)
@@ -18,14 +17,10 @@ const HeroStats = () => {
     const [valueWis, setWisValue] = useState(min)
     const [valueCha, setChaValue] = useState(min)
 
-    const toggle = () => {
-        setIsOpen(!isOpen)
-    }
-
+  
     return (
         <>
-            <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+ 
             <h1 style={{textAlign: "center"}}>Point-Buy Calculator</h1>
 
             <body id="stats-body">
