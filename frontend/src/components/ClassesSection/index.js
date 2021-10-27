@@ -6,8 +6,6 @@ import Axios from 'axios';
 import { BGContainer, ClassTitle, ClassSectionStyle, ClassTextBox} from './ClassesElements';
 import { Link } from 'react-router-dom';
 
-
-
 //Add the Components for the drop down elements here 
 //Basically the CSS components
 
@@ -46,6 +44,13 @@ const ClassesSection = () => {
 
         Axios.get(`https://www.dnd5eapi.co/api/classes/${label}`).then(resp =>{
             setClasses(resp.data);
+            let html = '';
+            (resp.data.proficiency_choices[0].from).forEach(function(prof) {
+                html+= '<li>' + prof.index;
+            });
+            html = '<ul>' + html +'<ul>'
+            console.log(html)
+            document.querySelector('#profChoices').innerHTML = html;
         }).catch(err =>{
             console.error(err);
         })
@@ -65,7 +70,6 @@ const ClassesSection = () => {
         getClass(selectedValue);
     },[selectedValue])
 
-   
     return (
     
         <BGContainer>
@@ -94,8 +98,8 @@ const ClassesSection = () => {
                         selectedValue !== 'none' ?  
                         <ClassTextBox>
                             <a><h3>Hit Die</h3>{classes.hit_die}</a> 
-
-
+                            {/* /div holds the chocies for profs/ */}
+                            <div id="profChoices"></div>
                         </ClassTextBox>
                         //else render nothing  
                         : null
