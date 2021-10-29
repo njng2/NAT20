@@ -5,7 +5,6 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     #to get json token path
     path('auth/', include('djoser.urls.jwt')),
-    path('chat/', include('chat.urls', namespace='chat')),
 ]
 
 
