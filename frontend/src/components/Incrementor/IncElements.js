@@ -35,3 +35,5 @@ export const IncValue = styled.div`
     align-items: center;
     font-family: 'Helvetica'
 `
+
+
