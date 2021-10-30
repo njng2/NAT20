@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const min = 8;
 const max = 15;
+const totalPoints = 27;
 
 const HeroStats = () => {
 
@@ -16,8 +17,19 @@ const HeroStats = () => {
     const [valueInt, setIntValue] = useState(min)
     const [valueWis, setWisValue] = useState(min)
     const [valueCha, setChaValue] = useState(min)
+    
+    const[StrCount, setStrCounter] = useState(0)
+    const[DexCount, setDexCounter] = useState(0)
+    const[ConCount, setConCounter] = useState(0)
+    const[IntCount, setIntCounter] = useState(0)
+    const[WisCount, setWisCounter] = useState(0)
+    const[ChaCount, setChaCounter] = useState(0)
+    
+    const[availablePoints, trackAvailablePoints] = useState(27)
+    const[usedPoints, trackUsedPoints] = useState(0)
 
-  
+   
+
     return (
         <>
  
@@ -44,9 +56,41 @@ const HeroStats = () => {
                                 <div className="Right">
                                     <Incrementor
                                     value = {valueStr}
-                                    onChange = {(v) => setStrValue(v)} 
+                                    Counter = {StrCount}
+                                    availPoints = {availablePoints}
+                                    CurrentPoints = {usedPoints} 
+                                    onChange = {
+                                        (v,count, points, trackpoints) => {
+                                            setStrValue(v);
+                                            setStrCounter(count);
+                                            
+                                            if(usedPoints>27 && availablePoints<0){
+                                                alert("Sorry homie, you out of points. Resetting now")
+                                                trackUsedPoints(27)
+                                                trackAvailablePoints(0)
+                                            }
+                                            else{
+                                                trackUsedPoints(trackpoints)
+                                                trackAvailablePoints(points)
+                                            }
+
+                                            
+                                           
+
+                                            // if(availablePoints<0){
+                                            //     alert("All 27 points used")
+                                            //     trackAvailablePoints(0)
+                                            // }
+                                            // else{
+                                            //     trackAvailablePoints(points)
+    
+                                            // }
+                                            
+                                        }
+                                    } 
                                     min={min} 
                                     max={max} />
+
                                 </div>
                             </td>
                             <td class="race-mod">
@@ -61,7 +105,7 @@ const HeroStats = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>cost</p></div>
+                                {StrCount}
                             </td>
                         </tr>
                         <tr id="dex" class="stats-row">
@@ -70,9 +114,41 @@ const HeroStats = () => {
                                 <div className="Right">
                                     <Incrementor
                                     value = {valueDex}
-                                    onChange = {(v) => setDexValue(v)} 
+                                    Counter ={DexCount}
+                                    availPoints = {availablePoints}
+                                    CurrentPoints = {usedPoints}
+                                    onChange = {
+                                        (v, count, points, trackpoints) => {
+
+                                        setDexValue(v)
+                                        setDexCounter(count)
+
+                                        if(usedPoints>27 && availablePoints<0){
+                                            alert("Sorry homie, you out of points. Resetting now")
+                                            trackUsedPoints(27)
+                                            trackAvailablePoints(0)
+                                        }
+                                        else{
+                                            trackUsedPoints(trackpoints)
+                                            trackAvailablePoints(points)
+                                        }
+                                      
+
+                                        // if(availablePoints<0){
+                                        //     alert("All 27 points used")
+                                        //     trackAvailablePoints(0)
+                                        // }
+                                        // else{
+                                        //     trackAvailablePoints(points)
+
+                                        // }
+                                        
+
+                                    
+                                    }} 
                                     min={min} 
-                                    max={max} />
+                                    max={max}
+                                    />
                                 </div>
                             </td>
                             <td className="race-mod">
@@ -87,7 +163,10 @@ const HeroStats = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>cost</p></div>
+                                <div>
+                                    {DexCount}
+
+                                </div>
                             </td>
                         </tr>
                         <tr id="con" class="stats-row">
@@ -96,7 +175,34 @@ const HeroStats = () => {
                                 <div className="Right">
                                     <Incrementor
                                     value = {valueCon}
-                                    onChange = {(v) => setConValue(v)} 
+                                    Counter = {ConCount}
+                                    availPoints = {availablePoints}
+                                    CurrentPoints = {usedPoints}
+                                    onChange = {(v,count, points, trackpoints) => {
+                                        setConCounter(count)
+                                        setConValue(v)
+
+                                        if(usedPoints>27 && availablePoints<0){
+                                            alert("Sorry homie, you out of points. Resetting now")
+                                            trackUsedPoints(27)
+                                            trackAvailablePoints(0)
+                                        }
+                                        else{
+                                            trackUsedPoints(trackpoints)
+                                            trackAvailablePoints(points)
+                                        }
+                                      
+
+                                        // if(availablePoints<0){
+                                        //     alert("All 27 points used")
+                                        //     trackAvailablePoints(0)
+                                        // }
+                                        // else{
+                                        //     trackAvailablePoints(points)
+
+                                        // }
+
+                                    }} 
                                     min={min} 
                                     max={max} />
                                 </div>
@@ -113,7 +219,7 @@ const HeroStats = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>cost</p></div>
+                                <div>{ConCount}</div>
                             </td>
                         </tr>
                         <tr id="int" class="stats-row">
@@ -122,7 +228,36 @@ const HeroStats = () => {
                                 <div className="Right">
                                     <Incrementor
                                     value = {valueInt}
-                                    onChange = {(v) => setIntValue(v)} 
+                                    Counter = {IntCount}
+                                    availPoints = {availablePoints}
+                                    CurrentPoints = {usedPoints}
+                                    onChange = {(v,count, points, trackpoints) => {
+                                        setIntValue(v);
+                                        setIntCounter(count);
+
+                                        if(usedPoints>27 && availablePoints<0){
+                                            alert("Sorry homie, you out of points. Resetting now")
+                                            trackUsedPoints(27)
+                                            trackAvailablePoints(0)
+                                        }
+                                        else{
+                                            trackUsedPoints(trackpoints)
+                                            trackAvailablePoints(points)
+                                        }
+                                      
+
+
+                                        // if(availablePoints<0){
+                                        //     alert("All 27 points used")
+                                        //     trackAvailablePoints(0)
+                                        // }
+                                        // else{
+                                        //     trackAvailablePoints(points)
+
+                                        // }
+                                       
+                                    
+                                    }} 
                                     min={min} 
                                     max={max} />
                                 </div>
@@ -139,7 +274,7 @@ const HeroStats = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>cost</p></div>
+                                <div>{IntCount}</div>
                             </td>
                         </tr>
                         <tr id="wis" class="stats-row">
@@ -148,7 +283,35 @@ const HeroStats = () => {
                                 <div className="Right">
                                     <Incrementor
                                     value = {valueWis}
-                                    onChange = {(v) => setWisValue(v)} 
+                                    Counter = {WisCount}
+                                    availPoints = {availablePoints}
+                                    CurrentPoints = {usedPoints}
+                                    onChange = {(v,count, points, trackpoints) => {
+                                        setWisValue(v);
+                                        setWisCounter(count);
+
+                                        if(usedPoints>27 && availablePoints<0){
+                                            alert("Sorry homie, you out of points. Resetting now")
+                                            trackUsedPoints(27)
+                                            trackAvailablePoints(0)
+                                        }
+                                        else{
+                                            trackUsedPoints(trackpoints)
+                                            trackAvailablePoints(points)
+                                        }
+                                      
+                                      
+
+                                        // if(availablePoints<0){
+                                        //     alert("All 27 points used")
+                                        //     trackAvailablePoints(0)
+                                        // }
+                                        // else{
+                                        //     trackAvailablePoints(points)
+
+                                        // }
+                                        
+                                    }}
                                     min={min} 
                                     max={max} />
                                 </div>
@@ -165,7 +328,7 @@ const HeroStats = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>cost</p></div>
+                                <div>{WisCount}</div>
                             </td>
                         </tr>
                         <tr id="cha" class="stats-row">
@@ -174,7 +337,39 @@ const HeroStats = () => {
                                 <div className="Right">
                                     <Incrementor
                                     value = {valueCha}
-                                    onChange = {(v) => setChaValue(v)} 
+                                    Counter = {ChaCount}
+                                    availPoints = {availablePoints}
+                                    CurrentPoints = {usedPoints}
+                                    onChange = {(v,count, points, trackpoints) => {
+                                        
+                                        setChaValue(v);
+                                        setChaCounter(count);
+
+                                        if(usedPoints>27 && availablePoints<0){
+                                            alert("Sorry homie, you out of points. Resetting now")
+                                            trackUsedPoints(27)
+                                            trackAvailablePoints(0)
+                                        }
+                                        else{
+                                            trackUsedPoints(trackpoints)
+                                            trackAvailablePoints(points)
+                                        }
+                                      
+
+                                        // if(availablePoints<0){
+                                        //     alert("All 27 points used")
+                                        //     trackAvailablePoints(0)
+                                        // }
+                                        // else{
+                                        //     trackAvailablePoints(points)
+
+                                        // }
+
+
+
+                                    
+                                    
+                                    }} 
                                     min={min} 
                                     max={max} />
                                 </div>
@@ -191,15 +386,27 @@ const HeroStats = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>cost</p></div>
+                                <div>
+                                    {ChaCount}
+                                </div>
+                                <div> 
+
+
+                                </div>
                             </td>
                         </tr>
                         <tr></tr>
                     </tbody>
                 </table>
+                <div>
+                <label> Total Points:{totalPoints}</label> <br/ >
+                <label> Available Points:{availablePoints}</label> <br/ >
+                <label> Used Points:{usedPoints}</label> <br/ >
+                </div>
                 <Link to ="/classes"><button>⇦ Classes </button></Link>
                 <br />
                 <Link to ="/heroStats"><button> Finish ⇨</button></Link>
+               
                 
             </body>
         </>
