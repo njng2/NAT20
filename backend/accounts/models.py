@@ -103,7 +103,9 @@ class UsersHeroes(models.Model):
 
     def get_cha(self):
         return self.CHA
-
+        
+    race_type = models.IntegerField(choices=RACE_TYPES, default=0)
+    class_type = models.IntegerField(choices=CLASS_TYPES, default=0)
     hero = models.ForeignKey(UserAccount, on_delete=models.CASCADE)    
 # Create your models here.
 

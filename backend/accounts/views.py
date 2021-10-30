@@ -1,3 +1,31 @@
 from django.shortcuts import render
-
+from rest_framework.views import APIView
+from . models import *
+from rest_framework.response import Response
+from . serializers import *
 # Create your views here.
+  
+class ReactView(APIView):
+    
+    serializer_class = UsersHeroesSerializer
+  
+    def get(self, request):
+        detail = [ {"name": detail.name,
+        "RACE_TYPES": detail.RACE_TYPES, 
+        "CLASS_TYPES": detail.CLASS_TYPES,
+        "STR" : detail.STR, 
+        "DEX" : detail.DEX,
+        "CON" : detail.CON,
+        "INT" : detail.INT,
+        "WIS" : detail.WIS,
+        "CHA" : detail.CHA,
+        } 
+        for detail in UsersHeroes.objects.all()]
+        return Response(detail)
+  
+    def post(self, request):
+  
+        serializer = UsersHeroesSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return  Response(serializer.data)
