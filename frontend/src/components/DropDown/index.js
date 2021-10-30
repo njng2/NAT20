@@ -5,7 +5,7 @@ import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, 
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 // import { get } from "react-scroll/modules/mixins/scroller";
-
+import imgMap from "../../media/raceImages";
 //Add the Components for the drop down elements here 
 //Basically the CSS components
 
@@ -65,7 +65,7 @@ const DropDown = () => {
         getRace(selectedValue);
     },[selectedValue])
 
-   
+    console.log(race)
     return (
     
         <BackgroundContainer>
@@ -100,7 +100,8 @@ const DropDown = () => {
                             <a> <h3>Age</h3>{race.age}</a>
                             <a><h3>Size</h3>{race.size}</a>
                             <a><h3>Speed</h3>{race.speed}</a>
-                            <a><h3>Languages</h3>{race.language_desc}</a> 
+                            <a><h3>Languages</h3>{race.language_desc}</a>
+                            <img src={imgMap[race.index]}></img> 
                         </RaceTextBox>
                         //else render nothing  
                         : null
