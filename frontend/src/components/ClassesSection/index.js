@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 // import { Button } from 'react-scroll';
 import Axios from 'axios';
 // import { get } from "react-scroll/modules/mixins/scroller";
-import { BGContainer, ClassTitle, ClassSectionStyle, ClassTextBox} from './ClassesElements';
+import { BGContainer, ClassTitle, ClassSectionStyle, ClassTextBox,ClassImageBox} from './ClassesElements';
 import { Link } from 'react-router-dom';
+import ClassImgMap from "../../media/classImages";
+
 
 
 
@@ -70,7 +72,16 @@ const ClassesSection = () => {
     
         <BGContainer>
             <ClassTitle>
-                <h1>Character Builder</h1>
+                <h1>
+                    Character Builder
+                    {
+                        selectedValue !== 'none' ?
+                        <ClassImageBox>
+                        <img src={ClassImgMap[classes.index]}></img> 
+                        </ClassImageBox>
+                        : null
+                    }
+                </h1>
                 <ClassSectionStyle>
                     <br /><br />
                     <a style={{ color: 'white' }}>Class</a>
@@ -94,8 +105,9 @@ const ClassesSection = () => {
                         selectedValue !== 'none' ?  
                         <ClassTextBox>
                             <a><h3>Hit Die</h3>{classes.hit_die}</a> 
-
-
+                            {/* /div holds the chocies for profs/ */}
+                           
+                            <div id="profChoices"></div>
                         </ClassTextBox>
                         //else render nothing  
                         : null

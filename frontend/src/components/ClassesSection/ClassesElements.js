@@ -39,21 +39,6 @@ export const ClassTextBox = styled.div`
 export const ClassImageBox = styled.div`
     
     position: absolute;
-    text-color: black;
-    background-color: #000;
-    color: #fff;
-    opacity: .5;
-    justify-content: center;
+    overflow: hidden;
+    justify-content: left;
 `
-
-// export const ClassGrid = styled.div`
-//     display: grid;
-//     height: 10vh;
-//     grid-template-rows: 0.2fr 1fr 0.5fr 0.5fr;
-//     grid-template-areas:
-//         "textbox textbox textbox"
-//         "build build build"
-//         "dropdown dropdown dropdown";
-//     text-align: left;
-//     grid-gap: 0.25rem;
-// `
