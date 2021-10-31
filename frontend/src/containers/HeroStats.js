@@ -28,6 +28,31 @@ const HeroStats = () => {
     const[availablePoints, trackAvailablePoints] = useState(27)
     const[usedPoints, trackUsedPoints] = useState(0)
 
+    function checkPoints(availablePoints, usedPoints){
+
+        if(availablePoints<0 && usedPoints>27){
+            alert("you out of points homie, resetting calculator")
+            setStrValue(min)
+            setDexValue(min)
+            setConValue(min)
+            setIntValue(min)
+            setWisValue(min)
+            setChaValue(min)
+            setStrCounter(min)
+            setDexCounter(min)
+            setConCounter(min)
+            setIntCounter(min)
+            setWisCounter(min)
+            setChaCounter(min)
+            trackAvailablePoints(27)
+            trackUsedPoints(0)
+            
+        }
+       
+        
+
+    }
+    
    
 
     return (
@@ -64,14 +89,20 @@ const HeroStats = () => {
                                             setStrValue(v);
                                             setStrCounter(count);
                                             
-                                            if(usedPoints>27 && availablePoints<0){
-                                                alert("Sorry homie, you out of points. Resetting now")
-                                                trackUsedPoints(27)
-                                                trackAvailablePoints(0)
+                                            if(usedPoints>27 || availablePoints<0){
+                                                // alert("Sorry homie, you out of points. Resetting now")
+                                                // trackUsedPoints(trackpoints-1)
+                                                // trackAvailablePoints(points+1)
+                                                checkPoints(availablePoints,usedPoints)
+                                               
+
+                                                
+                                                
                                             }
                                             else{
                                                 trackUsedPoints(trackpoints)
                                                 trackAvailablePoints(points)
+                                                
                                             }
 
                                             
@@ -79,10 +110,11 @@ const HeroStats = () => {
 
                                             // if(availablePoints<0){
                                             //     alert("All 27 points used")
-                                            //     trackAvailablePoints(0)
+                                            //     trackAvailablePoints(points+1)
                                             // }
                                             // else{
                                             //     trackAvailablePoints(points)
+                                            
     
                                             // }
                                             
@@ -123,23 +155,29 @@ const HeroStats = () => {
                                         setDexValue(v)
                                         setDexCounter(count)
 
-                                        if(usedPoints>27 && availablePoints<0){
-                                            alert("Sorry homie, you out of points. Resetting now")
-                                            trackUsedPoints(27)
-                                            trackAvailablePoints(0)
+                                        if(usedPoints>27 || availablePoints<0){
+                                            // alert("Sorry homie, you out of points. Resetting now")
+                                            
+                                            checkPoints(availablePoints,usedPoints)
+                                            // trackUsedPoints(trackpoints-1)
+                                            // trackAvailablePoints(points+1)
+                                            
+                                            
                                         }
                                         else{
                                             trackUsedPoints(trackpoints)
                                             trackAvailablePoints(points)
+                                            
                                         }
                                       
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
-                                        //     trackAvailablePoints(0)
+                                        //     trackAvailablePoints(points+1)
                                         // }
                                         // else{
                                         //     trackAvailablePoints(points)
+                                        
 
                                         // }
                                         
@@ -183,22 +221,27 @@ const HeroStats = () => {
                                         setConValue(v)
 
                                         if(usedPoints>27 && availablePoints<0){
-                                            alert("Sorry homie, you out of points. Resetting now")
-                                            trackUsedPoints(27)
-                                            trackAvailablePoints(0)
+                                            // alert("Sorry homie, you out of points. Resetting now")
+
+                                            // trackUsedPoints(trackpoints-1)
+                                            // trackAvailablePoints(points+1)
+                                            checkPoints(availablePoints,usedPoints)
+                                            
                                         }
                                         else{
                                             trackUsedPoints(trackpoints)
                                             trackAvailablePoints(points)
+                                            
                                         }
                                       
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
-                                        //     trackAvailablePoints(0)
+                                        //     trackAvailablePoints(points+1)
                                         // }
                                         // else{
                                         //     trackAvailablePoints(points)
+                                        
 
                                         // }
 
@@ -233,26 +276,32 @@ const HeroStats = () => {
                                     CurrentPoints = {usedPoints}
                                     onChange = {(v,count, points, trackpoints) => {
                                         setIntValue(v);
+                                        
                                         setIntCounter(count);
 
-                                        if(usedPoints>27 && availablePoints<0){
-                                            alert("Sorry homie, you out of points. Resetting now")
-                                            trackUsedPoints(27)
-                                            trackAvailablePoints(0)
+                                        if(usedPoints>27 || availablePoints<0){
+                                            // alert("Sorry homie, you out of points. Resetting now")
+                                           
+                                            // trackUsedPoints(trackpoints-1)
+                                            // trackAvailablePoints(points+1)
+                                            checkPoints(availablePoints,usedPoints)
+                                            
                                         }
                                         else{
                                             trackUsedPoints(trackpoints)
                                             trackAvailablePoints(points)
+                                            
                                         }
                                       
 
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
-                                        //     trackAvailablePoints(0)
+                                        //     trackAvailablePoints(points+1)
                                         // }
                                         // else{
                                         //     trackAvailablePoints(points)
+                                        
 
                                         // }
                                        
@@ -290,24 +339,29 @@ const HeroStats = () => {
                                         setWisValue(v);
                                         setWisCounter(count);
 
-                                        if(usedPoints>27 && availablePoints<0){
-                                            alert("Sorry homie, you out of points. Resetting now")
-                                            trackUsedPoints(27)
-                                            trackAvailablePoints(0)
+                                        if(usedPoints>27 || availablePoints<0){
+                                            // alert("Sorry homie, you out of points. Resetting now")
+                                           
+                                            // trackUsedPoints(trackpoints-1)
+                                            // trackAvailablePoints(points+1)
+                                            checkPoints(availablePoints,usedPoints)
+                                            
                                         }
                                         else{
                                             trackUsedPoints(trackpoints)
                                             trackAvailablePoints(points)
+                                            
                                         }
                                       
                                       
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
-                                        //     trackAvailablePoints(0)
+                                        //     trackAvailablePoints(points+1)
                                         // }
                                         // else{
                                         //     trackAvailablePoints(points)
+                                        
 
                                         // }
                                         
@@ -345,23 +399,29 @@ const HeroStats = () => {
                                         setChaValue(v);
                                         setChaCounter(count);
 
-                                        if(usedPoints>27 && availablePoints<0){
-                                            alert("Sorry homie, you out of points. Resetting now")
-                                            trackUsedPoints(27)
-                                            trackAvailablePoints(0)
+                                        if(usedPoints>27 || availablePoints<0){
+                                            // alert("Sorry homie, you out of points. Resetting now")
+                                            // trackUsedPoints(trackpoints-1)
+                                            // trackAvailablePoints(points+1)
+                                            checkPoints(availablePoints,usedPoints)
+                                            // alert("Sorry homie, you out of points. Resetting now")
+                                            
+                                            
                                         }
                                         else{
                                             trackUsedPoints(trackpoints)
                                             trackAvailablePoints(points)
+                                            
                                         }
                                       
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
-                                        //     trackAvailablePoints(0)
+                                        //     trackAvailablePoints(points+1)
                                         // }
                                         // else{
                                         //     trackAvailablePoints(points)
+                                        
 
                                         // }
 
