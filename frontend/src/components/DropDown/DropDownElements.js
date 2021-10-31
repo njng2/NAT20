@@ -23,12 +23,11 @@ export const DropDownStyle = styled.div`
 export const BuildTitle = styled.div`
     display: flex;
     background-repeat: no-repeat;
+    background-size: cover;
     justify-content: center;
-    height: 90vh;
-    color: white; 
+    height: 100vh;
     overflow: hidden;
     padding-top: 25px;
-   
 `
 export const RaceTextBox = styled.div`
     position: absolute;
@@ -41,14 +40,11 @@ export const RaceTextBox = styled.div`
 `
 
 export const RaceImageBox = styled.div`
-    position: absolute;
     overflow: hidden;
     justify-content: left;
-    
-    
 `
 
-export const GridContainer = styled.div`
-    display: grid;
-    grid-template-columns: 80px 200px;
-`
+// export const GridContainer = styled.div`
+//     display: grid;
+//     grid-template-columns: 80px 200px;
+// `
