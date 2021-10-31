@@ -24,4 +24,4 @@ const ClassImgMap =
     'warlock': warlock
 };
 
-export default ClassImgMap
+export default ClassImgMap;
