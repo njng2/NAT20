@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 // import { Button } from 'react-scroll';
 import Axios from 'axios';
 // import { get } from "react-scroll/modules/mixins/scroller";
-import { BGContainer, ClassTitle, ClassSectionStyle, ClassTextBox} from './ClassesElements';
+import { BGContainer, ClassTitle, ClassSectionStyle, ClassTextBox, ClassImageBox} from './ClassesElements';
 import { Link } from 'react-router-dom';
+import ClassImageMap from "../../media/classImages";
 
 //Add the Components for the drop down elements here 
 //Basically the CSS components
@@ -74,7 +75,16 @@ const ClassesSection = () => {
     
         <BGContainer>
             <ClassTitle>
-                <h1>Character Builder</h1>
+                <h1>
+                    Character Builder
+                    {
+                        selectedValue !== 'none' ?
+                        <ClassImageBox>
+                        <img src={ClassImageMap[classes.index]}></img> 
+                        </ClassImageBox>
+                        : null
+                    }
+                </h1>
                 <ClassSectionStyle>
                     <br /><br />
                     <a style={{ color: 'white' }}>Class</a>

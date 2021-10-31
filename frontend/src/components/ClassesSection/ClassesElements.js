@@ -39,10 +39,6 @@ export const ClassTextBox = styled.div`
 export const ClassImageBox = styled.div`
     
     position: absolute;
-    text-color: black;
-    background-color: #000;
-    color: #fff;
-    opacity: .5;
     justify-content: center;
 `
 
