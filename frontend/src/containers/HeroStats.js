@@ -30,7 +30,7 @@ const HeroStats = () => {
 
     function checkPoints(availablePoints, usedPoints){
 
-        if(availablePoints<0 && usedPoints>27){
+        if(availablePoints<0 || usedPoints>27){
             alert("you out of points homie, resetting calculator")
             setStrValue(min)
             setDexValue(min)
@@ -220,7 +220,7 @@ const HeroStats = () => {
                                         setConCounter(count)
                                         setConValue(v)
 
-                                        if(usedPoints>27 && availablePoints<0){
+                                        if(usedPoints>27 || availablePoints<0){
                                             // alert("Sorry homie, you out of points. Resetting now")
 
                                             // trackUsedPoints(trackpoints-1)
