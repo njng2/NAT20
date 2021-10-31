@@ -1,5 +1,6 @@
 import barbarian from './barbarian.png'
 import bard from './bard.png'
+import druid from './druid.png'
 import cleric from './cleric.png'
 import fighter from './fighter.png'
 import monk from './monk.png'
@@ -16,6 +17,7 @@ const ClassImgMap =
     'barbarian': barbarian,
     'bard': bard,
     'cleric': cleric,
+    'druid': druid,
     'fighter': fighter,
     'monk': monk,
     'paladin': paladin,

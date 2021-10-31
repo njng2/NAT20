@@ -38,7 +38,6 @@ export const ClassTextBox = styled.div`
 
 export const ClassImageBox = styled.div`
     
-    position: absolute;
     justify-content: center;
 `
 
