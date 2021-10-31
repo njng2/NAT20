@@ -48,12 +48,6 @@ const Navbar = ({toggle, logout, isAuthenticated}) => {
             <NavLink to='/chat'>
               Chat
             </NavLink>
-            <NavLink to='/heroStats'>
-              Stats
-            </NavLink>
-             <NavLink to='/classes'>
-              Classes
-            </NavLink>
           </NavMenu>
         { 
             //if authenticated, show logout, else show login and signup links
