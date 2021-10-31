@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import Select from 'react-select';
 // import { Button } from 'react-scroll';
-import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, } from './DropDownElements';
+import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, RaceImageBox, GridContainer, } from './DropDownElements';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 // import { get } from "react-scroll/modules/mixins/scroller";
@@ -69,9 +69,19 @@ const DropDown = () => {
     return (
     
         <BackgroundContainer>
-            <BuildTitle>
-                <h1>Character Builder</h1>
-                <BuildGrid>
+            <BuildTitle style>
+                <h1>
+                Character Builder
+                <br /> 
+                {
+                    selectedValue != 'none'?
+                    <RaceImageBox>
+                    <img src={imgMap[race.index]}></img> 
+                    </RaceImageBox>
+                    : null
+                }   
+                </h1>
+                
                 <DropDownStyle>
                     <br /><br />
                     <a style={{ color: 'white' }}>Race</a>
@@ -101,13 +111,11 @@ const DropDown = () => {
                             <a><h3>Size</h3>{race.size}</a>
                             <a><h3>Speed</h3>{race.speed}</a>
                             <a><h3>Languages</h3>{race.language_desc}</a>
-                            <img src={imgMap[race.index]}></img> 
                         </RaceTextBox>
                         //else render nothing  
                         : null
                     }
                 </DropDownStyle>
-                </BuildGrid>
             </BuildTitle>
         </BackgroundContainer>
     
