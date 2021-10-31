@@ -115,7 +115,7 @@ DATABASES = {
     },
     'usersHeroes': {
         'NAME': 'users_heroes',
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
         'PASSWORD': 'password123',
         'HOST': 'localhost'

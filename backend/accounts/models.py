@@ -69,7 +69,7 @@ class UsersHeroes(models.Model):
         (10, 'warlock'),
         (11, 'wizard'),
     )
-#do we need to replace 8 with the variable name from front end??
+    #do we need to replace 8 with the variable name from front end??
     STR = models.IntegerField()
     DEX = models.IntegerField()
     CON = models.IntegerField()
