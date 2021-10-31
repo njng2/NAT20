@@ -8,7 +8,6 @@ import ranger from './ranger.png'
 import rogue from './rogue.png'
 import sorcerer from './sorcerer.png'
 import warlock from './warlock.png'
-import wizard from './wizard.png'
 
 
 const ClassImgMap =
@@ -22,8 +21,7 @@ const ClassImgMap =
     'ranger': ranger,
     'rogue': rogue,
     'sorcerer': sorcerer,
-    'warlock': warlock,
-    'wizard': wizard
+    'warlock': warlock
 };
 
 export default ClassImgMap

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Logo from '../../media/Logo.png';
 import {
   Nav,
@@ -8,8 +8,29 @@ import {
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
+import { connect } from 'react-redux';
+import { logout } from '../../actions/auth';
 
-const Navbar = ({toggle}) => {
+const Navbar = ({toggle, logout, isAuthenticated}) => {
+    //Links when user is not autheticated (Login and Signup)
+    const guestLinks = () => (
+        <Fragment>
+          <NavBtn>
+            <NavBtnLink to='/login'>Login</NavBtnLink>
+            <NavBtnLink to='/signup'>Sign Up</NavBtnLink>
+          </NavBtn>
+        </Fragment>
+    );
+
+    //Link for when user is Authenticated (Logout)
+    const authLinks = () => (
+        <Fragment>
+          <NavBtn>
+            <a onClick={logout}>Logout</a>
+          </NavBtn>
+      </Fragment>
+    );
+
     return (
       <>
         <Nav>
@@ -27,19 +48,17 @@ const Navbar = ({toggle}) => {
             <NavLink to='/chat'>
               Chat
             </NavLink>
-            <NavLink to='/heroStats'>
-              Stats
-            </NavLink>
-             <NavLink to='/classes'>
-              Classes
-            </NavLink>
           </NavMenu>
-          <NavBtn>
-            <NavBtnLink to='/login'>Login</NavBtnLink>
-          </NavBtn>
+        { 
+            //if authenticated, show logout, else show login and signup links
+            isAuthenticated ? authLinks() : guestLinks() 
+        }
         </Nav>
       </>
     );
   };
 
-export default Navbar;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+export default connect(mapStateToProps, {logout})(Navbar);
