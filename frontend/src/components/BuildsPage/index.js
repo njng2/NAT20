@@ -1,15 +1,168 @@
-import React, {useState} from 'react';
-
-// import '../stats.css';
-import Incrementor from '../components/Incrementor/Inc';
-import { Link } from 'react-router-dom';
-
+import Axios from 'axios';
+import React, { useState, useEffect } from "react";
+import ClassImageMap from "../../media/classImages";
+import imgMap from "../../media/raceImages";
+import Incrementor from '../Incrementor/Inc';
+import './stats.css';
+import { 
+    BackgroundContainer, 
+    ClassTitle, 
+    ClassSectionStyle, 
+    ClassTextBox, 
+    ClassImageBox,
+    BuildTitle, 
+    DropDownStyle, 
+    RaceTextBox, 
+    RaceImageBox
+} from './BuildsElements';
 
 const min = 8;
 const max = 15;
 const totalPoints = 27;
 
-const HeroStats = () => {
+const BuildsPage = () => {
+
+    const [raceOptions, setRaceOptions] = useState([]);
+
+    const [selectedRace, setSelectedRace] = useState('none');
+    const handleChange = e => {
+        // console.log("testsdfsdf",e.target.data)
+        setSelectedRace(e.target.value);
+    }
+    
+    // get race api call
+    const [allRaces, setAllRaces] = useState("");
+    const getAllRaces = async () => {
+        await Axios.get("https://www.dnd5eapi.co/api/races").then(resp =>{
+            console.log(resp.data.results)
+            const options = resp.data.results.map((race) => {
+                return ({
+                    value: race.index,
+                    label: race.name
+                })
+            })
+            setAllRaces(resp.data);
+            setRaceOptions(options);
+
+        }).catch(err =>{
+            console.error(err);
+        });
+    };
+    
+    //const newArr = allRaces.map()
+    const [race,setRace] = useState("");
+    const getRace = (label) =>{
+        // console.log(allRaces);
+        // console.log("tes:", label);
+        Axios.get(`https://www.dnd5eapi.co/api/races/${label}`).then(resp =>{
+            // console.log(resp);
+            setRace(resp.data);
+        }).catch(err =>{
+            console.error(err);
+        })
+        // console.log(selectedValue)
+    };
+    
+    useEffect(() => {
+        getAllRaces();
+    }, [])
+
+    useEffect( () =>{
+        console.log(raceOptions)
+    },[raceOptions])
+
+    useEffect( () =>{
+        console.log('Selected value', selectedRace)
+        getRace(selectedRace);
+    },[selectedRace])
+
+    //***************************** Classes JS below ***************************** */
+
+    const [classOptions, setClassOptions] = useState([]);
+
+    const [selectedValue, setSelectedValue] = useState('none');
+    const handleChange2 = e => {
+        // console.log("testsdfsdf",e.target.data)
+        setSelectedValue(e.target.value);
+    }
+
+    // get race api call
+    const [allClasses, setAllClasses] = useState("");
+    const getAllClasses = async () => {
+        await Axios.get("https://www.dnd5eapi.co/api/classes").then(resp =>{
+            console.log(resp.data.results)
+            const options = resp.data.results.map((classes) => {
+                return ({
+                    value: classes.index,
+                    label: classes.name
+                })
+            })
+            setAllClasses(resp.data);
+            setClassOptions(options);
+
+        }).catch(err =>{
+            console.error(err);
+        });
+    };
+    
+    //const newArr = allRaces.map()
+    const [classes,setClasses] = useState("");
+    const getClass = (label) =>{
+
+        Axios.get(`https://www.dnd5eapi.co/api/classes/${label}`).then(resp =>{
+            setClasses(resp.data);
+
+            //makes the list for skill proficiencies
+            let html = '';
+            (resp.data.proficiency_choices[0].from).forEach(function(prof) {
+                html+= '<li>' + prof.index;
+            });
+            html = '<ul>' + html +'<ul>'
+            console.log(html)
+            document.querySelector('#profChoices').innerHTML = html;
+            //end of skill proficiency code
+
+            //make list for the equipment proficiencies
+            let html2 = '';
+            (resp.data.proficiencies).forEach(function(prof) {
+                html2+= '<li>' + prof.index;
+            });
+            html2 = '<ul>' + html2 +'<ul>'
+            console.log(html2)
+            document.querySelector('#equipChoices').innerHTML = html2;
+            //end of equipment proficiencies
+
+            //make list for stat bonus
+            let html3 = '';
+            (resp.data.saving_throws).forEach(function(bonus) {
+                html3+= '<li>' + bonus.name;
+            });
+            html3 = '<ul>' + html3 +'<ul>'
+            console.log(html3)
+            document.querySelector('#statBonus').innerHTML = html3;
+            //end of stat bonus
+        }).catch(err =>{
+            console.error(err);
+        })
+        // console.log(selectedValue)
+    };
+    
+    useEffect(() => {
+        getAllClasses();
+    }, [])
+
+    useEffect( () =>{
+        console.log(classOptions)
+    },[classOptions])
+
+    useEffect( () =>{
+        console.log('Selected value', selectedValue)
+        getClass(selectedValue);
+    },[selectedValue])
+
+    console.log(classes)
+    //********************************************************** */
+    //Stats Page JS
 
     const [valueStr, setStrValue] = useState(min)
     const [valueDex, setDexValue] = useState(min)
@@ -48,17 +201,114 @@ const HeroStats = () => {
             trackUsedPoints(0)
             
         }
-       
-        
-
     }
-    
-   
+    //************************************************************ */
 
     return (
-        <>
- 
-            <h1 style={{textAlign: "center"}}>Point-Buy Calculator</h1>
+    
+        <BackgroundContainer>
+            <BuildTitle style>
+                <h1>
+                Character Race
+                <br /> 
+                {
+                    selectedRace != 'none'?
+                    <RaceImageBox>
+                    <img src={imgMap[race.index]}></img> 
+                    </RaceImageBox>
+                    : null
+                }   
+                </h1>
+                
+                <DropDownStyle>
+                    <br /><br />
+                    <a style={{ color: 'white' }}>Race</a>
+
+                    <select value={selectedRace} onChange={handleChange}>
+                        <option value = 'none'> Select a race </option>
+                        {raceOptions.map((race) => {
+                            return(
+                                <option value={race.value}>
+                                    {race.label}
+                                </option>
+                            )
+                        })}
+                    </select>
+
+                    {/* <Link to ="/classes"><button> Classes ⇨ </button></Link> */}
+                    
+                    <br /><br />
+                    {
+                        //if selectedValue is not none, show all attributes
+                        
+                        selectedRace !== 'none' ?  
+                        <RaceTextBox>
+                            {/* If name matches, image will render */}
+                            <a> <h3>Alignment</h3>{race.alignment}</a>
+                            <a> <h3>Age</h3>{race.age}</a>
+                            <a><h3>Size</h3>{race.size}</a>
+                            <a><h3>Size Description</h3>{race.size_description}</a>
+                            <a><h3>Speed</h3>{race.speed}</a>
+                            <a><h3>Languages</h3>{race.language_desc}</a>
+                        </RaceTextBox>
+                        //else render nothing  
+                        : null
+                    }
+                </DropDownStyle>
+            </BuildTitle>
+
+            {/*  Classes containers below*/}
+            <ClassTitle>
+                <h1>
+                    Character Class
+                    {
+                        selectedValue !== 'none' ?
+                        <ClassImageBox>
+                        <img src={ClassImageMap[classes.index]}></img> 
+                        </ClassImageBox>
+                        : null
+                    }
+                </h1>
+                <ClassSectionStyle>
+                    <br /><br />
+                    <a style={{ color: 'white' }}>Class</a>
+
+                    <select value={selectedValue} onChange={handleChange2}>
+                        <option value = 'none'> Select a class </option>
+                        {classOptions.map((classes) => {
+                            return(
+                                <option value = {classes.value}>
+                                    {classes.label}
+                                </option>
+                            )
+                        })}
+                    </select>
+                    
+                    {/* <Link to ="/heroStats"><button> Hero Stats ⇨</button></Link>
+                    <Link to ="/builds"><button>⇦ Builds </button></Link> */}
+                    <br /><br />
+                    {
+                        //if selectedValue is not none, show all attributes
+                        selectedValue !== 'none' ?  
+                        <ClassTextBox>
+                            <a><h3>Stat Bonuses</h3></a>
+                            <div id="statBonus"> </div>
+                            <a><h3>Hit Die</h3>{classes.hit_die}</a> 
+                            {/* /div holds the chocies for profs/ */}
+                            <a><h3>Skill Proficiencies</h3></a> 
+                            <div id="profChoices"></div>
+                            <a><h3>Equipment Proficiencies</h3></a>
+                            <div id="equipChoices"></div>
+                        </ClassTextBox>
+                        //else render nothing  
+                        : null
+                    }
+                </ClassSectionStyle>
+            </ClassTitle>
+            {/* END of CLASSES */}
+        
+        {/* ADDING STATS CALC STUFF HERE */}
+        <h1 style={{textAlign: "center"}}>Point-Buy Calculator</h1>
 
             <body id="stats-body">
                 <table id = "point-buy" style={{width: "100%"}}>
@@ -463,14 +713,14 @@ const HeroStats = () => {
                 <label> Available Points:{availablePoints}</label> <br/ >
                 <label> Used Points:{usedPoints}</label> <br/ >
                 </div>
-                <Link to ="/classes"><button>⇦ Classes </button></Link>
+                {/* <Link to ="/classes"><button>⇦ Classes </button></Link>
                 <br />
                 <Link to ="/heroStats"><button> Finish ⇨</button></Link>
-               
+                */}
                 
             </body>
-        </>
+            {/* END OF STATS CALC STUFF HERE */}
+        </BackgroundContainer>
     )
 }
-
-export default HeroStats;
+export default BuildsPage
