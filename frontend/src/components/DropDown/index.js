@@ -109,6 +109,7 @@ const DropDown = () => {
                             <a> <h3>Alignment</h3>{race.alignment}</a>
                             <a> <h3>Age</h3>{race.age}</a>
                             <a><h3>Size</h3>{race.size}</a>
+                            <a><h3>Size Description</h3>{race.size_description}</a>
                             <a><h3>Speed</h3>{race.speed}</a>
                             <a><h3>Languages</h3>{race.language_desc}</a>
                         </RaceTextBox>
