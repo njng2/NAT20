@@ -50,7 +50,7 @@ export const BackgroundContainer = styled.div`
     background-size: cover;
     justify-content: center;
     width: 100wh;
-    height: 140vh;
+    height: 255vh;
     color: white;
 `
 

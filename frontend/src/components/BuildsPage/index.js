@@ -209,7 +209,7 @@ const BuildsPage = () => {
         <BackgroundContainer>
             <BuildTitle style>
                 <h1>
-                Character Builder
+                Character Race
                 <br /> 
                 {
                     selectedRace != 'none'?
@@ -260,7 +260,7 @@ const BuildsPage = () => {
             {/*  Classes containers below*/}
             <ClassTitle>
                 <h1>
-                    Character Builder
+                    Character Class
                     {
                         selectedValue !== 'none' ?
                         <ClassImageBox>
