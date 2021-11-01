@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import background from "../../media/images/buildsbg2.png";
-import Dragonborn from "../../media/images/Dragonborn.jpg";
 
 export const BGContainer = styled.div`
     background-image: url(${background});
@@ -8,7 +7,7 @@ export const BGContainer = styled.div`
     background-size: cover;
     justify-content: center;
     width: 100wh;
-    height: 100vh;
+    height: 120vh;
     color: white;
     overflow: hidden;
 `

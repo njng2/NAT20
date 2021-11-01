@@ -8,9 +8,8 @@ export const BackgroundContainer = styled.div`
     background-size: cover;
     justify-content: center;
     width: 100wh;
-    height: 100vh;
+    height: 140vh;
     color: white;
-   
 `
 
 export const DropDownStyle = styled.div`
@@ -36,11 +35,11 @@ export const RaceTextBox = styled.div`
     color: #fff;
     opacity: .5;
     justify-content: center;
-    
 `
 
 export const RaceImageBox = styled.div`
     overflow: hidden;
+    height: 100vh;
     justify-content: left;
 `
 
