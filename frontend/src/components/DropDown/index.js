@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import Select from 'react-select';
 // import { Button } from 'react-scroll';
-import { BackgroundContainer, BuildTitle, DropDownStyle, BuildGrid,RaceTextBox, RaceImageBox, GridContainer, } from './DropDownElements';
+import { BackgroundContainer, BuildTitle, DropDownStyle, RaceTextBox, RaceImageBox} from './DropDownElements';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 // import { get } from "react-scroll/modules/mixins/scroller";
