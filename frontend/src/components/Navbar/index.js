@@ -40,19 +40,13 @@ const Navbar = ({toggle, logout, isAuthenticated}) => {
           <Bars onClick={toggle}/>
           <NavMenu>
             <NavLink to='/builds'>
-              Builds
+              Create Build
             </NavLink>
             <NavLink to='/library'>
-              Library
+              Build Library
             </NavLink>
             <NavLink to='/chat'>
               Chat
-            </NavLink>
-            <NavLink to='/heroStats'>
-              Stats
-            </NavLink>
-             <NavLink to='/classes'>
-              Classes
             </NavLink>
           </NavMenu>
         { 
