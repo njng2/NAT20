@@ -28,9 +28,9 @@ const HeroStats = () => {
     const[availablePoints, trackAvailablePoints] = useState(27)
     const[usedPoints, trackUsedPoints] = useState(0)
 
-    function checkPoints(availablePoints, usedPoints){
+    function checkPoints(usedPoints){
 
-        if(availablePoints<0 || usedPoints>27){
+        if(usedPoints>=26){
             alert("you out of points homie, resetting calculator")
             setStrValue(min)
             setDexValue(min)
@@ -89,11 +89,11 @@ const HeroStats = () => {
                                             setStrValue(v);
                                             setStrCounter(count);
                                             
-                                            if(usedPoints>27 || availablePoints<0){
-                                                // alert("Sorry homie, you out of points. Resetting now")
+                                            if(usedPoints>=26){
+                                             // alert("Sorry homie, you out of points. Resetting now")
                                                 // trackUsedPoints(trackpoints-1)
                                                 // trackAvailablePoints(points+1)
-                                                checkPoints(availablePoints,usedPoints)
+                                                checkPoints(usedPoints)
                                                
 
                                                 
@@ -155,10 +155,10 @@ const HeroStats = () => {
                                         setDexValue(v)
                                         setDexCounter(count)
 
-                                        if(usedPoints>27 || availablePoints<0){
+                                        if(usedPoints>=26){
                                             // alert("Sorry homie, you out of points. Resetting now")
                                             
-                                            checkPoints(availablePoints,usedPoints)
+                                            checkPoints(usedPoints)
                                             // trackUsedPoints(trackpoints-1)
                                             // trackAvailablePoints(points+1)
                                             
@@ -220,12 +220,12 @@ const HeroStats = () => {
                                         setConCounter(count)
                                         setConValue(v)
 
-                                        if(usedPoints>27 || availablePoints<0){
+                                        if(usedPoints>=26){
                                             // alert("Sorry homie, you out of points. Resetting now")
 
                                             // trackUsedPoints(trackpoints-1)
                                             // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
+                                            checkPoints(usedPoints)
                                             
                                         }
                                         else{
@@ -279,12 +279,12 @@ const HeroStats = () => {
                                         
                                         setIntCounter(count);
 
-                                        if(usedPoints>27 || availablePoints<0){
+                                        if(usedPoints>=26){
                                             // alert("Sorry homie, you out of points. Resetting now")
                                            
                                             // trackUsedPoints(trackpoints-1)
                                             // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
+                                            checkPoints(usedPoints)
                                             
                                         }
                                         else{
@@ -339,12 +339,12 @@ const HeroStats = () => {
                                         setWisValue(v);
                                         setWisCounter(count);
 
-                                        if(usedPoints>27 || availablePoints<0){
+                                        if(usedPoints>=26){
                                             // alert("Sorry homie, you out of points. Resetting now")
                                            
                                             // trackUsedPoints(trackpoints-1)
                                             // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
+                                            checkPoints(usedPoints)
                                             
                                         }
                                         else{
@@ -399,11 +399,11 @@ const HeroStats = () => {
                                         setChaValue(v);
                                         setChaCounter(count);
 
-                                        if(usedPoints>27 || availablePoints<0){
+                                        if(usedPoints>=26){
                                             // alert("Sorry homie, you out of points. Resetting now")
                                             // trackUsedPoints(trackpoints-1)
                                             // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
+                                            checkPoints(usedPoints)
                                             // alert("Sorry homie, you out of points. Resetting now")
                                             
                                             
