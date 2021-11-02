@@ -57,7 +57,7 @@ class UsersHeroes(models.Model):
     RACE_TYPES = (
         (0, 'dragonborn'),
         (1, 'dwarf'),
-        (1, 'elf'),
+        (2, 'elf'),
         (3, 'gnome'),
         (4, 'half-elf'),
         (5, 'half-orc'),
@@ -68,7 +68,7 @@ class UsersHeroes(models.Model):
     CLASS_TYPES = (
         (0, 'barbarian'),
         (1, 'bard'),
-        (1, 'clerif'),
+        (2, 'clerif'),
         (3, 'druid'),
         (4, 'fighter'),
         (5, 'monk'),
@@ -79,6 +79,9 @@ class UsersHeroes(models.Model):
         (10, 'warlock'),
         (11, 'wizard'),
     )
+
+    race_type = models.IntegerField(choices=RACE_TYPES, default=0)
+    class_type = models.IntegerField(choices=CLASS_TYPES, default=0)
     #do we need to replace 8 with the variable name from front end??
     STR = models.IntegerField()
     DEX = models.IntegerField()
@@ -91,10 +94,10 @@ class UsersHeroes(models.Model):
         return self.name 
 
     def get_race(self):
-        return self.RACE_TYPES
+        return self.race_type
 
     def get_class(self):
-        return self.CLASS_TYPES
+        return self.class_type
 
     def get_str(self):
         return self.STR   
@@ -114,8 +117,6 @@ class UsersHeroes(models.Model):
     def get_cha(self):
         return self.CHA
         
-    race_type = models.IntegerField(choices=RACE_TYPES, default=0)
-    class_type = models.IntegerField(choices=CLASS_TYPES, default=0)
     hero = models.ForeignKey(UserAccount, on_delete=models.CASCADE)    
 # Create your models here.
 

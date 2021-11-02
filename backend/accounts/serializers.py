@@ -12,5 +12,5 @@ class UserCreateSerializer(UserCreateSerializer):
 class UsersHeroesSerializer(serializers.ModelSerializer):
     class Meta: 
         model = UsersHeroes
-        fields = ['name', 'RACE_TYPES', 'CLASS_TYPES', 
+        fields = ['name', 'race_type', 'class_type', 
                 'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']
