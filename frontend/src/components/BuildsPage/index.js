@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import ClassImageMap from "../../media/classImages";
 import imgMap from "../../media/raceImages";
 import Incrementor from '../Incrementor/Inc';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import './stats.css';
 import { 
     BackgroundContainer, 
@@ -21,10 +23,59 @@ const max = 15;
 const totalPoints = 27;
 
 const BuildsPage = () => {
+    //*************************************************/
+    //Pushed to the API
+    //Name
+    const [name, setName] = useState("");
+    //Race Type
+    const [selectedRace, setSelectedRace] = useState('none');
+    //Class Type
+    const [selectedClass, setSelectedClass] = useState('none');
+    //Stats
+    const [valueStr, setStrValue] = useState(min);
+    const [valueDex, setDexValue] = useState(min);
+    const [valueCon, setConValue] = useState(min);
+    const [valueInt, setIntValue] = useState(min);
+    const [valueWis, setWisValue] = useState(min);
+    const [valueCha, setChaValue] = useState(min);
+
+    //onSubmit function
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const postData = {
+            name,
+            selectedRace,
+            selectedClass,
+            valueStr,
+            valueDex,
+            valueCon,
+            valueInt,
+            valueWis,
+            valueCha,
+        };
+
+        Axios.post("/heroes",
+        postData, )
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.error( err ) ;
+        });
+
+    }
+    //*************************************************/
+
+
+    
+
 
     const [raceOptions, setRaceOptions] = useState([]);
+    
+    
 
-    const [selectedRace, setSelectedRace] = useState('none');
+
     const handleChange = e => {
         // console.log("testsdfsdf",e.target.data)
         setSelectedRace(e.target.value);
@@ -34,7 +85,7 @@ const BuildsPage = () => {
     const [allRaces, setAllRaces] = useState("");
     const getAllRaces = async () => {
         await Axios.get("https://www.dnd5eapi.co/api/races").then(resp =>{
-            console.log(resp.data.results)
+            // console.log(resp.data.results)
             const options = resp.data.results.map((race) => {
                 return ({
                     value: race.index,
@@ -80,10 +131,9 @@ const BuildsPage = () => {
 
     const [classOptions, setClassOptions] = useState([]);
 
-    const [selectedValue, setSelectedValue] = useState('none');
     const handleChange2 = e => {
         // console.log("testsdfsdf",e.target.data)
-        setSelectedValue(e.target.value);
+        setSelectedClass(e.target.value);
     }
 
     // get race api call
@@ -118,7 +168,7 @@ const BuildsPage = () => {
                 html+= '<li>' + prof.index;
             });
             html = '<ul>' + html +'<ul>'
-            console.log(html)
+            // console.log(html)
             document.querySelector('#profChoices').innerHTML = html;
             //end of skill proficiency code
 
@@ -128,7 +178,7 @@ const BuildsPage = () => {
                 html2+= '<li>' + prof.index;
             });
             html2 = '<ul>' + html2 +'<ul>'
-            console.log(html2)
+            // console.log(html2)
             document.querySelector('#equipChoices').innerHTML = html2;
             //end of equipment proficiencies
 
@@ -138,7 +188,7 @@ const BuildsPage = () => {
                 html3+= '<li>' + bonus.name;
             });
             html3 = '<ul>' + html3 +'<ul>'
-            console.log(html3)
+            // console.log(html3)
             document.querySelector('#statBonus').innerHTML = html3;
             //end of stat bonus
         }).catch(err =>{
@@ -156,21 +206,15 @@ const BuildsPage = () => {
     },[classOptions])
 
     useEffect( () =>{
-        console.log('Selected value', selectedValue)
-        getClass(selectedValue);
-    },[selectedValue])
+        console.log('Selected value', selectedClass)
+        getClass(selectedClass);
+    },[selectedClass])
 
-    console.log(classes)
+    // console.log(classes)
     //********************************************************** */
     //Stats Page JS
 
-    const [valueStr, setStrValue] = useState(min)
-    const [valueDex, setDexValue] = useState(min)
-    const [valueCon, setConValue] = useState(min)
-    const [valueInt, setIntValue] = useState(min)
-    const [valueWis, setWisValue] = useState(min)
-    const [valueCha, setChaValue] = useState(min)
-    
+ 
     const[StrCount, setStrCounter] = useState(0)
     const[DexCount, setDexCounter] = useState(0)
     const[ConCount, setConCounter] = useState(0)
@@ -206,7 +250,7 @@ const BuildsPage = () => {
 
     return (
     
-        <BackgroundContainer>
+        <BackgroundContainer> 
             <BuildTitle style>
                 <h1>
                 Character Race
@@ -262,7 +306,7 @@ const BuildsPage = () => {
                 <h1>
                     Character Class
                     {
-                        selectedValue !== 'none' ?
+                        selectedClass !== 'none' ?
                         <ClassImageBox>
                         <img src={ClassImageMap[classes.index]}></img> 
                         </ClassImageBox>
@@ -273,7 +317,7 @@ const BuildsPage = () => {
                     <br /><br />
                     <a style={{ color: 'white' }}>Class</a>
 
-                    <select value={selectedValue} onChange={handleChange2}>
+                    <select value={selectedClass} onChange={handleChange2}>
                         <option value = 'none'> Select a class </option>
                         {classOptions.map((classes) => {
                             return(
@@ -289,7 +333,7 @@ const BuildsPage = () => {
                     <br /><br />
                     {
                         //if selectedValue is not none, show all attributes
-                        selectedValue !== 'none' ?  
+                        selectedClass !== 'none' ?  
                         <ClassTextBox>
                             <a><h3>Stat Bonuses</h3></a>
                             <div id="statBonus"> </div>
@@ -717,9 +761,30 @@ const BuildsPage = () => {
                 <br />
                 <Link to ="/heroStats"><button> Finish ⇨</button></Link>
                 */}
-                
+
+                {/* <button onClick={onSubmit}>Save Build</button> */}
+
             </body>
             {/* END OF STATS CALC STUFF HERE */}
+            <TextField
+                value={name}
+                label="Enter your name"
+                onChange={(e) => {
+                setName(e.target.value);
+                // console.log(name);
+                }}
+                variant="filled"
+            />  
+            {
+                name === "" || selectedRace === 'none' || selectedClass === 'none' ?
+            <Button variant="contained" disabled>
+                Save Build
+            </Button>
+            :
+            <Button variant="contained" onClick={onSubmit}>
+                Save Build
+            </Button>
+            }
         </BackgroundContainer>
     )
 }
