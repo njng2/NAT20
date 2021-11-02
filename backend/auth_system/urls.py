@@ -9,6 +9,7 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     #to get json token path
     path('auth/', include('djoser.urls.jwt')),
+    path('admin/', admin.site.urls),
     path('heroes/', ReactView.as_view(), name="heroes"),
 
 ]
