@@ -11,8 +11,8 @@ class ReactView(APIView):
   
     def get(self, request):
         detail = [ {"name": detail.name,
-        "RACE_TYPES": detail.RACE_TYPES, 
-        "CLASS_TYPES": detail.CLASS_TYPES,
+        "race_type": detail.race_type, 
+        "class_type": detail.class_type,
         "STR" : detail.STR, 
         "DEX" : detail.DEX,
         "CON" : detail.CON,
