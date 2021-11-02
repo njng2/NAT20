@@ -3,12 +3,14 @@ from rest_framework.views import APIView
 from . models import *
 from rest_framework.response import Response
 from . serializers import *
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
   
 class ReactView(APIView):
     
     serializer_class = UsersHeroesSerializer
-  
+
+    @csrf_exempt
     def get(self, request):
         detail = [ {"name": detail.name,
         "race_type": detail.race_type, 
@@ -23,6 +25,7 @@ class ReactView(APIView):
         for detail in UsersHeroes.objects.all()]
         return Response(detail)
   
+    @csrf_exempt
     def post(self, request):
   
         serializer = UsersHeroesSerializer(data=request.data)

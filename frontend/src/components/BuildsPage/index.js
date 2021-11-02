@@ -45,17 +45,17 @@ const BuildsPage = () => {
 
         const postData = {
             name,
-            selectedRace,
-            selectedClass,
-            valueStr,
-            valueDex,
-            valueCon,
-            valueInt,
-            valueWis,
-            valueCha,
+            race_type: selectedRace,
+            class_type: selectedClass,
+            STR: valueStr,
+            DEX: valueDex,
+            CON: valueCon,
+            INT: valueInt,
+            WIS: valueWis,
+            CHA: valueCha,
         };
 
-        Axios.post("/heroes",
+        Axios.post(`${process.env.REACT_APP_API_URL}/heroes/`,
         postData, )
         .then((res) => {
             console.log(res);
