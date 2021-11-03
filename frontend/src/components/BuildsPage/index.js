@@ -256,6 +256,10 @@ const BuildsPage = () => {
                     }
                 </DropDownStyle>
             </BuildTitle>
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
 
             {/*  Classes containers below*/}
             <ClassTitle>
@@ -269,6 +273,7 @@ const BuildsPage = () => {
                         : null
                     }
                 </h1>
+                
                 <ClassSectionStyle>
                     <br /><br />
                     <a style={{ color: 'white' }}>Class</a>
@@ -306,7 +311,14 @@ const BuildsPage = () => {
                 </ClassSectionStyle>
             </ClassTitle>
             {/* END of CLASSES */}
-        
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
         {/* ADDING STATS CALC STUFF HERE */}
         <h1 style={{textAlign: "center"}}>Point-Buy Calculator</h1>
 
