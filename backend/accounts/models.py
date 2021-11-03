@@ -82,8 +82,8 @@ class UsersHeroes(models.Model):
 
     # id = models.AutoField(primary_key=True)
 
-    race_type = models.IntegerField(choices=RACE_TYPES)
-    class_type = models.IntegerField(choices=CLASS_TYPES)
+    # race_type = models.IntegerField(choices=RACE_TYPES)
+    # class_type = models.IntegerField(choices=CLASS_TYPES)
     #do we need to replace 8 with the variable name from front end??
     STR = models.IntegerField()
     DEX = models.IntegerField()

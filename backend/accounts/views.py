@@ -13,8 +13,8 @@ class ReactView(APIView):
     @csrf_exempt
     def get(self, request):
         detail = [ {"name": detail.name,
-        "race_type": detail.race_type, 
-        "class_type": detail.class_type,
+        # "race_type": detail.race_type, 
+        # "class_type": detail.class_type,
         "STR" : detail.STR, 
         "DEX" : detail.DEX,
         "CON" : detail.CON,
