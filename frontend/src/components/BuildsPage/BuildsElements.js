@@ -48,9 +48,9 @@ export const BackgroundContainer = styled.div`
     background-image: url(${background});
     background-repeat: no-repeat;
     background-size: cover;
-    justify-content: center;
+    justify-content: center center;
     width: 100wh;
-    height: 255vh;
+    height: 400vh;
     color: white;
 `
 
