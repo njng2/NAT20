@@ -46,6 +46,8 @@ export const ClassImageBox = styled.div`
 
 export const BackgroundContainer = styled.div`
     background-image: url(${background});
+    background-position: center center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center center;
