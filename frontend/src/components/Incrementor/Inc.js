@@ -27,7 +27,7 @@ const Incrementor = ({min, max, value, onChange,Counter, availPoints,CurrentPoin
             </IncButton>
                 <IncValue>{value}</IncValue>
                 
-            <IncButton onClick={ () => onChange(clampV(value + 1),(Counter+1), (availPoints-1), (CurrentPoints+1))} disabled={disableMax}>
+            <IncButton onClick={ () => onChange(clampV(value + 1),(Counter+1), (availPoints-1), (CurrentPoints+1))} disabled={availPoints ===0 || disableMax}>
                 <FontAwesomeIcon icon={faPlusSquare} style={{ width: '60%', margin: '0'}}/>
             </IncButton>
         </IncContainer>
