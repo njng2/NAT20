@@ -54,36 +54,36 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
 class UsersHeroes(models.Model):
     name = models.CharField(max_length = 255)
-    RACE_TYPES = (
-        (0, 'dragonborn'),
-        (1, 'dwarf'),
-        (2, 'elf'),
-        (3, 'gnome'),
-        (4, 'half-elf'),
-        (5, 'half-orc'),
-        (6, 'halfling'),
-        (7, 'human'),
-        (8, 'tiefling'),
-    )
-    CLASS_TYPES = (
-        (0, 'barbarian'),
-        (1, 'bard'),
-        (2, 'clerif'),
-        (3, 'druid'),
-        (4, 'fighter'),
-        (5, 'monk'),
-        (6, 'paladin'),
-        (7, 'ranger'),
-        (8, 'rogue'),
-        (9, 'sorcerer'),
-        (10, 'warlock'),
-        (11, 'wizard'),
-    )
+    # RACE_TYPES = (
+    #     (0, 'dragonborn'),
+    #     (1, 'dwarf'),
+    #     (2, 'elf'),
+    #     (3, 'gnome'),
+    #     (4, 'half-elf'),
+    #     (5, 'half-orc'),
+    #     (6, 'halfling'),
+    #     (7, 'human'),
+    #     (8, 'tiefling'),
+    # )
+    # CLASS_TYPES = (
+    #     (0, 'barbarian'),
+    #     (1, 'bard'),
+    #     (2, 'clerif'),
+    #     (3, 'druid'),
+    #     (4, 'fighter'),
+    #     (5, 'monk'),
+    #     (6, 'paladin'),
+    #     (7, 'ranger'),
+    #     (8, 'rogue'),
+    #     (9, 'sorcerer'),
+    #     (10, 'warlock'),
+    #     (11, 'wizard'),
+    # )
 
     # id = models.AutoField(primary_key=True)
 
-    # race_type = models.IntegerField(choices=RACE_TYPES)
-    # class_type = models.IntegerField(choices=CLASS_TYPES)
+    race_type = models.CharField(max_length= 255, default="")
+    class_type = models.CharField(max_length= 255, default="")
     #do we need to replace 8 with the variable name from front end??
     STR = models.IntegerField()
     DEX = models.IntegerField()

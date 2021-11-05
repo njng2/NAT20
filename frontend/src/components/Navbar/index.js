@@ -25,6 +25,17 @@ const Navbar = ({toggle, logout, isAuthenticated}) => {
     //Link for when user is Authenticated (Logout)
     const authLinks = () => (
         <Fragment>
+            <NavMenu>
+            <NavLink to='/builds'>
+              Create Build
+            </NavLink>
+            <NavLink to='/library'>
+              Build Library
+            </NavLink>
+            <NavLink to='/chat'>
+              Chat
+            </NavLink>
+          </NavMenu>
           <NavBtn>
             <a onClick={logout}>Logout</a>
           </NavBtn>
@@ -38,17 +49,6 @@ const Navbar = ({toggle, logout, isAuthenticated}) => {
             <img src={Logo} alt="Logo" style={{height: '100px'}}/>
           </NavLink>
           <Bars onClick={toggle}/>
-          <NavMenu>
-            <NavLink to='/builds'>
-              Create Build
-            </NavLink>
-            <NavLink to='/library'>
-              Build Library
-            </NavLink>
-            <NavLink to='/chat'>
-              Chat
-            </NavLink>
-          </NavMenu>
         { 
             //if authenticated, show logout, else show login and signup links
             isAuthenticated ? authLinks() : guestLinks() 
