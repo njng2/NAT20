@@ -43,7 +43,7 @@ const Login = ({ login, isAuthenticated }) => {
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            width: '100vw',
+            width: '98.72vw',
             height: '100vh',
             marginTop: '-50px'       
             }}>
