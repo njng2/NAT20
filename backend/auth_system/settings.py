@@ -94,7 +94,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'auth_system',
-        'USER': 'arman',
+        'USER': 'postgres',
         
         #local
         'PASSWORD': 'password123',
@@ -116,7 +116,7 @@ DATABASES = {
     'usersHeroes': {
         'NAME': 'users_heroes',
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'arman',
+        'USER': 'postgres',
         'PASSWORD': 'password123',
         'HOST': 'localhost'
     }
