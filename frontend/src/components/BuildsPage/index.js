@@ -181,27 +181,7 @@ const BuildsPage = () => {
     const[availablePoints, trackAvailablePoints] = useState(27)
     const[usedPoints, trackUsedPoints] = useState(0)
 
-    function checkPoints(availablePoints, usedPoints){
 
-        if(availablePoints<0 || usedPoints>27){
-            alert("you out of points homie, resetting calculator")
-            setStrValue(min)
-            setDexValue(min)
-            setConValue(min)
-            setIntValue(min)
-            setWisValue(min)
-            setChaValue(min)
-            setStrCounter(min)
-            setDexCounter(min)
-            setConCounter(min)
-            setIntCounter(min)
-            setWisCounter(min)
-            setChaCounter(min)
-            trackAvailablePoints(27)
-            trackUsedPoints(0)
-            
-        }
-    }
     //************************************************************ */
 
     return (
@@ -348,23 +328,13 @@ const BuildsPage = () => {
                                     CurrentPoints = {usedPoints} 
                                     onChange = {
                                         (v,count, points, trackpoints) => {
-                                            setStrValue(v);
-                                            setStrCounter(count);
+    
                                             
-                                            if(usedPoints>27 || availablePoints<0){
-                                                // alert("Sorry homie, you out of points. Resetting now")
-                                                // trackUsedPoints(trackpoints-1)
-                                                // trackAvailablePoints(points+1)
-                                                checkPoints(availablePoints,usedPoints)
-                                               
-
-                                                
-                                                
-                                            }
-                                            else{
-                                                trackUsedPoints(trackpoints)
-                                                trackAvailablePoints(points)
-                                                
+                                            if(usedPoints >=0 && usedPoints<=27){
+                                                setStrValue(v);
+                                                setStrCounter(count);
+                                                trackUsedPoints(trackpoints);
+                                                trackAvailablePoints(points);
                                             }
 
                                             
@@ -414,23 +384,12 @@ const BuildsPage = () => {
                                     onChange = {
                                         (v, count, points, trackpoints) => {
 
-                                        setDexValue(v)
-                                        setDexCounter(count)
-
-                                        if(usedPoints>27 || availablePoints<0){
-                                            // alert("Sorry homie, you out of points. Resetting now")
-                                            
-                                            checkPoints(availablePoints,usedPoints)
-                                            // trackUsedPoints(trackpoints-1)
-                                            // trackAvailablePoints(points+1)
-                                            
-                                            
-                                        }
-                                        else{
-                                            trackUsedPoints(trackpoints)
-                                            trackAvailablePoints(points)
-                                            
-                                        }
+                                            if(usedPoints >=0 && usedPoints<=27){
+                                                setDexValue(v)
+                                                setDexCounter(count)
+                                                trackUsedPoints(trackpoints);
+                                                trackAvailablePoints(points);
+                                            }
                                       
 
                                         // if(availablePoints<0){
@@ -479,21 +438,12 @@ const BuildsPage = () => {
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
                                     onChange = {(v,count, points, trackpoints) => {
-                                        setConCounter(count)
-                                        setConValue(v)
+                                        if(usedPoints >=0 && usedPoints<=27){
+                                            setConCounter(count)
+                                            setConValue(v)
 
-                                        if(usedPoints>27 || availablePoints<0){
-                                            // alert("Sorry homie, you out of points. Resetting now")
-
-                                            // trackUsedPoints(trackpoints-1)
-                                            // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
-                                            
-                                        }
-                                        else{
-                                            trackUsedPoints(trackpoints)
-                                            trackAvailablePoints(points)
-                                            
+                                            trackUsedPoints(trackpoints);
+                                            trackAvailablePoints(points);
                                         }
                                       
 
@@ -537,24 +487,14 @@ const BuildsPage = () => {
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
                                     onChange = {(v,count, points, trackpoints) => {
-                                        setIntValue(v);
-                                        
-                                        setIntCounter(count);
+                                        if(usedPoints >=0 && usedPoints<=27){
+                                            setIntValue(v);
 
-                                        if(usedPoints>27 || availablePoints<0){
-                                            // alert("Sorry homie, you out of points. Resetting now")
-                                           
-                                            // trackUsedPoints(trackpoints-1)
-                                            // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
-                                            
+                                            setIntCounter(count);
+
+                                            trackUsedPoints(trackpoints);
+                                            trackAvailablePoints(points);
                                         }
-                                        else{
-                                            trackUsedPoints(trackpoints)
-                                            trackAvailablePoints(points)
-                                            
-                                        }
-                                      
 
 
                                         // if(availablePoints<0){
@@ -598,21 +538,12 @@ const BuildsPage = () => {
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
                                     onChange = {(v,count, points, trackpoints) => {
-                                        setWisValue(v);
-                                        setWisCounter(count);
+                                        if(usedPoints >=0 && usedPoints<=27){
+                                            setWisValue(v);
+                                            setWisCounter(count);
 
-                                        if(usedPoints>27 || availablePoints<0){
-                                            // alert("Sorry homie, you out of points. Resetting now")
-                                           
-                                            // trackUsedPoints(trackpoints-1)
-                                            // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
-                                            
-                                        }
-                                        else{
-                                            trackUsedPoints(trackpoints)
-                                            trackAvailablePoints(points)
-                                            
+                                            trackUsedPoints(trackpoints);
+                                            trackAvailablePoints(points);
                                         }
                                       
                                       
@@ -657,23 +588,12 @@ const BuildsPage = () => {
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
                                     onChange = {(v,count, points, trackpoints) => {
-                                        
-                                        setChaValue(v);
-                                        setChaCounter(count);
+                                        if(usedPoints >=0 && usedPoints<=27){
+                                            setChaValue(v);
+                                            setChaCounter(count);
 
-                                        if(usedPoints>27 || availablePoints<0){
-                                            // alert("Sorry homie, you out of points. Resetting now")
-                                            // trackUsedPoints(trackpoints-1)
-                                            // trackAvailablePoints(points+1)
-                                            checkPoints(availablePoints,usedPoints)
-                                            // alert("Sorry homie, you out of points. Resetting now")
-                                            
-                                            
-                                        }
-                                        else{
-                                            trackUsedPoints(trackpoints)
-                                            trackAvailablePoints(points)
-                                            
+                                            trackUsedPoints(trackpoints);
+                                            trackAvailablePoints(points);
                                         }
                                       
 
