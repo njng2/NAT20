@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import imgMap from '../../media/raceImages/index'
 import { makeStyles } from '@mui/styles';
+import { buttonBaseClasses } from '@mui/material';
 
 const useStyles = makeStyles({ //this dont work ?? idk
     root: {
@@ -31,7 +32,7 @@ const MediaCard = ({build}) => {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                Character Name
+                {build.name}
                 </Typography>
                 <Typography variant="body2" color="white">
                 Lizards are a widespread group of squamate reptiles, with over 6,000
