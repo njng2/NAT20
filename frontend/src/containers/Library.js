@@ -4,6 +4,7 @@ import { StyledEngineProvider,styled } from '@mui/material/styles';
 import MediaCard from '../components/BuildLibPage';
 import { Container, Grid,Paper } from '@mui/material';
 import { Box } from '@mui/system';
+import { LibraryContainer } from '../components/BuildsPage/BuildsElements';
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -17,6 +18,7 @@ const Library = () => {
 
     return (
         <>
+        <LibraryContainer>
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
                     <Grid container spacing={3} columns={18}>
@@ -32,6 +34,7 @@ const Library = () => {
                     </Grid>
                 </Box>
             </Container>
+        </LibraryContainer>
         </>
     )
 }

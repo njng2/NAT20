@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import imgMap from '../../media/raceImages/index'
+import imgMap from '../../media/raceImages/index';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({ //this dont work ?? idk
