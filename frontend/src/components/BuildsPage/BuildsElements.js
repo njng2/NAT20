@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import background from "../../media/images/buildsbg2.png";
 import library from '../../media/images/library.jpg';
+import signup from '../../media/images/buildsbg.png';
 
 //classes elements
 // export const BGContainer = styled.div`
@@ -92,6 +93,7 @@ export const RaceImageBox = styled.div`
 //***************************************************************************************************************** */
 //stats elements
 
+//library elements
 export const LibraryContainer = styled.div`
     background-image: url(${library});
     background-position: center;
@@ -102,4 +104,19 @@ export const LibraryContainer = styled.div`
     justify-content: center;
     width: 100%;
     height: 100%;
+`
+
+
+//signup page elements
+
+export const SignUpContainer = styled.div`
+background-image: url(${signup});
+background-position: center;
+position: absolute;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size: cover;
+justify-content: center;
+width: 100%;
+height: 100%;
 `
