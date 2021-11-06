@@ -16,6 +16,7 @@ const Layout = (props) =>{
     useEffect(() => {
         props.checkAuthenticated();
         props.load_user();
+        // console.log("Props from Layout.js", props);
     }, []);
 
     const [isOpen, setIsOpen] = useState(false)
@@ -46,7 +47,7 @@ const Layout = (props) =>{
         // </Router>
         <div>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+            <Navbar toggle={toggle} load_user={load_user}/>
             {props.children}
         </div>
     )

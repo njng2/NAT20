@@ -22,7 +22,7 @@ const min = 8;
 const max = 15;
 const totalPoints = 27;
 
-const BuildsPage = () => {
+const BuildsPage = (props) => {
     //*************************************************/
     //Pushed to the API
     //Name
@@ -38,7 +38,8 @@ const BuildsPage = () => {
     const [valueInt, setIntValue] = useState(min);
     const [valueWis, setWisValue] = useState(min);
     const [valueCha, setChaValue] = useState(min);
-
+    const [heroId, setHeroId] = useState(0);
+    
     //onSubmit function
     const onSubmit = (e) => {
         e.preventDefault();
@@ -53,6 +54,7 @@ const BuildsPage = () => {
             INT: valueInt,
             WIS: valueWis,
             CHA: valueCha,
+            // hero
         };
 
         Axios.post(`${process.env.REACT_APP_API_URL}/heroes/`,
@@ -84,6 +86,7 @@ const BuildsPage = () => {
     // get race api call
     const [allRaces, setAllRaces] = useState("");
     const getAllRaces = async () => {
+        console.log("Here are props: ", props);
         await Axios.get("https://www.dnd5eapi.co/api/races").then(resp =>{
             // console.log(resp.data.results)
             const options = resp.data.results.map((race) => {

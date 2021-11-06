@@ -16,9 +16,9 @@ const useStyles = makeStyles({ //this dont work ?? idk
     },
   });
 
-export default function MediaCard() {
+const MediaCard = ({build}) => {
     const classes = useStyles;
-
+    console.log("Here is build bitches: ", build);
     return (
         <Card sx={{ maxWidth: 345}} style={{backgroundColor: "black",color:"white"}}>
             <CardMedia
@@ -45,3 +45,5 @@ export default function MediaCard() {
         </Card>
     );
 }
+
+export default MediaCard;

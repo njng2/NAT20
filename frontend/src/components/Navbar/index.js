@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 
-const Navbar = ({toggle, logout, isAuthenticated}) => {
+const Navbar = ({toggle, logout, isAuthenticated, load_user}) => {
     //Links when user is not autheticated (Login and Signup)
     const guestLinks = () => (
         <Fragment>

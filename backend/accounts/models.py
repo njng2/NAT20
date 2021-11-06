@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db.models.fields import CharField
 from django.conf import settings
+# from django.contrib.auth import get_user_model
+
+
 
 class UserAccountManager(BaseUserManager):
     def create_user(self, email, name, password=None): #allows you to create user 
@@ -52,6 +55,8 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     def __str__(self): 
         return self.email
 
+# User = get_user_model()
+print("The User Name: ", settings.AUTH_USER_MODEL)
 
 class UsersHeroes(models.Model):
     name = models.CharField(max_length = 255)
