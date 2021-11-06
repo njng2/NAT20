@@ -319,6 +319,7 @@ const BuildsPage = () => {
             <br /><br />
             <br /><br />
             <br /><br />
+            <br /><br />
         {/* ADDING STATS CALC STUFF HERE */}
         <h1 style={{textAlign: "center"}}>Point-Buy Calculator</h1>
 
@@ -732,6 +733,11 @@ const BuildsPage = () => {
                 
             </body>
             {/* END OF STATS CALC STUFF HERE */}
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
         </BackgroundContainer>
     )
 }
