@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import background from "../../media/images/buildsbg2.png";
+import library from '../../media/images/library.jpg';
 
 //classes elements
 // export const BGContainer = styled.div`
@@ -37,7 +38,8 @@ export const ClassTextBox = styled.div`
 `
 
 export const ClassImageBox = styled.div`
-    
+    position: absolute;
+    left: 150px;
     justify-content: center;
 `
 
@@ -51,8 +53,8 @@ export const BackgroundContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center center;
-    width: 100wh;
-    height: 400vh;
+    width: 100%;
+    height: 100%;
     color: white;
 `
 
@@ -82,9 +84,22 @@ export const RaceTextBox = styled.div`
 `
 
 export const RaceImageBox = styled.div`
-    overflow: hidden;
+    position: absolute;
+    left: 150px;
     height: 100vh;
-    justify-content: left;
+    
 `
 //***************************************************************************************************************** */
 //stats elements
+
+export const LibraryContainer = styled.div`
+    background-image: url(${library});
+    background-position: center;
+    position: absolute;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+`
