@@ -16,3 +16,4 @@ class UsersHeroesSerializer(serializers.ModelSerializer):
         #         'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']
         fields = ['name', 'race_type', 'class_type', 
                 'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']
+        parent = UserCreateSerializer(many=False)

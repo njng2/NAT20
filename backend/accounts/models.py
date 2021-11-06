@@ -31,6 +31,7 @@ class UserAccountManager(BaseUserManager):
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length = 255, unique = True)
     name = models.CharField(max_length = 255)
+    # id = models.IntegerField(unique=True)
     # date_of_birth = models.DateField(max_length=8)
     is_active = models.BooleanField(default = True)
     is_staff = models.BooleanField(default = False)
@@ -93,6 +94,7 @@ class UsersHeroes(models.Model):
     def get_cha(self):
         return self.CHA
         
-    hero = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)    
+    hero = models.ForeignKey(UserAccount, default = 1, on_delete=models.CASCADE)    
+    
 # Create your models here.
 

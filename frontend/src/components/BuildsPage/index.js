@@ -68,13 +68,7 @@ const BuildsPage = () => {
     //*************************************************/
 
 
-    
-
-
     const [raceOptions, setRaceOptions] = useState([]);
-    
-    
-
 
     const handleChange = e => {
         // console.log("testsdfsdf",e.target.data)

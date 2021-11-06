@@ -11,6 +11,7 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
     path('admin/', admin.site.urls),
     path('heroes/', ReactView.as_view(), name="heroes"),
+    path('heroes/', UserView.as_view(), name="Userheroes"),
 
 ]
 
