@@ -18,6 +18,8 @@ import {
     RaceImageBox
 } from './BuildsElements';
 
+import store from '../../store';
+
 const min = 8;
 const max = 15;
 const totalPoints = 27;
@@ -39,7 +41,10 @@ const BuildsPage = (props) => {
     const [valueWis, setWisValue] = useState(min);
     const [valueCha, setChaValue] = useState(min);
     const [heroId, setHeroId] = useState(0);
+    const storeState = store.getState();
+    const userId = storeState.auth.user.id;
     
+    // console.log("Here is the store stuff:", user);
     //onSubmit function
     const onSubmit = (e) => {
         e.preventDefault();
@@ -54,7 +59,7 @@ const BuildsPage = (props) => {
             INT: valueInt,
             WIS: valueWis,
             CHA: valueCha,
-            // hero
+            hero: userId
         };
 
         Axios.post(`${process.env.REACT_APP_API_URL}/heroes/`,
@@ -119,6 +124,7 @@ const BuildsPage = (props) => {
     
     useEffect(() => {
         getAllRaces();
+        // console.log("Here is the store stuff:", user);
     }, [])
 
     useEffect( () =>{
