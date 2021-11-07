@@ -346,6 +346,7 @@ const BuildsPage = (props) => {
             <br /><br />
             <br /><br />
             <br /><br />
+            <br /><br />
         {/* ADDING STATS CALC STUFF HERE */}
         <h1 style={{textAlign: "center"}}>Point-Buy Calculator</h1>
 
@@ -701,6 +702,7 @@ const BuildsPage = (props) => {
 
             </body>
             {/* END OF STATS CALC STUFF HERE */}
+
             <TextField
                 value={name}
                 label="Enter your name"
@@ -720,6 +722,11 @@ const BuildsPage = (props) => {
                 Save Build
             </Button>
             }
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
         </BackgroundContainer>
     )
 }

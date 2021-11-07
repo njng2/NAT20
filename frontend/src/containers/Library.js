@@ -6,9 +6,7 @@ import { Container, Grid,Paper } from '@mui/material';
 import { Box } from '@mui/system';
 import Axios from 'axios'; 
 import { RaceImageBox } from '../components/BuildsPage/BuildsElements';
-
-
-
+import { LibraryContainer } from '../components/BuildsPage/BuildsElements';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -59,6 +57,7 @@ const Library = () => {
     console.log("Options after map: ", allBuilds);
     return (
         <>
+        <LibraryContainer>
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
                     <Grid container spacing={3} columns={18}>
@@ -70,6 +69,7 @@ const Library = () => {
                     </Grid>
                 </Box>
             </Container>
+        </LibraryContainer>
         </>
     )
 }

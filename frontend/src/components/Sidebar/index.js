@@ -19,13 +19,10 @@ const Sidebar = ({isOpen, toggle}) => {
             <SidebarWrapper>
                 <SidebarMenu>
                     <SidebarLink to='/builds' onClick={toggle}>
-                       Builds 
-                    </SidebarLink>
-                    <SidebarLink to='/classes' onClick={toggle}>
-                       Classes
+                       Create Build 
                     </SidebarLink>
                     <SidebarLink to='/library' onClick={toggle}>
-                       Library 
+                       Build Library 
                     </SidebarLink>
                     <SidebarLink to='/chat' onClick={toggle}>
                        Chat 
