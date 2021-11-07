@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signup } from '../actions/auth';
+import {SignUpContainer} from '../components/BuildsPage/BuildsElements'
 // import axios from 'axios';
 
 const Signup = ({ signup, isAuthenticated }) => {
@@ -34,6 +35,7 @@ const Signup = ({ signup, isAuthenticated }) => {
     }
 
     return (
+    <SignUpContainer>
         <div className='container mt-5'>
             <h1>Sign Up</h1>
             <p>Create your Account</p>
@@ -90,6 +92,7 @@ const Signup = ({ signup, isAuthenticated }) => {
                 Already have an account? <Link to='/login'>Sign In</Link>
             </p>
         </div>
+    </SignUpContainer>
     );
 };
 
