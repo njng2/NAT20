@@ -94,7 +94,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'auth_system',
-        'USER': 'postgres',
+        'USER': 'arman',
         
         #local
         'PASSWORD': 'password123',
@@ -113,13 +113,13 @@ DATABASES = {
         #     "sslkey": "../client-key.pem",
         # }
     },
-    # 'usersHeroes': {
-    #     'NAME': 'users_heroes',
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'password123',
-    #     'HOST': 'localhost'
-    # }
+    'usersHeroes': {
+        'NAME': 'users_heroes',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'arman',
+        'PASSWORD': 'password123',
+        'HOST': 'localhost'
+    }
 }
 
 EMAIL_BACKENED = 'django.core.mail.backends.smtmp.EmailBackend'

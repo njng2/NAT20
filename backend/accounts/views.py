@@ -21,7 +21,6 @@ class ReactView(APIView):
         "INT" : detail.INT,
         "WIS" : detail.WIS,
         "CHA" : detail.CHA,
-        "hero": detail.hero
         } 
         for detail in UsersHeroes.objects.all()]
         return Response(detail)
@@ -33,4 +32,3 @@ class ReactView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return  Response(serializer.data)
-
