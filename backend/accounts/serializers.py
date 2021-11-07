@@ -12,8 +12,6 @@ class UserCreateSerializer(UserCreateSerializer):
 class UsersHeroesSerializer(serializers.ModelSerializer):
     class Meta: 
         model = UsersHeroes
-        # fields = ['name', 
-        #         'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']
         fields = ['name', 'race_type', 'class_type', 
-                'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']
-        parent = UserCreateSerializer(many=False)
+                'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA', 'hero']
+        # parent = UserCreateSerializer(many=False)
