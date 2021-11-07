@@ -10,10 +10,10 @@ class UserCreateSerializer(UserCreateSerializer):
         fields = ('id', 'email', 'first_name', 'last_name', 'password')
 
 class UsersHeroesSerializer(serializers.ModelSerializer):
-    user = UserCreateSerializer(read_only=True)
     class Meta: 
         model = UsersHeroes
         # fields = ['name', 
         #         'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']
         fields = ['name', 'race_type', 'class_type', 
-                'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA', 'user']
+                'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA', 'hero']
+        parent = UserCreateSerializer(many=False)

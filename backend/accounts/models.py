@@ -98,6 +98,6 @@ class UsersHeroes(models.Model):
     def get_cha(self):
         return self.CHA
         
-    hero = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)    
+    hero = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)    
 # Create your models here.
 
