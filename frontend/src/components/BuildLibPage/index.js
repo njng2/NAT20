@@ -10,33 +10,49 @@ import { makeStyles } from '@mui/styles';
 import { buttonBaseClasses } from '@mui/material';
 
 const useStyles = makeStyles({ //this dont work ?? idk
-    root: {
+    media: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       color: 'white',
       padding: '0 30px',
+      paddingTop: '56.25%', // 16:9,
+      marginTop:'30',
+      objectPosition: "left top"
+
     },
   });
 
 const MediaCard = ({build}) => {
     const classes = useStyles;
-    console.log("Here is build bitches: ", build);
     return (
         <Card sx={{ maxWidth: 345}} style={{backgroundColor: "black",color:"white"}}>
             <CardMedia
+                // className={classes.media}
                 component="img"
-                margin='auto'
-                display='block'
-                height="140"
-                image={imgMap['dragonborn']}
+                marginTop='50%'
+                height="400"
+                image={imgMap[build.race_type]}
                 alt="character image"
             />
-            <CardContent>
+         <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                 {build.name}
                 </Typography>
+                <Typography gutterBottom variant="h6" component="div">
+                Race: {build.race_type}
+                </Typography>
+                <Typography gutterBottom variant="h6" component="div">
+                Class: {build.class_type}
+                </Typography>
+
                 <Typography variant="body2" color="white">
-                Lizards are a widespread group of squamate reptiles, with over 6,000
-                species, ranging across all continents except Antarctica
+                    <ul>
+                        <li>STR: {build.STR}</li>
+                        <li>DEX: {build.DEX}</li>
+                        <li>CON: {build.CON}</li>
+                        <li>INT: {build.INT}</li>
+                        <li>WIS: {build.WIS}</li>
+                        <li>CHA: {build.CHA}</li>
+                    </ul>
                 </Typography>
             </CardContent>
             <CardActions>
