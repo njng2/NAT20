@@ -4,6 +4,21 @@ This code is for CAPSTONE 49900 02 11973. It is a Website that supplies a charac
 
 ## Setup Instructions
 
+# PSQL Setup
+Postgres must be installed to test this project. Start the server, open the Postgres window, and double click the postgres database as shown in the video below. 
+
+https://user-images.githubusercontent.com/47779642/140804426-489aef16-7446-41da-b847-ac2348a480b2.mov
+
+From this terminal instance, you can create the database with the line below. 
+
+```
+postgres=# CREATE DATABASE auth_system OWNER postgres;
+```
+NOTE: If you select an owner other than postgres, settings.py located at backend/auth_system/settings.py must be changed at line 97 and 119 to change the user to the owner of the auth_sytem databse you create. Ignore if you copy the command above verbatim. 
+
+This is the database where user information and builds will be stored. 
+
+
 # BACK END: Setting up Django Project
 Template is written with django 3.2.7 and python 3 in mind.
 If you don't have django installed for python 3 then run:
@@ -34,7 +49,7 @@ $ source venv/bin/activate
 
 - in the backend folder, run: 
 
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 
 
 Then under backend/auth_system/settings.py:
@@ -43,8 +58,15 @@ Then under backend/auth_system/settings.py:
 -   under EMAIL_HOST_USER, set the email that you want to use
 -   under EMAIL_HOST_PASSWORD, set the app password that you setup for your email
 
-run backend server by typing: python3 manage.py runserver
-Keep this server running while running the frontend. The best way to do this is by having 2 seperate terminals. 
+After updating settings.py, you can now migrate the models to the postgres database. 
+In the same terminal in the backend folder run:
+
+```
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+```
+
+
 
 # FRONT END: Getting Started with the React App
 
@@ -59,14 +81,21 @@ this will download all the libraries from the package.json file, used in this co
 
 ### Compile the Front-End
 Run the production compile script
+
 First
 ### `npm run build`
-Builds the app for production to the `build` folder.\ copy this file and put it in the Backend Folder.
+Builds the app for production to the `build` folder, and copies this folder into the Backend Folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Second
-### `npm start`
+After the build is copied to the backend folder, you are now ready to run the app from the backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-cd back into the backend folder
+-then run the app by typing:
+
+`python3 manage.py runserver`
+
+
+
+This runs the app in the development mode.\
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
