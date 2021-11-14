@@ -82,7 +82,10 @@ this will download all the libraries from the package.json file, used in this co
 ### Compile the Front-End
 Run the production compile script
 
-First
+First create a .env file in the frontend folder. 
+Add the following line in the .env file:
+`REACT_APP_API_URL='http://localhost:8000'`
+
 ### `npm run build`
 Builds the app for production to the `build` folder, and copies this folder into the Backend Folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
