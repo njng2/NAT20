@@ -84,7 +84,11 @@ Run the production compile script
 
 First create a .env file in the frontend folder. 
 Add the following line in the .env file:
+
 `REACT_APP_API_URL='http://localhost:8000'`
+
+After saving the .env file, you are now ready to build the project.
+
 
 ### `npm run build`
 Builds the app for production to the `build` folder, and copies this folder into the Backend Folder.
