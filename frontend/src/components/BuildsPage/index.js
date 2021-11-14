@@ -177,7 +177,17 @@ const BuildsPage = () => {
     const[IntCount, setIntCounter] = useState(0)
     const[WisCount, setWisCounter] = useState(0)
     const[ChaCount, setChaCounter] = useState(0)
+
+
+    const[StrModCount, setStrModCounter] = useState(-1)
+    const[DexModCount, setDexModCounter] = useState(-1)
+    const[ConModCount, setConModCounter] = useState(-1)
+    const[IntModCount, setIntModCounter] = useState(-1)
+    const[WisModCount, setWisModCounter] = useState(-1)
+    const[ChaModCount, setChaModCounter] = useState(-1)
     
+
+
     const[availablePoints, trackAvailablePoints] = useState(27)
     const[usedPoints, trackUsedPoints] = useState(0)
 
@@ -324,10 +334,11 @@ const BuildsPage = () => {
                                     <Incrementor
                                     value = {valueStr}
                                     Counter = {StrCount}
+                                    Mod = {StrModCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints} 
                                     onChange = {
-                                        (v,count, points, trackpoints) => {
+                                        (v,count, points, trackpoints, modpoints) => {
     
                                             
                                             if(usedPoints >=0 && usedPoints<=27){
@@ -335,7 +346,21 @@ const BuildsPage = () => {
                                                 setStrCounter(count);
                                                 trackUsedPoints(trackpoints);
                                                 trackAvailablePoints(points);
+
+                                                if (StrCount % 2 ===1){
+                                                    
+                                                    setStrModCounter(modpoints);
+
+                                                }
                                             }
+
+                                            
+
+                                        
+                                            
+                                           
+                                            
+                                           
 
                                             
                                            
@@ -365,7 +390,7 @@ const BuildsPage = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{StrModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -380,16 +405,24 @@ const BuildsPage = () => {
                                     value = {valueDex}
                                     Counter ={DexCount}
                                     availPoints = {availablePoints}
+                                    Mod = {DexModCount}
                                     CurrentPoints = {usedPoints}
                                     onChange = {
-                                        (v, count, points, trackpoints) => {
+                                        (v, count, points, trackpoints, modpoints) => {
 
                                             if(usedPoints >=0 && usedPoints<=27){
                                                 setDexValue(v)
                                                 setDexCounter(count)
                                                 trackUsedPoints(trackpoints);
                                                 trackAvailablePoints(points);
+                                                if (DexCount% 2 ===0 &&  DexCount>1){
+                                                
+                                                    setDexModCounter(modpoints);
+    
+                                                }
                                             }
+
+
                                       
 
                                         // if(availablePoints<0){
@@ -418,7 +451,7 @@ const BuildsPage = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{DexModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -437,15 +470,21 @@ const BuildsPage = () => {
                                     Counter = {ConCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {ConModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setConCounter(count)
                                             setConValue(v)
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                                                                  
+                                            if (ConCount% 2 ===0 &&  ConCount>1){
+                                                    
+                                                setConModCounter(modpoints);
+
+                                            }
                                         }
-                                      
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
@@ -470,7 +509,7 @@ const BuildsPage = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{ConModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -486,7 +525,8 @@ const BuildsPage = () => {
                                     Counter = {IntCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {IntModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setIntValue(v);
 
@@ -494,6 +534,11 @@ const BuildsPage = () => {
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                            if (IntCount% 2 ===0 &&  IntCount>1){
+                                                
+                                                setIntModCounter(modpoints);
+    
+                                            }
                                         }
 
 
@@ -521,7 +566,7 @@ const BuildsPage = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{IntModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -537,16 +582,22 @@ const BuildsPage = () => {
                                     Counter = {WisCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {WisModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setWisValue(v);
                                             setWisCounter(count);
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                            if (WisCount% 2 ===0 &&  WisCount>1){
+                                                
+                                                setWisModCounter(modpoints);
+    
+                                            }
                                         }
                                       
-                                      
+
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
@@ -571,7 +622,7 @@ const BuildsPage = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{WisModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -587,15 +638,21 @@ const BuildsPage = () => {
                                     Counter = {ChaCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {ChaModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setChaValue(v);
                                             setChaCounter(count);
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                            if (ChaCount% 2 ===0 &&  ChaCount>1){
+                                                
+                                                setChaModCounter(modpoints);
+    
+                                            }
                                         }
-                                      
+
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
@@ -624,7 +681,7 @@ const BuildsPage = () => {
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{ChaModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>

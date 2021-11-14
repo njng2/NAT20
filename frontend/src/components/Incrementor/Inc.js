@@ -10,7 +10,7 @@ import {
 from './IncElements';
 
 // - <value> +
-const Incrementor = ({min, max, value, onChange,Counter, availPoints,CurrentPoints}) => {
+const Incrementor = ({min, max, value, onChange,Counter, availPoints,CurrentPoints, Mod}) => {
     const clampV = clamp(min, max);
     const disableMin = value === min;
     const disableMax = value === max;
@@ -18,7 +18,7 @@ const Incrementor = ({min, max, value, onChange,Counter, availPoints,CurrentPoin
     return (
         <IncContainer>
             <IncButton onClick={() => 
-                onChange(clampV(value - 1), (Counter-1), (availPoints+1), (CurrentPoints-1))
+                onChange(clampV(value - 1), (Counter-1), (availPoints+1), (CurrentPoints-1), (Mod-1))
 
             } 
                 disabled={disableMin}
@@ -27,7 +27,7 @@ const Incrementor = ({min, max, value, onChange,Counter, availPoints,CurrentPoin
             </IncButton>
                 <IncValue>{value}</IncValue>
                 
-            <IncButton onClick={ () => onChange(clampV(value + 1),(Counter+1), (availPoints-1), (CurrentPoints+1))} disabled={availPoints ===0 || disableMax}>
+            <IncButton onClick={ () => onChange(clampV(value + 1),(Counter+1), (availPoints-1), (CurrentPoints+1), (Mod+1))} disabled={availPoints ===0 || disableMax}>
                 <FontAwesomeIcon icon={faPlusSquare} style={{ width: '60%', margin: '0'}}/>
             </IncButton>
         </IncContainer>
