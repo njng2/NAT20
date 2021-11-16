@@ -25,24 +25,7 @@ const Library = () => {
         await Axios.get(`${process.env.REACT_APP_API_URL}/heroes/`)
         .then((res) => {
             console.log("Here is the stuff", res.data);
-            const options = res.data
-            // .map((obj) => {
-            //     return({
-            //         name: obj.name,
-            //         class_type: obj.class_type,
-            //         race_type: obj.race_type,
-            //         STR: obj.STR,
-            //         DEX: obj.DEX,
-            //         CON: obj.CON,
-            //         INT: obj.INT,
-            //         WIS: obj.WIS,
-            //         CHA: obj.CHA
-            //     })
-            // })
-
             setAllBuilds(res.data);
-            // console.log("Options after map: ", allBuilds);
-
         })
         .catch((err) => {
             console.error( err );

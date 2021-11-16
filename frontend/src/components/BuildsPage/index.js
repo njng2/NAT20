@@ -19,6 +19,8 @@ import {
 } from './BuildsElements';
 
 import store from '../../store';
+import { Container, Grid,Paper } from '@mui/material';
+import { Box, grid } from '@mui/system';
 
 const min = 8;
 const max = 15;
@@ -708,26 +710,52 @@ const BuildsPage = (props) => {
 
             </body>
             {/* END OF STATS CALC STUFF HERE */}
+            
+            <Container>
+                <Box sx={{ flexGrow: 1,marginTop:10 }}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={6} columns={18}> 
+                            
+                        </Grid>
 
-            <TextField
-                value={name}
-                label="Enter your name"
-                onChange={(e) => {
-                setName(e.target.value);
-                // console.log(name);
-                }}
-                variant="filled"
-            />  
-            {
-                name === "" || selectedRace === 'none' || selectedClass === 'none' ?
-            <Button variant="contained" disabled>
-                Save Build
-            </Button>
-            :
-            <Button variant="contained" onClick={onSubmit}>
-                Save Build
-            </Button>
-            }
+                        <Grid item xs={6}> 
+                            <TextField
+                                value={name}
+                                label="Enter your name"
+                                style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                onChange={(e) => {
+                                setName(e.target.value);
+                                // console.log(name);
+                                }}
+                                variant="filled"
+                            /> 
+                            {
+                                name === "" || selectedRace === 'none' || selectedClass === 'none' ?
+                            <Button 
+                                variant="contained" 
+                                disabled 
+                                style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                            >
+                                Save Build
+                            </Button>
+                            :
+                            <Button 
+                                variant="contained" 
+                                onClick={onSubmit}
+                                style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                            >
+                                Save Build
+                            </Button>
+                            }
+                        </Grid>
+
+                        <Grid item xs={6}> 
+                            
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Container>
+            
             <br /><br />
             <br /><br />
             <br /><br />
