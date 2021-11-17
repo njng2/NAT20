@@ -11,6 +11,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 // import Chat from '../containers/Chat';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
 
 const Layout = (props) =>{
     useEffect(() => {
@@ -49,6 +50,7 @@ const Layout = (props) =>{
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle} load_user={load_user}/>
             {props.children}
+            <Footer />
         </div>
     )
 }
