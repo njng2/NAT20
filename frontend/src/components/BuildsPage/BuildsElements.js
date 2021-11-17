@@ -55,7 +55,7 @@ export const BackgroundContainer = styled.div`
     background-size: cover;
     justify-content: center center;
     width: 100%;
-    height: 100%;
+    height: 100% 100%;
     color: white;
 `
 
@@ -103,7 +103,7 @@ export const LibraryContainer = styled.div`
     background-size: cover;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 100% 100%;
 `
 
 
