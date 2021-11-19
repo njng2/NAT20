@@ -112,6 +112,14 @@ export const login = (email, password) => async dispatch => {
         });
 
     }//end try catch
+    
+    axios(config)
+    .then(function (response) {
+        console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 }
 
 
@@ -122,10 +130,17 @@ export const signup = (name, email, password, re_password) => async dispatch => 
         }
     };
 
+    // const config2 = {
+    //     headers: {
+    //         'PRIVATE-KEY': '03cc7656-ea07-48bc-9108-b0714bd1a15f'
+    //     }
+    // };
+
     const body = JSON.stringify({ name, email, password, re_password });
 
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/`, body, config);
+        // const res2 = await axios.post(`https://api.chatengine.io/users/`, body, config);
 
         dispatch({
             type: SIGNUP_SUCCESS,

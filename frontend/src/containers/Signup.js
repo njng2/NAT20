@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signup } from '../actions/auth';
 import {SignUpContainer} from '../components/BuildsPage/BuildsElements'
-// import axios from 'axios';
+import Axios from 'Axios';
 
 const Signup = ({ signup, isAuthenticated }) => {
     const [accountCreated, setAccountCreated] = useState(false);
@@ -16,13 +16,36 @@ const Signup = ({ signup, isAuthenticated }) => {
 
     const { name, email, password, re_password } = formData;
 
+    const data = {
+        username: name,
+        secret: password,
+    };
+
+    var config = {
+        method: 'post',
+        url: 'https://api.chatengine.io/users/',
+        headers: {
+            'PRIVATE-KEY': '03cc7656-ea07-48bc-9108-b0714bd1a15f'
+        },
+        data : data
+    };
+
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
         console.log("Before submit: ", name, email, password, re_password);
+
         if (password === re_password) {
+            Axios(config)
+            .then(function (response) {
+	            console.log(JSON.stringify(response.data));
+            })
+             .catch(function (error) {
+	             console.log(error);
+            });
             signup(name, email, password, re_password);
+
             setAccountCreated(true);
         }
     };

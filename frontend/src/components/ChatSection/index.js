@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import ChatFeed from './ChatFeed';
 import { ChatEngine } from 'react-chat-engine';
+import store from '../../store';
 import './Chat.css'
 
 
 const ChatSection = () => {
+    const storeState = store.getState();
+    const userName = storeState.auth.user.name;
+    console.log(userName);
+    
     return (
         <ChatEngine
             height='90vh'
@@ -15,5 +20,4 @@ const ChatSection = () => {
 		/>
     )
 }
-
 export default ChatSection;
