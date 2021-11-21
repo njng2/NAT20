@@ -8,16 +8,13 @@ import Button from '@material-ui/core/Button';
 import './stats.css';
 import { 
     BackgroundContainer, 
-    ClassTitle, 
-    ClassSectionStyle, 
-    ClassTextBox, 
-    ClassImageBox,
     BuildTitle, 
     DropDownStyle, 
-    RaceTextBox, 
-    RaceImageBox
 } from './BuildsElements';
 
+import RaceSelect from './RaceSelect';
+import ClassSelect from './ClassSelect';
+import StatCalc from './StatCalc';
 import store from '../../store';
 import { Container, Grid,Paper } from '@mui/material';
 import { Box, grid } from '@mui/system';
@@ -93,7 +90,7 @@ const BuildsPage = (props) => {
     // get race api call
     const [allRaces, setAllRaces] = useState("");
     const getAllRaces = async () => {
-        console.log("Here are props: ", props);
+        //console.log("Here are props: ", props);
         await Axios.get("https://www.dnd5eapi.co/api/races").then(resp =>{
             // console.log(resp.data.results)
             const options = resp.data.results.map((race) => {
@@ -241,476 +238,59 @@ const BuildsPage = (props) => {
 
     return (
     
-        <BackgroundContainer> 
-            <BuildTitle style>
-                <h1>
-                Character Race
-                <br /> 
-                {
-                    selectedRace != 'none'?
-                    <RaceImageBox>
-                    <img src={imgMap[race.index]}></img> 
-                    </RaceImageBox>
-                    : null
-                }   
-                </h1>
-                
-                <DropDownStyle>
-                    <br /><br />
-                    <a style={{ color: 'white' }}>Race</a>
+        <BackgroundContainer>
 
-                    <select value={selectedRace} onChange={handleChange}>
-                        <option value = 'none'> Select a race </option>
-                        {raceOptions.map((race) => {
-                            return(
-                                <option value={race.value}>
-                                    {race.label}
-                                </option>
-                            )
-                        })}
-                    </select>
+            {/* race options */}
+            <RaceSelect 
+                selectedRace={selectedRace} 
+                handleChange={handleChange} 
+                race={race} 
+                raceOptions={raceOptions}
+            />
 
-                    {/* <Link to ="/classes"><button> Classes ⇨ </button></Link> */}
-                    
-                    <br /><br />
-                    {
-                        //if selectedValue is not none, show all attributes
-                        
-                        selectedRace !== 'none' ?  
-                        <RaceTextBox>
-                            {/* If name matches, image will render */}
-                            <a> <h3>Alignment</h3>{race.alignment}</a>
-                            <a> <h3>Age</h3>{race.age}</a>
-                            <a><h3>Size</h3>{race.size}</a>
-                            <a><h3>Size Description</h3>{race.size_description}</a>
-                            <a><h3>Speed</h3>{race.speed}</a>
-                            <a><h3>Languages</h3>{race.language_desc}</a>
-                        </RaceTextBox>
-                        //else render nothing  
-                        : null
-                    }
-                </DropDownStyle>
-            </BuildTitle>
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
+            {/* class options */}
+            <ClassSelect 
+                selectedClass={selectedClass} 
+                classes={classes}
+                classOptions={classOptions} 
+                handleChange2={handleChange2}
+            />
 
-            {/*  Classes containers below*/}
-            <ClassTitle>
-                <h1>
-                    Character Class
-                    {
-                        selectedClass !== 'none' ?
-                        <ClassImageBox>
-                        <img src={ClassImageMap[classes.index]}></img> 
-                        </ClassImageBox>
-                        : null
-                    }
-                </h1>
-                
-                <ClassSectionStyle>
-                    <br /><br />
-                    <a style={{ color: 'white' }}>Class</a>
-
-                    <select value={selectedClass} onChange={handleChange2}>
-                        <option value = 'none'> Select a class </option>
-                        {classOptions.map((classes) => {
-                            return(
-                                <option value = {classes.value}>
-                                    {classes.label}
-                                </option>
-                            )
-                        })}
-                    </select>
-                    
-                    {/* <Link to ="/heroStats"><button> Hero Stats ⇨</button></Link>
-                    <Link to ="/builds"><button>⇦ Builds </button></Link> */}
-                    <br /><br />
-                    {
-                        //if selectedValue is not none, show all attributes
-                        selectedClass !== 'none' ?  
-                        <ClassTextBox>
-                            <a><h3>Stat Bonuses</h3></a>
-                            <div id="statBonus"> </div>
-                            <a><h3>Hit Die</h3>{classes.hit_die}</a> 
-                            {/* /div holds the chocies for profs/ */}
-                            <a><h3>Skill Proficiencies</h3></a> 
-                            <div id="profChoices"></div>
-                            <a><h3>Equipment Proficiencies</h3></a>
-                            <div id="equipChoices"></div>
-                        </ClassTextBox>
-                        //else render nothing  
-                        : null
-                    }
-                </ClassSectionStyle>
-            </ClassTitle>
-            {/* END of CLASSES */}
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-            <br /><br />
-        {/* ADDING STATS CALC STUFF HERE */}
-        <h1 style={{textAlign: "center"}}>Point-Buy Calculator</h1>
-
-            <body id="stats-body">
-                <table id = "point-buy" style={{width: "100%"}}>
-                    <tbody>
-                        <tr class = "stats-header">
-                            <th></th>
-                            <th>Base</th>
-                            <th class="operator"></th>
-                            <th></th>
-                            <th class="operator"></th>
-                            <th>Finalscore</th>
-                            <th></th>
-                            <th>Mod</th>
-                            <th></th>
-                            <th>Cost</th>
-                        </tr>
-                        <tr id="str" class="stats-row">
-                            <th>STR</th>
-                            <td className="Holder">
-                                <div className="Right">
-                                    <Incrementor
-                                    value = {valueStr}
-                                    Counter = {StrCount}
-                                    availPoints = {availablePoints}
-                                    CurrentPoints = {usedPoints} 
-                                    onChange = {
-                                        (v,count, points, trackpoints) => {
+            {/* Stat Calculator */}
+           <StatCalc 
+                usedPoints={usedPoints}
+                availablePoints={availablePoints} 
+                totalPoints={totalPoints}
+                trackUsedPoints={trackUsedPoints}
+                trackAvailablePoints={trackAvailablePoints}
+                min={min} 
+                max={max} 
+                valueStr={valueStr}
+                valueDex={valueDex}
+                valueCon={valueCon}
+                valueInt={valueInt}
+                valueWis={valueWis}
+                valueCha={valueCha}
+                StrCount={StrCount}
+                setStrValue={setStrValue}
+                setStrCounter={setStrCounter}
+                DexCount={DexCount}
+                setDexValue={setDexValue}
+                setDexCounter={setDexCounter}
+                ConCount={ConCount}
+                setConValue={setConValue}
+                setConCounter={setConCounter}
+                IntCount={IntCount}
+                setIntValue={setIntValue}
+                setIntCounter={setIntCounter}
+                WisCount={WisCount}
+                setWisValue={setWisValue}
+                setWisCounter={setWisCounter}
+                ChaCount={ChaCount}
+                setChaValue={setChaValue}
+                setChaCounter={setChaCounter}
+            />
     
-                                            
-                                            if(usedPoints >=0 && usedPoints<=27){
-                                                setStrValue(v);
-                                                setStrCounter(count);
-                                                trackUsedPoints(trackpoints);
-                                                trackAvailablePoints(points);
-                                            }
-
-                                            
-                                           
-
-                                            // if(availablePoints<0){
-                                            //     alert("All 27 points used")
-                                            //     trackAvailablePoints(points+1)
-                                            // }
-                                            // else{
-                                            //     trackAvailablePoints(points)
-                                            
-    
-                                            // }
-                                            
-                                        }
-                                    } 
-                                    min={min} 
-                                    max={max} />
-
-                                </div>
-                            </td>
-                            <td class="race-mod">
-                                RM
-                            </td>
-                            <td className="Left">
-                                    <td className="Display">{valueStr}</td>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div><p>-1</p></div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                {StrCount}
-                            </td>
-                        </tr>
-                        <tr id="dex" class="stats-row">
-                            <th>DEX</th>
-                            <td className="Holder">
-                                <div className="Right">
-                                    <Incrementor
-                                    value = {valueDex}
-                                    Counter ={DexCount}
-                                    availPoints = {availablePoints}
-                                    CurrentPoints = {usedPoints}
-                                    onChange = {
-                                        (v, count, points, trackpoints) => {
-
-                                            if(usedPoints >=0 && usedPoints<=27){
-                                                setDexValue(v)
-                                                setDexCounter(count)
-                                                trackUsedPoints(trackpoints);
-                                                trackAvailablePoints(points);
-                                            }
-                                      
-
-                                        // if(availablePoints<0){
-                                        //     alert("All 27 points used")
-                                        //     trackAvailablePoints(points+1)
-                                        // }
-                                        // else{
-                                        //     trackAvailablePoints(points)
-                                        
-
-                                        // }
-                                        
-
-                                    
-                                    }} 
-                                    min={min} 
-                                    max={max}
-                                    />
-                                </div>
-                            </td>
-                            <td className="race-mod">
-                                RM
-                            </td>
-                            <td className="Left">
-                                    <div className="Display">{valueDex}</div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div><p>-1</p></div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div>
-                                    {DexCount}
-
-                                </div>
-                            </td>
-                        </tr>
-                        <tr id="con" class="stats-row">
-                            <th>CON</th>
-                            <td className="Holder">
-                                <div className="Right">
-                                    <Incrementor
-                                    value = {valueCon}
-                                    Counter = {ConCount}
-                                    availPoints = {availablePoints}
-                                    CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
-                                        if(usedPoints >=0 && usedPoints<=27){
-                                            setConCounter(count)
-                                            setConValue(v)
-
-                                            trackUsedPoints(trackpoints);
-                                            trackAvailablePoints(points);
-                                        }
-                                      
-
-                                        // if(availablePoints<0){
-                                        //     alert("All 27 points used")
-                                        //     trackAvailablePoints(points+1)
-                                        // }
-                                        // else{
-                                        //     trackAvailablePoints(points)
-                                        
-
-                                        // }
-
-                                    }} 
-                                    min={min} 
-                                    max={max} />
-                                </div>
-                            </td>
-                            <td className="race-mod">
-                                RM
-                            </td>
-                            <td className="Left">
-                                    <div className="Display">{valueCon}</div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div><p>-1</p></div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div>{ConCount}</div>
-                            </td>
-                        </tr>
-                        <tr id="int" class="stats-row">
-                            <th>INT</th>
-                            <td className="Holder">
-                                <div className="Right">
-                                    <Incrementor
-                                    value = {valueInt}
-                                    Counter = {IntCount}
-                                    availPoints = {availablePoints}
-                                    CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
-                                        if(usedPoints >=0 && usedPoints<=27){
-                                            setIntValue(v);
-
-                                            setIntCounter(count);
-
-                                            trackUsedPoints(trackpoints);
-                                            trackAvailablePoints(points);
-                                        }
-
-
-                                        // if(availablePoints<0){
-                                        //     alert("All 27 points used")
-                                        //     trackAvailablePoints(points+1)
-                                        // }
-                                        // else{
-                                        //     trackAvailablePoints(points)
-                                        
-
-                                        // }
-                                       
-                                    
-                                    }} 
-                                    min={min} 
-                                    max={max} />
-                                </div>
-                            </td>
-                            <td className="race-mod">
-                                RM
-                            </td>
-                            <td className="Left">
-                                    <div className="Display">{valueInt}</div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div><p>-1</p></div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div>{IntCount}</div>
-                            </td>
-                        </tr>
-                        <tr id="wis" class="stats-row">
-                            <th>WIS</th>
-                            <td className="Holder">
-                                <div className="Right">
-                                    <Incrementor
-                                    value = {valueWis}
-                                    Counter = {WisCount}
-                                    availPoints = {availablePoints}
-                                    CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
-                                        if(usedPoints >=0 && usedPoints<=27){
-                                            setWisValue(v);
-                                            setWisCounter(count);
-
-                                            trackUsedPoints(trackpoints);
-                                            trackAvailablePoints(points);
-                                        }
-                                      
-                                      
-
-                                        // if(availablePoints<0){
-                                        //     alert("All 27 points used")
-                                        //     trackAvailablePoints(points+1)
-                                        // }
-                                        // else{
-                                        //     trackAvailablePoints(points)
-                                        
-
-                                        // }
-                                        
-                                    }}
-                                    min={min} 
-                                    max={max} />
-                                </div>
-                            </td>
-                            <td className="race-mod">
-                                RM
-                            </td>
-                            <td className="Left">
-                                    <div className="Display">{valueWis}</div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div><p>-1</p></div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div>{WisCount}</div>
-                            </td>
-                        </tr>
-                        <tr id="cha" class="stats-row">
-                            <th>CHA</th>
-                            <td className="Holder">
-                                <div className="Right">
-                                    <Incrementor
-                                    value = {valueCha}
-                                    Counter = {ChaCount}
-                                    availPoints = {availablePoints}
-                                    CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
-                                        if(usedPoints >=0 && usedPoints<=27){
-                                            setChaValue(v);
-                                            setChaCounter(count);
-
-                                            trackUsedPoints(trackpoints);
-                                            trackAvailablePoints(points);
-                                        }
-                                      
-
-                                        // if(availablePoints<0){
-                                        //     alert("All 27 points used")
-                                        //     trackAvailablePoints(points+1)
-                                        // }
-                                        // else{
-                                        //     trackAvailablePoints(points)
-                                        
-
-                                        // }
-
-
-
-                                    
-                                    
-                                    }} 
-                                    min={min} 
-                                    max={max} />
-                                </div>
-                            </td>
-                            <td className="race-mod">
-                                RM
-                            </td>
-                            <td className="Left">
-                                    <div className="Display">{valueCha}</div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div><p>-1</p></div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <div>
-                                    {ChaCount}
-                                </div>
-                                <div> 
-
-
-                                </div>
-                            </td>
-                        </tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
-                <div>
-                <label> Total Points:{totalPoints}</label> <br/ >
-                <label> Available Points:{availablePoints}</label> <br/ >
-                <label> Used Points:{usedPoints}</label> <br/ >
-                </div>
-                {/* <Link to ="/classes"><button>⇦ Classes </button></Link>
-                <br />
-                <Link to ="/heroStats"><button> Finish ⇨</button></Link>
-                */}
-
-                {/* <button onClick={onSubmit}>Save Build</button> */}
-
-            </body>
-            {/* END OF STATS CALC STUFF HERE */}
-            
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
                     <Grid container spacing={3}>
