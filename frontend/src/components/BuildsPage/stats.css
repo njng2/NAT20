@@ -65,4 +65,15 @@ th.operator{
   justify-content: center;
   font-size: 2rem;
 }
+
+.stat{
+  display: flex;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
   
