@@ -6,18 +6,18 @@ import './Chat.css'
 
 
 const ChatSection = () => {
-    const storeState = store.getState();
-    const userName = storeState.auth.user.name;
-    const userPass = storeState.auth.user.password;
-    console.log(userName);
-    console.log(userPass);
+    // const storeState = store.getState();
+    // const userName = storeState.auth.user.name;
+    // const userPass = storeState.auth.user.password;
+    // console.log(userName);
+    // console.log(userPass);
     
     return (
         <ChatEngine
             height='90vh'
             userName='testuser'
             userSecret='123'
-            projectID='a0bc192f-b432-4582-bcd0-3803a06464d6'
+            projectID='c97f9756-a52f-4853-a03e-b205e03c9138'
             renderChatFeed={(chatAppProps)=> <ChatFeed {... chatAppProps}/>}
 		/>
     )
