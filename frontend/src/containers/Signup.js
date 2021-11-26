@@ -45,7 +45,6 @@ const Signup = ({ signup, isAuthenticated }) => {
 	             console.log(error);
             });
             signup(name, email, password, re_password);
-
             setAccountCreated(true);
         }
     };
