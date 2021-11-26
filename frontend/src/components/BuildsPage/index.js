@@ -346,13 +346,31 @@ const BuildsPage = () => {
                                                 setStrCounter(count);
                                                 trackUsedPoints(trackpoints);
                                                 trackAvailablePoints(points);
-
-                                                if (StrCount % 2 ===1){
-                                                    
+                                                if (StrCount % 2 ===0 && StrCount>0){
                                                     setStrModCounter(modpoints);
-
+                                                    // if(StrCount <=15 && StrCount%2 ===0 ){
+                                                    //     setStrModCounter(modpoints);
+    
+                                                    // }  
+                                                    
+    
                                                 }
+            
+
+
+
                                             }
+                                            // if (StrCount % 2 ===0 && StrCount>0){
+                                            //     setStrModCounter(modpoints);
+                                            //     // if(StrCount <=15 && StrCount%2 ===0 ){
+                                            //     //     setStrModCounter(modpoints);
+
+                                            //     // }  
+                                                
+
+                                            // }
+
+
 
                                             
 
@@ -415,12 +433,28 @@ const BuildsPage = () => {
                                                 setDexCounter(count)
                                                 trackUsedPoints(trackpoints);
                                                 trackAvailablePoints(points);
-                                                if (DexCount% 2 ===0 &&  DexCount>1){
-                                                
+                                                if (DexCount%2===0 && DexCount >0 ){
                                                     setDexModCounter(modpoints);
+                                                    // if(DexCount% 2 ===0){
+                                                    //     setDexModCounter(modpoints);
     
+                                                    // }
+                                                
                                                 }
+
+
+        
                                             }
+                                            // if (DexCount%2===0 && DexCount >0 ){
+                                            //     setDexModCounter(modpoints);
+                                            //     // if(DexCount% 2 ===0){
+                                            //     //     setDexModCounter(modpoints);
+
+                                            //     // }
+                                            
+                                            // }
+
+
 
 
                                       
@@ -478,13 +512,35 @@ const BuildsPage = () => {
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
-                                                                                  
-                                            if (ConCount% 2 ===0 &&  ConCount>1){
-                                                    
+
+                                            if (ConCount % 2 ===0 && ConCount > 0){
                                                 setConModCounter(modpoints);
+                                                // if(ConCount%2 ===0){
+                                                //     setConModCounter(modpoints);
+
+                                                // }
+                                                
+
+                                            
 
                                             }
+
+
+                                                                                  
+
                                         }
+
+                                        // if (ConCount % 2 ===0 && ConCount > 0){
+                                        //     setConModCounter(modpoints);
+                                        //     // if(ConCount%2 ===0){
+                                        //     //     setConModCounter(modpoints);
+
+                                        //     // }
+                                            
+
+                                           
+
+                                        // }
 
                                         // if(availablePoints<0){
                                         //     alert("All 27 points used")
@@ -534,12 +590,30 @@ const BuildsPage = () => {
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
-                                            if (IntCount% 2 ===0 &&  IntCount>1){
-                                                
+                                            if (IntCount % 2 ===0 && IntCount>0 ){
                                                 setIntModCounter(modpoints);
+                                                // if (IntCount% 2 ===0){
+                                                //     setIntModCounter(modpoints);
+    
+                                                // }
+                                                
     
                                             }
+
+
+
                                         }
+                                        // if (IntCount % 2 ===0 && IntCount>0 ){
+                                        //     setIntModCounter(modpoints);
+                                        //     // if (IntCount% 2 ===0){
+                                        //     //     setIntModCounter(modpoints);
+
+                                        //     // }
+                                            
+
+                                        // }
+
+
 
 
                                         // if(availablePoints<0){
@@ -590,12 +664,30 @@ const BuildsPage = () => {
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
-                                            if (WisCount% 2 ===0 &&  WisCount>1){
-                                                
+                                            if(WisCount % 2 ===0 && WisCount>0){
                                                 setWisModCounter(modpoints);
+                                                // if(WisCount% 2 ===0){
+                                                //     setWisModCounter(modpoints);
+    
+                                                // }
+    
     
                                             }
+
+
+
                                         }
+                                        // if(WisCount % 2 ===0 && WisCount>0){
+                                        //     setWisModCounter(modpoints);
+                                        //     // if(WisCount% 2 ===0){
+                                        //     //     setWisModCounter(modpoints);
+
+                                        //     // }
+
+
+                                        // }
+
+
                                       
 
 
@@ -646,12 +738,30 @@ const BuildsPage = () => {
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
-                                            if (ChaCount% 2 ===0 &&  ChaCount>1){
-                                                
+                                            if (ChaCount % 2 ===0 && ChaCount>0){
                                                 setChaModCounter(modpoints);
+                                                // if (ChaCount <=15 && ChaCount% 2 ===0 ){
+                                                //     setChaModCounter(modpoints);
+    
+                                                // }
+                                                
     
                                             }
+
+
+
                                         }
+                                        // if (ChaCount % 2 ===0 && ChaCount>0){
+                                        //     setChaModCounter(modpoints);
+                                        //     // if (ChaCount <=15 && ChaCount% 2 ===0 ){
+                                        //     //     setChaModCounter(modpoints);
+
+                                        //     // }
+                                            
+
+                                        // }
+
+
 
 
                                         // if(availablePoints<0){
