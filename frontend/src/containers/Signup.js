@@ -37,6 +37,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         console.log("Before submit: ", name, email, password, re_password);
 
         if (password === re_password) {
+            signup(name, email, password, re_password);
             Axios(config)
             .then(function (response) {
 	            console.log(JSON.stringify(response.data));
@@ -44,8 +45,6 @@ const Signup = ({ signup, isAuthenticated }) => {
              .catch(function (error) {
 	             console.log(error);
             });
-            signup(name, email, password, re_password);
-
             setAccountCreated(true);
         }
     };
