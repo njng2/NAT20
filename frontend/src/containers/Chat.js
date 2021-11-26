@@ -5,7 +5,7 @@ const Chat = () => {
 
     return (
         <>
-        
+
             <ChatSection/>
         </>
     )
