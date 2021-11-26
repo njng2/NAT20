@@ -8,7 +8,9 @@ import './Chat.css'
 const ChatSection = () => {
     const storeState = store.getState();
     const userName = storeState.auth.user.name;
+    const userPass = storeState.auth.user.password;
     console.log(userName);
+    console.log(userPass);
     
     return (
         <ChatEngine

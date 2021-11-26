@@ -34,6 +34,7 @@ class UserAccountManager(BaseUserManager):
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length = 255, unique = True)
     name = models.CharField(max_length = 255)
+    password = models.CharField(max_length = 255)
     # date_of_birth = models.DateField(max_length=8)
     is_active = models.BooleanField(default = True)
     is_staff = models.BooleanField(default = False)
@@ -41,7 +42,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name']
+    REQUIRED_FIELDS = ['name', 'password']
 
     def get_fullname(self):
         return self.name 
