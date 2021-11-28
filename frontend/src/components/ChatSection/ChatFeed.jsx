@@ -27,6 +27,7 @@ const ChatFeed = (props) => {
         const message = messages[key];
         const lastMessageKey = index === 0 ? null : keys[index - 1];
         const isMyMessage = userName === message.sender.username;
+        console.log(userName)
   
         /**Here determined whether the message is from current user or other user */
         return (
