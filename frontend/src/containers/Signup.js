@@ -22,7 +22,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         username: name,
         secret: password,
     };
-
+  
     var config = {
         method: 'post',
         url: 'https://api.chatengine.io/users/',

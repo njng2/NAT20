@@ -16,17 +16,15 @@ const Login = ({ login, isAuthenticated }) => {
        password: ''
    });
 
- 
-
    //Setting email and password of formData
    const { email, password } = formData;
-
    //onChange function needed to change state from user input
    const onChange = e => setFormData({...formData, [e.target.name]: e.target.value });
 
    const onSubmit = e => {
        e.preventDefault();
        login(email, password)
+       console.log(password)
    }
 
 

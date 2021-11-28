@@ -18,12 +18,17 @@ import StatCalc from './StatCalc';
 import store from '../../store';
 import { Container, Grid,Paper } from '@mui/material';
 import { Box, grid } from '@mui/system';
+import { IconButton,Collapse} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import { Alert } from '@mui/material';
 
 const min = 8;
 const max = 15;
 const totalPoints = 27;
 
 const BuildsPage = (props) => {
+    const [open, setOpen] = React.useState(false);
+
     //*************************************************/
     //Pushed to the API
     //Name
@@ -42,12 +47,46 @@ const BuildsPage = (props) => {
     const [heroId, setHeroId] = useState(0);
     const storeState = store.getState();
     const userId = storeState.auth.user.id;
-    
+    //*********************   End of push API ****************************/
     // console.log("Here is the store stuff:", user);
+
+
+    //********************************************************** */
+    //Stats Page JS
+    const[StrCount, setStrCounter] = useState(0)
+    const[DexCount, setDexCounter] = useState(0)
+    const[ConCount, setConCounter] = useState(0)
+    const[IntCount, setIntCounter] = useState(0)
+    const[WisCount, setWisCounter] = useState(0)
+    const[ChaCount, setChaCounter] = useState(0)
+    
+    const[availablePoints, trackAvailablePoints] = useState(27)
+    const[usedPoints, trackUsedPoints] = useState(0)
+    //************************************************************ */
+
     //onSubmit function
     const onSubmit = (e) => {
         e.preventDefault();
-
+        // RESET VALUES
+        setOpen(true);
+        setName("");
+        setSelectedRace('none');
+        setSelectedClass('none');
+        setStrValue(min);
+        setDexValue(min);
+        setConValue(min);
+        setIntValue(min);
+        setWisValue(min);
+        setChaValue(min);
+        setStrCounter(0);
+        setDexCounter(0);
+        setConCounter(0);
+        setIntCounter(0);
+        setWisCounter(0);
+        setChaCounter(0);
+        trackAvailablePoints(27);
+        trackUsedPoints(0);
+        // end of reset
         const postData = {
             name,
             race_type: selectedRace,
@@ -74,14 +113,8 @@ const BuildsPage = (props) => {
     //*************************************************/
 
 
-    
-
-
     const [raceOptions, setRaceOptions] = useState([]);
     
-    
-
-
     const handleChange = e => {
         // console.log("testsdfsdf",e.target.data)
         setSelectedRace(e.target.value);
@@ -219,22 +252,6 @@ const BuildsPage = (props) => {
     },[selectedClass])
 
     // console.log(classes)
-    //********************************************************** */
-    //Stats Page JS
-
- 
-    const[StrCount, setStrCounter] = useState(0)
-    const[DexCount, setDexCounter] = useState(0)
-    const[ConCount, setConCounter] = useState(0)
-    const[IntCount, setIntCounter] = useState(0)
-    const[WisCount, setWisCounter] = useState(0)
-    const[ChaCount, setChaCounter] = useState(0)
-    
-    const[availablePoints, trackAvailablePoints] = useState(27)
-    const[usedPoints, trackUsedPoints] = useState(0)
-
-
-    //************************************************************ */
 
     return (
     
@@ -293,12 +310,35 @@ const BuildsPage = (props) => {
     
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={6} columns={18}> 
+                    <Grid container spacing={3} columns={18}>
+                        <Grid item xs={6}> 
                             
                         </Grid>
 
                         <Grid item xs={6}> 
+                            <Box sx={{ width: '100%' }}>
+                                <Collapse in={open}>
+                                    <Alert
+                                        severity="success"
+                                        action={
+                                            <IconButton
+                                            aria-label="close"
+                                            color="inherit"
+                                            size="small"
+                                            onClick={() => {
+                                                setOpen(false);
+                                            }}
+                                            >
+                                            <CloseIcon fontSize="inherit" />
+                                            </IconButton>
+                                        }
+                                        sx={{ mb: 2 }}
+                                    >
+                                        Character was saved successfully!!!
+                                    </Alert>
+                                </Collapse>
+                            </Box>
+
                             <TextField
                                 value={name}
                                 label="Enter your name"
@@ -314,7 +354,7 @@ const BuildsPage = (props) => {
                             <Button 
                                 variant="contained" 
                                 disabled 
-                                style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
                             >
                                 Save Build
                             </Button>
@@ -322,7 +362,7 @@ const BuildsPage = (props) => {
                             <Button 
                                 variant="contained" 
                                 onClick={onSubmit}
-                                style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
                             >
                                 Save Build
                             </Button>
