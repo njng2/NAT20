@@ -4,17 +4,19 @@ import { connect } from 'react-redux';
 import { signup } from '../actions/auth';
 import {SignUpContainer} from '../components/BuildsPage/BuildsElements'
 import Axios from 'Axios';
+import store from '../store';
 
 const Signup = ({ signup, isAuthenticated }) => {
     const [accountCreated, setAccountCreated] = useState(false);
-    const [formData, setFormData] = useState({
+    var [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
-        re_password: ''
+        re_password: '',
+        chat_pass: ''
     });
 
-    const { name, email, password, re_password } = formData;
+    var { name, email, password, re_password, chat_pass } = formData;
 
     const data = {
         username: name,
@@ -34,10 +36,11 @@ const Signup = ({ signup, isAuthenticated }) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log("Before submit: ", name, email, password, re_password);
+        console.log("Before submit: ", name, email, password, re_password, chat_pass);
 
         if (password === re_password) {
-            signup(name, email, password, re_password);
+            chat_pass = re_password
+            signup(name, email, password, re_password, chat_pass);
             Axios(config)
             .then(function (response) {
 	            console.log(JSON.stringify(response.data));
