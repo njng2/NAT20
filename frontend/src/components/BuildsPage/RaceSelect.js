@@ -14,8 +14,8 @@ const RaceSelect = ({selectedRace, handleChange, race, raceOptions}) => {
         <BuildTitle style>
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                    <Grid container spacing = {3}>
-                    <Grid item xs={2} columns={18}> 
+                    <Grid container spacing = {10} alignItems="stretch">
+                    <Grid item xs={5} columns={18}> 
 
                     </Grid>
                     <Grid item xs={2}>

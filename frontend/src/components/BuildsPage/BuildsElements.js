@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../../media/images/buildsbg2.png";
+import background from "../../media/images/dndshop.jpg";
 import library from '../../media/images/library.jpg';
 import signup from '../../media/images/buildsbg.png';
 
@@ -36,6 +36,15 @@ export const ClassTextBox = styled.div`
     color: #fff;
     opacity: .5;
     justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 40vh;
+    margin-top: calc(90vh - 85vh - 20px);
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
 `
 
 export const ClassImageBox = styled.div`
@@ -82,6 +91,15 @@ export const RaceTextBox = styled.div`
     color: #fff;
     opacity: .5;
     justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(90vh - 85vh - 20px);
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
 `
 
 export const RaceImageBox = styled.div`

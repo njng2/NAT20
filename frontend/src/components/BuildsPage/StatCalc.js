@@ -29,8 +29,8 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             <th>Cost</th>
                         </tr>
                         <tr id="str" class="stats-row">
-                            <div>
-                            <button class = "stat" onClick={() => setButtonPopup(true)}><th> STR </th></button>
+                            
+                            <th button onClick={() => setButtonPopup(true)}>STR</th>
                             
                             <PopUp trigger ={buttonPopup} setTrigger = {setButtonPopup}>
                                 <h1>Strength</h1>
@@ -58,7 +58,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                 or pull you underwater or otherwise interfere with your swimming.</li>
                                 </ul>
                             </PopUp>
-                            </div>
+                            
                             <td className="Holder">
                                 <div className="Right">
                                     <Incrementor
@@ -113,8 +113,8 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                         </tr>
                         <tr id="dex" class="stats-row">
-                        <div>
-                            <button class = "stat" onClick={() => setButtonPopup2(true)}><th> DEX </th></button>
+                        
+                            <th button onClick={() => setButtonPopup2(true)}> DEX</th>
                             
                             <PopUp trigger ={buttonPopup2} setTrigger = {setButtonPopup2}>
                             <h1>Dexterity</h1>
@@ -141,7 +141,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             <p>Make a Dexterity (Stealth) check when you attempt to conceal yourself from enemies, slink past guards, slip away without being noticed, 
                             or sneak up on someone without being seen or heard.</p>
                             </PopUp>
-                        </div>
+            
 
                             <td className="Holder">
                                 <div className="Right">
@@ -198,8 +198,8 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                         </tr>
                         <tr id="con" class="stats-row">
-                        <div>
-                            <button class = "stat" onClick={() => setButtonPopup3(true)}><th> CON </th></button>
+                        
+                            <th button onClick={() => setButtonPopup3(true)}>CON </th>
                             
                             <PopUp trigger ={buttonPopup3} setTrigger = {setButtonPopup3}>
 
@@ -229,7 +229,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </p>
                             </PopUp>
 
-                        </div>
+                        
                             <td className="Holder">
                                 <div className="Right">
                                     <Incrementor
@@ -278,8 +278,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                         </tr>
                         <tr id="int" class="stats-row">
-                        <div>
-                            <button class = "stat" onClick={() => setButtonPopup4(true)}><th> INT </th></button>
+                            <th button onClick={() => setButtonPopup4(true)}> INT </th>
                             
                             <PopUp trigger ={buttonPopup4} setTrigger = {setButtonPopup4}>
                                 <h1>Intelligence</h1>
@@ -310,9 +309,8 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                 <p>Your Intelligence (Religion) check measures your ability to recall lore about deities, rites and prayers, 
                                 religious hierarchies, holy symbols, and the practices of secret cults.</p>
 
-
                             </PopUp>
-                            </div>
+                        
                             <td className="Holder">
                                 <div className="Right">
                                     <Incrementor
@@ -363,8 +361,8 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                         </tr>
                         <tr id="wis" class="stats-row">
-                        <div>
-                            <button class = "stat" onClick={() => setButtonPopup5(true)}><th> WIS </th></button>
+                        
+                            <th button onClick={() => setButtonPopup5(true)}>WIS </th>
                             
                             <PopUp trigger ={buttonPopup5} setTrigger = {setButtonPopup5}>
                             <h1>Wisdom</h1>
@@ -398,7 +396,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             predict the weather, or avoid quicksand and other natural hazards.</p>
 
                             </PopUp>
-                            </div>
+                
                             <td className="Holder">
                                 <div className="Right">
                                     <Incrementor
@@ -448,8 +446,8 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                         </tr>
                         <tr id="cha" class="stats-row">
-                        <div>
-                            <button class = "stat" onClick={() => setButtonPopup6(true)}><th> CHA </th></button>
+                        
+                            <th button onClick={() => setButtonPopup6(true)}>CHA </th>
                             
                             <PopUp trigger ={buttonPopup6} setTrigger = {setButtonPopup6}>
                             <h1>Charisma</h1>
@@ -482,7 +480,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             Typically, you use persuasion when acting in good faith, to foster friendships, make cordial requests, or exhibit proper etiquette. Examples of persuading others include convincing a 
                             chamberlain to let your party see the king, negotiating peace between warring tribes, or inspiring a crowd of townsfolk.</p>
                             </PopUp>
-                            </div>
+                            
                             <td className="Holder">
                                 <div className="Right">
                                     <Incrementor

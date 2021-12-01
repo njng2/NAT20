@@ -26,12 +26,12 @@ export const CloseIcon = styled.div`
     position: fixed;
     right: calc(15% - 30px);
     top: calc(100vh - 85vh - 33px);
-    background: #ededed;
+    background: clear;
     width: 25px;
     height: 25px;
     border-radius: 50%;
     line-height: 20px;
     text-align: center;
-    border: 1px solid #999;
+    border: 1px solid clear;
     font-size: 20px;
 `
