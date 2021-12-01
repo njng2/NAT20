@@ -118,6 +118,7 @@ const BuildsPage = (props) => {
     const handleChange = e => {
         // console.log("testsdfsdf",e.target.data)
         setSelectedRace(e.target.value);
+        setOpen(false);
     }
     
     // get race api call
