@@ -15,10 +15,10 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
         <ClassTitle>
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                <Grid container spacing = {3}>
-                <Grid item xs={2} columns={18}>
+                <Grid container spacing = {4} >
+                <Grid item xs={6} columns={18}>
                 </Grid>
-                <Grid  item xs={2}>
+                <Grid  item xs={1}>
                 <h1>
                 {
                     selectedClass !== 'none' ?

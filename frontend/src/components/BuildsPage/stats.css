@@ -67,7 +67,7 @@ th.operator{
 }
 
 .stat{
-  display: flex;
+  display: table-row;
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;

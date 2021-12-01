@@ -342,7 +342,7 @@ const BuildsPage = (props) => {
                             <TextField
                                 value={name}
                                 label="Enter your name"
-                                style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                style={{backgroundColor: 'white', color: '#FFFFFF'}}
                                 onChange={(e) => {
                                 setName(e.target.value);
                                 // console.log(name);
