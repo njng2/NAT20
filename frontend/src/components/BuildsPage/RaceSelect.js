@@ -131,10 +131,10 @@ const tabChange = (event, newValue) => {
                                     {race.size_description}
                                     </TabPanel>
                                     <TabPanel value={value} index={4}>
-                                    {race.speed}
+                                    {race.language_desc}
                                     </TabPanel>
                                     <TabPanel value={value} index={5}>
-                                    {race.language_desc}
+                                        Item Six
                                     </TabPanel>
                                     </Box>
                                 {/* If name matches, image will render */}

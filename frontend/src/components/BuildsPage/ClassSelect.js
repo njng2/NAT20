@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Container, Grid } from '@mui/material';
 import { Box} from '@mui/system';
 import ClassImageMap from "../../media/classImages";
@@ -9,8 +8,50 @@ import {
     ClassTextBox, 
     ClassImageBox, 
 } from './BuildsElements';
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired
+  };
+  
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`
+    };
+  }
+
 
 const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
+    const [value, setValue] = React.useState(0);
+    const tabChange = (event, newValue) => {
+        setValue(newValue);
+  };
     return (
         <ClassTitle>
             <Container>
@@ -53,14 +94,35 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                     //if selectedValue is not none, show all attributes
                     selectedClass !== 'none' ?  
                     <ClassTextBox>
-                        <a><h3>Stat Bonuses</h3></a>
-                        <div id="statBonus"> </div>
-                        <a><h3>Hit Die</h3>{classes.hit_die}</a> 
-                        {/* /div holds the chocies for profs/ */}
-                        <a><h3>Skill Proficiencies</h3></a> 
-                        <div id="profChoices"></div>
-                        <a><h3>Equipment Proficiencies</h3></a>
-                        <div id="equipChoices"></div>
+                        <Box sx={{ maxWidth: 360 }}>
+                                    <Tabs
+                                        value={value}
+                                        onChange={tabChange}
+                                        variant="scrollable"
+                                        scrollButtons
+                                        allowScrollButtonsMobile
+                                        aria-label="scrollable auto tabs example"
+                                    >
+                                        <Tab label="Stat Bonuses" {...a11yProps(0)} />
+                                        <Tab label="Hit Die" {...a11yProps(1)} />
+                                        <Tab label="Proficiences" {...a11yProps(2)} />
+                                        <Tab label="Equipement Proficiencies" {...a11yProps(3)} />
+                                    </Tabs>
+
+                                    <TabPanel value={value} index={0}>
+                                    
+                                    {(<div id="statBonus"></div>)}
+                                    </TabPanel>
+                                    <TabPanel value={value} index={1}>
+                                    {classes.hit_die}
+                                    </TabPanel>
+                                    <TabPanel value={value} index={2}>
+                                    <div id="profChoices"></div>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={3}>
+                                    <div id="equipChoices"></div>
+                                    </TabPanel>
+                                    </Box>
                     </ClassTextBox>
                     //else render nothing  
                     : null
