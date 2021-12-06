@@ -53,6 +53,7 @@ export const ClassImageBox = styled.div`
     justify-content: center;
 `
 
+
 //***************************************************************************************************************** */
 //dropown stuff below this
 

@@ -56,6 +56,8 @@ const [value, setValue] = React.useState(0);
 const tabChange = (event, newValue) => {
       setValue(newValue);
 };
+
+
     return (
         <BuildTitle style>
             <Container>
@@ -78,7 +80,7 @@ const tabChange = (event, newValue) => {
 
                     
                     <DropDownStyle>
-                        <Grid item xs={6}>
+                        <Grid item xs={6} alignItems="stretch">
                         <br /><br />
                         <a style={{ color: 'white' }}>Race</a>
 
@@ -110,7 +112,8 @@ const tabChange = (event, newValue) => {
                                         allowScrollButtonsMobile
                                         aria-label="scrollable auto tabs example"
                                     >
-                                        <Tab label="Alignment" {...a11yProps(0)} />
+                                        
+                                        <Tab label="Alignment" {...a11yProps(0)}/> 
                                         <Tab label="Age" {...a11yProps(1)} />
                                         <Tab label="Size" {...a11yProps(2)} />
                                         <Tab label="Size Description" {...a11yProps(3)} />
@@ -131,20 +134,12 @@ const tabChange = (event, newValue) => {
                                     {race.size_description}
                                     </TabPanel>
                                     <TabPanel value={value} index={4}>
-                                    {race.language_desc}
+                                    {race.speed}
                                     </TabPanel>
                                     <TabPanel value={value} index={5}>
-                                        Item Six
+                                    {race.language_desc}
                                     </TabPanel>
                                     </Box>
-                                {/* If name matches, image will render */}
-                                
-                                {/* <a><h3>Alignment</h3>{race.alignment}</a>
-                                <a><h3>Age</h3>{race.age}</a>
-                                <a><h3>Size</h3>{race.size}</a>
-                                <a><h3>Size Description</h3>{race.size_description}</a>
-                                <a><h3>Speed</h3>{race.speed}</a>
-                                <a><h3>Languages</h3>{race.language_desc}</a> */}
                                 
                             </RaceTextBox>
                             //else render nothing  
