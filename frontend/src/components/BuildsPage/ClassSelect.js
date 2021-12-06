@@ -6,7 +6,8 @@ import {
     ClassTitle, 
     ClassSectionStyle, 
     ClassTextBox, 
-    ClassImageBox, 
+    ClassImageBox,
+    
 } from './BuildsElements';
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -56,7 +57,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
         <ClassTitle>
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                <Grid container spacing = {4} >
+                <Grid container spacing = {4}>
                 <Grid item xs={6} columns={18}>
                 </Grid>
                 <Grid  item xs={1}>
@@ -72,7 +73,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
             </Grid>
             
             <ClassSectionStyle>
-                <Grid Grid item xs={6}>
+                <Grid Grid item xs={6} alignItems="stretch">
                 <br /><br />
                 <a style={{ color: 'white' }}>Class</a>
 
@@ -87,14 +88,13 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                     })}
                 </select>
                 
-                {/* <Link to ="/heroStats"><button> Hero Stats ⇨</button></Link>
-                <Link to ="/builds"><button>⇦ Builds </button></Link> */}
+                
                 <br /><br />
                 {
                     //if selectedValue is not none, show all attributes
                     selectedClass !== 'none' ?  
                     <ClassTextBox>
-                        <Box sx={{ maxWidth: 360 }}>
+                        <Box sx={{ maxWidth: 500 }}>
                                     <Tabs
                                         value={value}
                                         onChange={tabChange}
@@ -102,24 +102,29 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                                         scrollButtons
                                         allowScrollButtonsMobile
                                         aria-label="scrollable auto tabs example"
+                                        font ="font-family: Arial"
                                     >
-                                        <Tab label="Stat Bonuses" {...a11yProps(0)} />
-                                        <Tab label="Hit Die" {...a11yProps(1)} />
-                                        <Tab label="Proficiences" {...a11yProps(2)} />
-                                        <Tab label="Equipement Proficiencies" {...a11yProps(3)} />
+                                        <Tab label="Class Description" {...a11yProps(0)} />
+                                        <Tab label="Stat Bonuses" {...a11yProps(1)} />
+                                        <Tab label="Hit Die" {...a11yProps(2)} />
+                                        <Tab label="Proficiences" {...a11yProps(3)} />
+                                        <Tab label="Equipment Proficiencies" {...a11yProps(4)} />
                                     </Tabs>
 
                                     <TabPanel value={value} index={0}>
-                                    
-                                    {(<div id="statBonus"></div>)}
+                                    Item
                                     </TabPanel>
                                     <TabPanel value={value} index={1}>
-                                    {classes.hit_die}
+                                    <div id="statBonus"> </div>
+                                    {/* {classes.bonus} */}
                                     </TabPanel>
                                     <TabPanel value={value} index={2}>
-                                    <div id="profChoices"></div>
+                                    {classes.hit_die}
                                     </TabPanel>
                                     <TabPanel value={value} index={3}>
+                                    <div id="profChoices"></div>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={4}>
                                     <div id="equipChoices"></div>
                                     </TabPanel>
                                     </Box>

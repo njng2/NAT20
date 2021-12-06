@@ -36,8 +36,10 @@ export const ClassTextBox = styled.div`
 `
 
 export const ClassImageBox = styled.div`
-    
     justify-content: center;
+    background-color: clear;
+    overflow: hidden;
+    height: 100vh;
 `
 
 // export const ClassGrid = styled.div`

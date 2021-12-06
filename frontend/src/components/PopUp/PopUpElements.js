@@ -35,3 +35,6 @@ export const CloseIcon = styled.div`
     border: 1px solid clear;
     font-size: 20px;
 `
+export const Cursor = styled.div`
+    cursor: grab;
+`
