@@ -3,7 +3,24 @@ import PopUp from '../PopUp/index';
 import Incrementor from '../Incrementor/Inc';
 import {Cursor} from '../PopUp/PopUpElements';
 
-const StatCalc = ({usedPoints, availablePoints, totalPoints, trackUsedPoints, trackAvailablePoints, min, max, valueStr, valueDex, valueCon, valueInt, valueWis, valueCha, StrCount, setStrValue, setStrCounter, DexCount, setDexValue, setDexCounter, ConCount, setConValue, setConCounter, IntCount, setIntValue, setIntCounter, WisCount, setWisValue, setWisCounter, ChaCount, setChaValue, setChaCounter,}) => {
+const StatCalc = ({
+    usedPoints, 
+    availablePoints, 
+    totalPoints, 
+    trackUsedPoints, 
+    trackAvailablePoints, 
+    min, max, valueStr, valueDex, valueCon, 
+    valueInt, valueWis, valueCha, StrCount, setStrValue, 
+    setStrCounter, DexCount, setDexValue, setDexCounter, ConCount, 
+    setConValue, setConCounter, IntCount, setIntValue, setIntCounter, 
+    WisCount, setWisValue, setWisCounter, ChaCount, setChaValue, setChaCounter,
+    StrModCount, setStrModCounter,
+    DexModCount, setDexModCounter,
+    ConModCount, setConModCounter,
+    IntModCount, setIntModCounter,
+    WisModCount, setWisModCounter,
+    ChaModCount, setChaModCounter,
+}) => {
 const [buttonPopup, setButtonPopup] = useState(false);
 const [buttonPopup2, setButtonPopup2] = useState(false);
 const [buttonPopup3, setButtonPopup3] = useState(false);
@@ -65,10 +82,11 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                     <Incrementor
                                     value = {valueStr}
                                     Counter = {StrCount}
+                                    Mod = {StrModCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints} 
                                     onChange = {
-                                        (v,count, points, trackpoints) => {
+                                        (v,count, points, trackpoints,modpoints) => {
 
                                             
                                             if(usedPoints >=0 && usedPoints<=27){
@@ -76,6 +94,15 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                                 setStrCounter(count);
                                                 trackUsedPoints(trackpoints);
                                                 trackAvailablePoints(points);
+                                                if (StrCount % 2 ===0 && StrCount>0){
+                                                    setStrModCounter(modpoints);
+                                                    // if(StrCount <=15 && StrCount%2 ===0 ){
+                                                    //     setStrModCounter(modpoints);
+    
+                                                    // }  
+                                                    
+    
+                                                }
                                             }
 
                                             
@@ -106,7 +133,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{StrModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -150,15 +177,24 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                     value = {valueDex}
                                     Counter ={DexCount}
                                     availPoints = {availablePoints}
+                                    Mod = {DexModCount}
                                     CurrentPoints = {usedPoints}
                                     onChange = {
-                                        (v, count, points, trackpoints) => {
+                                        (v, count, points, trackpoints,modpoints) => {
 
                                             if(usedPoints >=0 && usedPoints<=27){
                                                 setDexValue(v)
                                                 setDexCounter(count)
                                                 trackUsedPoints(trackpoints);
                                                 trackAvailablePoints(points);
+                                                if (DexCount%2===0 && DexCount >0 ){
+                                                    setDexModCounter(modpoints);
+                                                    // if(DexCount% 2 ===0){
+                                                    //     setDexModCounter(modpoints);
+    
+                                                    // }
+                                                
+                                                }
                                             }
                                     
 
@@ -188,7 +224,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{DexModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -238,13 +274,25 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                     Counter = {ConCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {ConModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setConCounter(count)
                                             setConValue(v)
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                            if (ConCount % 2 ===0 && ConCount > 0){
+                                                setConModCounter(modpoints);
+                                                // if(ConCount%2 ===0){
+                                                //     setConModCounter(modpoints);
+
+                                                // }
+                                                
+
+                                            
+
+                                            }
                                         }
                                     
 
@@ -271,7 +319,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{ConModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -319,7 +367,8 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                     Counter = {IntCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {IntModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setIntValue(v);
 
@@ -327,6 +376,15 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                            if (IntCount % 2 ===0 && IntCount>0 ){
+                                                setIntModCounter(modpoints);
+                                                // if (IntCount% 2 ===0){
+                                                //     setIntModCounter(modpoints);
+    
+                                                // }
+                                                
+    
+                                            }
                                         }
 
 
@@ -354,7 +412,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{IntModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -405,13 +463,23 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                     Counter = {WisCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {WisModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setWisValue(v);
                                             setWisCounter(count);
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                            if(WisCount % 2 ===0 && WisCount>0){
+                                                setWisModCounter(modpoints);
+                                                // if(WisCount% 2 ===0){
+                                                //     setWisModCounter(modpoints);
+    
+                                                // }
+    
+    
+                                            }
                                         }
                                     
                                     
@@ -439,7 +507,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{WisModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -489,13 +557,23 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                                     Counter = {ChaCount}
                                     availPoints = {availablePoints}
                                     CurrentPoints = {usedPoints}
-                                    onChange = {(v,count, points, trackpoints) => {
+                                    Mod = {ChaModCount}
+                                    onChange = {(v,count, points, trackpoints, modpoints) => {
                                         if(usedPoints >=0 && usedPoints<=27){
                                             setChaValue(v);
                                             setChaCounter(count);
 
                                             trackUsedPoints(trackpoints);
                                             trackAvailablePoints(points);
+                                            if (ChaCount % 2 ===0 && ChaCount>0){
+                                                setChaModCounter(modpoints);
+                                                // if (ChaCount <=15 && ChaCount% 2 ===0 ){
+                                                //     setChaModCounter(modpoints);
+    
+                                                // }
+                                                
+    
+                                            }
                                         }
                                     
 
@@ -526,7 +604,7 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                             <td>&nbsp;</td>
                             <td>
-                                <div><p>-1</p></div>
+                                <div>{ChaModCount}</div>
                             </td>
                             <td>&nbsp;</td>
                             <td>
