@@ -44,6 +44,14 @@ const BuildsPage = (props) => {
     const [valueInt, setIntValue] = useState(min);
     const [valueWis, setWisValue] = useState(min);
     const [valueCha, setChaValue] = useState(min);
+    const[StrModCount, setStrModCounter] = useState(-1)
+    const[DexModCount, setDexModCounter] = useState(-1)
+    const[ConModCount, setConModCounter] = useState(-1)
+    const[IntModCount, setIntModCounter] = useState(-1)
+    const[WisModCount, setWisModCounter] = useState(-1)
+    const[ChaModCount, setChaModCounter] = useState(-1)
+
+
     const [heroId, setHeroId] = useState(0);
     const storeState = store.getState();
     const userId = storeState.auth.user.id;
@@ -307,6 +315,20 @@ const BuildsPage = (props) => {
                 ChaCount={ChaCount}
                 setChaValue={setChaValue}
                 setChaCounter={setChaCounter}
+                
+                //setting up mods
+                StrModCount = {StrModCount}
+                setStrModCounter= {setStrModCounter}
+                DexModCount = {DexModCount}
+                setDexModCounter = {setDexModCounter}
+                ConModCount = {ConModCount}
+                setConModCounter = {setConModCounter}
+                IntModCount = {IntModCount}
+                setIntModCounter = {setIntModCounter}
+                WisModCount = {WisModCount}
+                setWisModCounter = {setWisModCounter}
+                ChaModCount = {ChaModCount}
+                setChaModCounter = {setChaModCounter}
             />
     
             <Container>
