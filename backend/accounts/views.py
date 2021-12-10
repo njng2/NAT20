@@ -1,4 +1,7 @@
+
+from django.http.response import Http404
 from django.shortcuts import render
+from rest_framework.serializers import Serializer
 from rest_framework.views import APIView
 from . models import *
 from rest_framework.response import Response
@@ -27,21 +30,31 @@ class ReactView(APIView):
   
     @csrf_exempt
     def post(self, request):
-  
         serializer = UsersHeroesSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return  Response(serializer.data)
     
+  
+class ReactDetail(APIView):
+
     @csrf_exempt
-    def delete(self, idNum): 
-        print(idNum)
-       
-        # try: 
-        #     character = UsersHeroes.objects.get(id = idNum)
-        #     character.delete()
-        #     print("Record deleted")
-        # # serializer = UsersHeroesSerializer(data=request.data)
-        # except: 
-        #     print("record does not exist")
-        
+    def get_object(self, pk):
+        try:
+            return UsersHeroes.objects.get(id=pk)
+        except UsersHeroes.DoesNotExist:
+            raise Http404
+
+    @csrf_exempt
+    def get(self, request, pk, format=None):
+        hero = UsersHeroes.objects.get(id=pk)
+        serializer = UsersHeroesSerializer(hero, data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return  Response(serializer.data)
+
+    @csrf_exempt
+    def delete(self, request, pk, format=None):
+        hero = UsersHeroes.objects.get(id=pk)
+        hero.delete()
+                
