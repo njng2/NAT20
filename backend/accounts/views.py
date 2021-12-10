@@ -33,15 +33,15 @@ class ReactView(APIView):
             serializer.save()
             return  Response(serializer.data)
     
-    @csrf_exempt
-    def delete(self, idNum): 
-        print(idNum)
+    # @csrf_exempt
+    # def delete(self, idNum): 
+    #     print(idNum)
        
-        # try: 
-        #     character = UsersHeroes.objects.get(id = idNum)
-        #     character.delete()
-        #     print("Record deleted")
-        # # serializer = UsersHeroesSerializer(data=request.data)
-        # except: 
-        #     print("record does not exist")
+    #     # try: 
+    #     #     character = UsersHeroes.objects.get(id = idNum)
+    #     #     character.delete()
+    #     #     print("Record deleted")
+    #     # # serializer = UsersHeroesSerializer(data=request.data)
+    #     # except: 
+    #     #     print("record does not exist")
         
