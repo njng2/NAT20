@@ -34,9 +34,9 @@ const BuildsPage = (props) => {
     //Name
     const [name, setName] = useState("");
     //Race Type
-    const [selectedRace, setSelectedRace] = useState('none');
+    const [selectedRace, setSelectedRace] = useState('dragonborn');
     //Class Type
-    const [selectedClass, setSelectedClass] = useState('none');
+    const [selectedClass, setSelectedClass] = useState('bard');
     //Stats
     const [valueStr, setStrValue] = useState(min);
     const [valueDex, setDexValue] = useState(min);

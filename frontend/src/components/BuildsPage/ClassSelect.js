@@ -104,27 +104,24 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                                         aria-label="scrollable auto tabs example"
                                         font ="font-family: Arial"
                                     >
-                                        <Tab label="Class Description" {...a11yProps(0)} />
-                                        <Tab label="Stat Bonuses" {...a11yProps(1)} />
-                                        <Tab label="Hit Die" {...a11yProps(2)} />
-                                        <Tab label="Proficiences" {...a11yProps(3)} />
-                                        <Tab label="Equipment Proficiencies" {...a11yProps(4)} />
+                                        <Tab label="Stat Bonuses" {...a11yProps(0)} />
+                                        <Tab label="Hit Die" {...a11yProps(1)} />
+                                        <Tab label="Proficiences" {...a11yProps(2)} />
+                                        <Tab label="Equipment Proficiencies" {...a11yProps(3)} />
                                     </Tabs>
 
+                                    
                                     <TabPanel value={value} index={0}>
-                                    Item
-                                    </TabPanel>
-                                    <TabPanel value={value} index={1}>
                                     <div id="statBonus"> </div>
                                     {/* {classes.bonus} */}
                                     </TabPanel>
-                                    <TabPanel value={value} index={2}>
+                                    <TabPanel value={value} index={1}>
                                     {classes.hit_die}
                                     </TabPanel>
-                                    <TabPanel value={value} index={3}>
+                                    <TabPanel value={value} index={2}>
                                     <div id="profChoices"></div>
                                     </TabPanel>
-                                    <TabPanel value={value} index={4}>
+                                    <TabPanel value={value} index={3}>
                                     <div id="equipChoices"></div>
                                     </TabPanel>
                                     </Box>
