@@ -48,11 +48,19 @@ function TabPanel(props) {
   }
 
 
-const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
+
+const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classProf,equipProf,classStatBonus}) => {
     const [value, setValue] = React.useState(0);
     const tabChange = (event, newValue) => {
         setValue(newValue);
   };
+  console.log(classes);
+  console.log("classprof",classProf);
+  console.log("equipprof",equipProf);
+  console.log("classstatebonus",classStatBonus);
+  // document.getElementById('classprof2').innerHTML = classProf;
+  // const Whatever = document.getElementById('classprof2').innerHTML;
+
     return (
         <ClassTitle>
             <Container>
@@ -72,7 +80,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
             </h1>
             </Grid>
             
-            <ClassSectionStyle>
+           
                 <Grid Grid item xs={6} alignItems="stretch">
                 <br /><br />
                 <a style={{ color: 'white' }}>Class</a>
@@ -104,28 +112,30 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                                         aria-label="scrollable auto tabs example"
                                         font ="font-family: Arial"
                                     >
-                                        <Tab label="Class Description" {...a11yProps(0)} />
-                                        <Tab label="Stat Bonuses" {...a11yProps(1)} />
-                                        <Tab label="Hit Die" {...a11yProps(2)} />
-                                        <Tab label="Proficiences" {...a11yProps(3)} />
-                                        <Tab label="Equipment Proficiencies" {...a11yProps(4)} />
+                                        <Tab label="Stat Bonuses" {...a11yProps(0)} />
+                                        <Tab label="Hit Die" {...a11yProps(1)} />
+                                        <Tab label="Proficiences" {...a11yProps(2)} />
+                                        <Tab label="Equipment Proficiencies" {...a11yProps(3)} />
                                     </Tabs>
 
+                                    
                                     <TabPanel value={value} index={0}>
-                                    Item
+                                      {classStatBonus.split("\n\n")}
+                                  
                                     </TabPanel>
                                     <TabPanel value={value} index={1}>
-                                    <div id="statBonus"> </div>
-                                    {/* {classes.bonus} */}
+                                      {classes.hit_die}
                                     </TabPanel>
                                     <TabPanel value={value} index={2}>
-                                    {classes.hit_die}
+                                    {classProf.split("\n\n")}
+                                   
+                                      <ul id = "classprof2"> 
+                                      
+                                      </ul>
                                     </TabPanel>
                                     <TabPanel value={value} index={3}>
-                                    <div id="profChoices"></div>
-                                    </TabPanel>
-                                    <TabPanel value={value} index={4}>
-                                    <div id="equipChoices"></div>
+                                    
+                                    {equipProf.split("\n\n")}
                                     </TabPanel>
                                     </Box>
                     </ClassTextBox>
@@ -133,10 +143,13 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                     : null
                 }
                 </Grid>
-                </ClassSectionStyle>
+                
                 </Grid>
                 </Box>
             </Container>
+            {/* {
+            document.getElementById('classprof2').innerHTML = classProf
+            } */}
         </ClassTitle>
     )
 }
