@@ -79,7 +79,7 @@ const tabChange = (event, newValue) => {
                     </Grid>
 
                     
-                    <DropDownStyle>
+                    
                         <Grid item xs={6} alignItems="stretch">
                         <br /><br />
                         <a style={{ color: 'white' }}>Race</a>
@@ -146,7 +146,7 @@ const tabChange = (event, newValue) => {
                             : null
                         }
                         </Grid>
-                    </DropDownStyle>
+                    
                     </Grid>
                 </Box>
             </Container>
