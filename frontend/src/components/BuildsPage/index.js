@@ -207,39 +207,47 @@ const BuildsPage = (props) => {
     
     //const newArr = allRaces.map()
     const [classes,setClasses] = useState("");
+    const [classProf,setClassProf] = useState("");
+    const [equipProf,setEquipProf] = useState("");
+    const [classStatBonus,setStatBonus] = useState ("");
     const getClass = (label) =>{
 
         Axios.get(`https://www.dnd5eapi.co/api/classes/${label}`).then(resp =>{
             setClasses(resp.data);
 
-            //makes the list for skill proficiencies
+            // //makes the list for skill proficiencies
             let html = '';
             (resp.data.proficiency_choices[0].from).forEach(function(prof) {
-                html+= '<li>' + prof.index;
+                html +=  prof.index;
             });
-            html = '<ul>' + html +'<ul>'
-            // console.log(html)
-            document.querySelector('#profChoices').innerHTML = html;
-            //end of skill proficiency code
+            // html = '*' + html +'*'
+            setClassProf(html);
+            console.log(html)
+            // document.querySelector('#profChoices').innerHTML = html;
+            // //end of skill proficiency code
 
             //make list for the equipment proficiencies
             let html2 = '';
             (resp.data.proficiencies).forEach(function(prof) {
-                html2+= '<li>' + prof.index;
+                html2+= prof.index ;
             });
-            html2 = '<ul>' + html2 +'<ul>'
-            // console.log(html2)
-            document.querySelector('#equipChoices').innerHTML = html2;
-            //end of equipment proficiencies
+            setEquipProf(html2);
+            console.log(html2)
+            // html2 = '<ul>' + html2 +'<ul>'
+            // // console.log(html2)
+            // document.querySelector('#equipChoices').innerHTML = html2;
+            // //end of equipment proficiencies
 
-            //make list for stat bonus
+            // //make list for stat bonus
             let html3 = '';
             (resp.data.saving_throws).forEach(function(bonus) {
-                html3+= '<li>' + bonus.name;
+                html3+=  bonus.name + "\n";
             });
-            html3 = '<ul>' + html3 +'<ul>'
+            setStatBonus(html3);
+            console.log(html3)
+            // html3 = '<ul>' + html3 +'<ul>'
             // console.log(html3)
-            document.querySelector('#statBonus').innerHTML = html3;
+            // document.querySelector('#statBonus').innerHTML = html3;
             //end of stat bonus
         }).catch(err =>{
             console.error(err);
@@ -280,6 +288,10 @@ const BuildsPage = (props) => {
                 classes={classes}
                 classOptions={classOptions} 
                 handleChange2={handleChange2}
+                classProf={classProf}
+                equipProf={equipProf}
+                classStatBonus={classStatBonus}
+
             />
 
             {/* Stat Calculator */}
