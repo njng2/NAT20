@@ -3,24 +3,7 @@ import background from "../../media/images/dndshop.jpg";
 import library from '../../media/images/library.jpg';
 import signup from '../../media/images/buildsbg.png';
 
-//classes elements
-// export const BGContainer = styled.div`
-//     background-image: url(${background});
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     justify-content: center;
-//     width: 100wh;
-//     height: 120vh;
-//     color: white;
-//     overflow: hidden;
-// `
 
-export const ClassSectionStyle = styled.div`
-    width: 10vw;
-    height: 10vh;
-    postion: absolute;
-    color: black;
-`
 export const ClassTitle = styled.div`
     display: flex;
     justify-content: center;

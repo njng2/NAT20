@@ -60,6 +60,11 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
   console.log("classstatebonus",classStatBonus);
   // document.getElementById('classprof2').innerHTML = classProf;
   // const Whatever = document.getElementById('classprof2').innerHTML;
+  const EquipArray2 = equipProf.substr(0,equipProf.length-1)
+  const EquipArray = EquipArray2.split("*")
+
+  const IfteArray2 = classProf.substr(0,classProf.length-1)
+  const IfteArray =  IfteArray2.split("*")
 
     return (
         <ClassTitle>
@@ -102,7 +107,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                     //if selectedValue is not none, show all attributes
                     selectedClass !== 'none' ?  
                     <ClassTextBox>
-                        <Box sx={{ maxWidth: 500 }}>
+                        <Box sx={{ maxWidth: 480 }}>
                                     <Tabs
                                         value={value}
                                         onChange={tabChange}
@@ -120,22 +125,19 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
 
                                     
                                     <TabPanel value={value} index={0}>
-                                      {classStatBonus.split("\n\n")}
-                                  
+                                     <li>{classStatBonus.split("",3)}</li> 
+                                     <li>{classStatBonus.slice(4,-1)}</li> 
+
                                     </TabPanel>
                                     <TabPanel value={value} index={1}>
-                                      {classes.hit_die}
+                                    {classes.hit_die}
                                     </TabPanel>
                                     <TabPanel value={value} index={2}>
-                                    {classProf.split("\n\n")}
-                                   
-                                      <ul id = "classprof2"> 
-                                      
-                                      </ul>
+                                    {IfteArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
                                     <TabPanel value={value} index={3}>
-                                    
-                                    {equipProf.split("\n\n")}
+                                   
+                                    {EquipArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
                                     </Box>
                     </ClassTextBox>
@@ -146,6 +148,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                 
                 </Grid>
                 </Box>
+                
             </Container>
             {/* {
             document.getElementById('classprof2').innerHTML = classProf

@@ -218,9 +218,9 @@ const BuildsPage = (props) => {
             // //makes the list for skill proficiencies
             let html = '';
             (resp.data.proficiency_choices[0].from).forEach(function(prof) {
-                html +=  prof.index;
+                html +=  prof.index + "*" ;
             });
-            // html = '*' + html +'*'
+            //  html = '<ul>' + html +'<ul>';
             setClassProf(html);
             console.log(html)
             // document.querySelector('#profChoices').innerHTML = html;
@@ -229,7 +229,7 @@ const BuildsPage = (props) => {
             //make list for the equipment proficiencies
             let html2 = '';
             (resp.data.proficiencies).forEach(function(prof) {
-                html2+= prof.index ;
+                html2+= prof.index + "*";
             });
             setEquipProf(html2);
             console.log(html2)

@@ -63,7 +63,7 @@ const tabChange = (event, newValue) => {
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
                     <Grid container spacing = {10} alignItems="stretch">
-                    <Grid item xs={5} columns={18}> 
+                    <Grid item xs={4} columns={18}> 
 
                     </Grid>
                     <Grid item xs={2}>
@@ -80,7 +80,7 @@ const tabChange = (event, newValue) => {
 
                     
                     
-                        <Grid item xs={6} alignItems="stretch">
+                        <Grid item xs={2} alignItems="stretch">
                         <br /><br />
                         <a style={{ color: 'white' }}>Race</a>
 
@@ -103,7 +103,7 @@ const tabChange = (event, newValue) => {
                             
                             selectedRace !== 'none' ?  
                             <RaceTextBox>
-                                <Box sx={{ maxWidth: 480 }}>
+                                <Box sx={{ maxWidth: "auto" }}>
                                     <Tabs
                                         value={value}
                                         onChange={tabChange}
