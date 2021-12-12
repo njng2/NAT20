@@ -18,6 +18,9 @@ import Builds from './containers/Builds';
 import Chat from './containers/Chat';
 import HeroStats from './containers/HeroStats';
 import Classes from './containers/Classes';
+import axios from 'axios';
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 const App = () => {
  

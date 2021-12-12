@@ -1,1 +1,0 @@
-echo "web: gunicorn NAT20.wsgi" > Procfile

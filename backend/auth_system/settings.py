@@ -6,12 +6,22 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import django_heroku
+import dotenv
+import dj_database_url
 from pathlib import Path
 import os
 from datetime import timedelta
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#added this 14:08
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+    
+ ##end
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -20,8 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3%1qjn9getertb=5$bdtv&#^vtyq(ohsd9%ezzuzc+a-^sispu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-##DEBUG = True
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -55,12 +64,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-     # This is the default Django Security Middleware
-   'django.middleware.security.SecurityMiddleware',
-   
-   # Add whitenoise middleware here
-   'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+#added this lol 14:11
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'auth_system.urls'
 
@@ -89,7 +97,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379,'.herokuapp.com')],
+            "hosts": [('127.0.0.1', 6379,)],
         },
     }
 }
@@ -128,10 +136,9 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
-
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+##added this 14:08
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 EMAIL_BACKENED = 'django.core.mail.backends.smtmp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -181,10 +188,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static')
 ]
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# # Default primary key field type
-# # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 
 REST_FRAMEWORK = {
@@ -230,6 +237,11 @@ AUTH_USER_MODEL = 'accounts.UserAccount'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+##added this too lol 14:09
+django_heroku.settings(locals())
+
+
+options = DATABASES['default'].get('OPTIONS', {})
+options.pop('sslmode', None)
+##added this too lol 14:09
