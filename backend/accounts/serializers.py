@@ -14,6 +14,6 @@ class UsersHeroesSerializer(serializers.ModelSerializer):
         model = UsersHeroes
         # fields = ['name', 
         #         'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']
-        fields = ['name', 'race_type', 'class_type', 
+        fields = ['id', 'name', 'race_type', 'class_type', 
                 'STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA', 'hero']
         parent = UserCreateSerializer(many=False)

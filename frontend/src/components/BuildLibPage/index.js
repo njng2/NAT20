@@ -23,20 +23,18 @@ const useStyles = makeStyles({ //this dont work ?? idk
 
 
 
-const onDelete = ({Name}) =>{
-
-    const getData = Axios.get(`${process.env.REACT_APP_API_URL}/heroes`)
-    console.log(getData)
+const onDelete = (id) =>{
+    Axios.delete(`${process.env.REACT_APP_API_URL}/heroes/${id}/`)
+    .then(res =>{
+        console.log("Delete Response: ", res);
+        window.location.reload();
+    })
+    // console.log(getData)
     // Axios.delete(getData[name])
-   
-
-    
-    
-    
-
 };
 
 const MediaCard = ({build}) => {
+    // console.log("Here is build: ", build.id);
     const classes = useStyles;
     return (
         <Card sx={{ maxWidth: 345}} style={{backgroundColor: "black",color:"white"}}>
@@ -71,11 +69,9 @@ const MediaCard = ({build}) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
                 <Button 
                     // variant="contained" 
-                     onClick={()=>onDelete(build.name)}
+                     onClick={()=>onDelete(build.id)}
                                 // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
                     >
                     Delete
