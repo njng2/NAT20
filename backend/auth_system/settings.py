@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3%1qjn9getertb=5$bdtv&#^vtyq(ohsd9%ezzuzc+a-^sispu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+##DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     'social_django',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    'corsheaders'
+    'corsheaders',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+     # This is the default Django Security Middleware
+   'django.middleware.security.SecurityMiddleware',
+   
+   # Add whitenoise middleware here
+   'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'auth_system.urls'
@@ -82,7 +89,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('127.0.0.1', 6379,'.herokuapp.com')],
         },
     }
 }
@@ -121,6 +128,10 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
+
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 EMAIL_BACKENED = 'django.core.mail.backends.smtmp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -171,9 +182,9 @@ STATICFILES_DIRS = [
 ]
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# # Default primary key field type
+# # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 
 REST_FRAMEWORK = {
@@ -218,3 +229,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.UserAccount'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

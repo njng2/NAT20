@@ -1,1 +1,1 @@
-web: bin/runsvdir-dyno
+echo "web: gunicorn NAT20.wsgi" > Procfile
