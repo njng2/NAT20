@@ -25,6 +25,7 @@ class ReactView(APIView):
         "INT" : detail.INT,
         "WIS" : detail.WIS,
         "CHA" : detail.CHA,
+        "id": detail.id,
         } 
         for detail in UsersHeroes.objects.all()]
         # print(UsersHeroes.objects.get(id=3))
@@ -61,6 +62,7 @@ class ReactDetail(APIView):
             "INT" : userHero.INT,
             "WIS" : userHero.WIS,
             "CHA" : userHero.CHA,
+            "id"  : userHero.id,
         }
         return Response(hero)
         # serializer = UsersHeroesSerializer(hero, data=request.data)
