@@ -73,7 +73,7 @@ const MediaCard = ({build}) => {
             </CardContent>
             <CardActions>
                 <Button 
-                    variant="outlined"
+                    variant="contained"
                     startIcon={<DeleteIcon/>}
                     size="large" 
                      onClick={()=>onDelete(build.id)}
