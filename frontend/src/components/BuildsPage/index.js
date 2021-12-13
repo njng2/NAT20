@@ -210,6 +210,7 @@ const BuildsPage = (props) => {
     const [classProf,setClassProf] = useState("");
     const [equipProf,setEquipProf] = useState("");
     const [classStatBonus,setStatBonus] = useState ("");
+    const [startEquip,setStartEquip] = useState("");
     const getClass = (label) =>{
 
         Axios.get(`https://www.dnd5eapi.co/api/classes/${label}`).then(resp =>{
@@ -218,7 +219,7 @@ const BuildsPage = (props) => {
             // //makes the list for skill proficiencies
             let html = '';
             (resp.data.proficiency_choices[0].from).forEach(function(prof) {
-                html +=  prof.index + "*" ;
+                html +=  prof.name + "*" ;
             });
             //  html = '<ul>' + html +'<ul>';
             setClassProf(html);
@@ -229,7 +230,7 @@ const BuildsPage = (props) => {
             //make list for the equipment proficiencies
             let html2 = '';
             (resp.data.proficiencies).forEach(function(prof) {
-                html2+= prof.index + "*";
+                html2+= prof.name + "*";
             });
             setEquipProf(html2);
             console.log(html2)
@@ -249,6 +250,13 @@ const BuildsPage = (props) => {
             // console.log(html3)
             // document.querySelector('#statBonus').innerHTML = html3;
             //end of stat bonus
+            let html4 = '';
+            (resp.data.starting_equipment).forEach(function(bonus) {
+                console.log("test",bonus);
+                console.log(bonus.equipment.name);
+                html4+= bonus.equipment.name + "*";
+            });
+            setStartEquip(html4);
         }).catch(err =>{
             console.error(err);
         })
@@ -291,7 +299,7 @@ const BuildsPage = (props) => {
                 classProf={classProf}
                 equipProf={equipProf}
                 classStatBonus={classStatBonus}
-
+                startEquip={startEquip}
             />
 
             {/* Stat Calculator */}
