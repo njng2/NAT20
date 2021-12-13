@@ -7,8 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import imgMap from '../../media/raceImages/index';
 import { makeStyles } from '@mui/styles';
-import { buttonBaseClasses } from '@mui/material';
+import { buttonBaseClasses, IconButton } from '@mui/material';
 import Axios from 'axios';
+import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 const useStyles = makeStyles({ //this dont work ?? idk
     media: {
@@ -71,7 +73,9 @@ const MediaCard = ({build}) => {
             </CardContent>
             <CardActions>
                 <Button 
-                    // variant="contained" 
+                    variant="outlined"
+                    startIcon={<DeleteIcon/>}
+                    size="large" 
                      onClick={()=>onDelete(build.id)}
                                 // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
                     >
