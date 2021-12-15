@@ -31,7 +31,7 @@ export const ClassTextBox = styled.div`
 `
 
 export const ClassImageBox = styled.div`
-    @media(max-width: 650px){
+    @media(max-width: 700px){
         display: none;
     }
 `
@@ -88,7 +88,7 @@ export const RaceTextBox = styled.div`
 `
 
 export const RaceImageBox = styled.div`
-    @media(max-width: 650px){
+    @media(max-width: 700px){
         display: none;
     }
     
@@ -127,6 +127,6 @@ height: 100%;
 
 export const ResizingTitle = styled.div`
 
-@media(max-width: 650px){
+@media(max-width: 700px){
     text-align: left;
 `

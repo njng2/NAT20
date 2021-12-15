@@ -64,9 +64,6 @@ const RaceSelect = ({selectedRace, handleChange, race, raceOptions}) => {
                 <Grid item xs={15} sm={4} style={{textAlign: "center"}}>
                 <ResizingTitle>
                   <a style={{ color: 'white' }}>Race </a>
-              <Grid container spacing = {8}alignItems="stretch">
-                <Grid item xs={15} sm={4}> 
-                  <a style={{ color: 'white' }}>Race</a>
                   <select value={selectedRace} onChange={handleChange}>
                       <option value = 'none'> Select a race </option>
                       {raceOptions.map((race) => {
