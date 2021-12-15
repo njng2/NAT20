@@ -4,7 +4,8 @@ import {
     BuildTitle,
     DropDownStyle, 
     RaceTextBox, 
-    RaceImageBox
+    RaceImageBox,
+    ResizingTitle
  } from './BuildsElements';
 import { Container, Grid,Paper } from '@mui/material';
 import { Box, grid } from '@mui/system';
@@ -50,19 +51,22 @@ function a11yProps(index) {
 const RaceSelect = ({selectedRace, handleChange, race, raceOptions}) => {
   const [value, setValue] = React.useState(0);
 
+
   const tabChange = (event, newValue) => {
         setValue(newValue);
   };
-
 
   return (
       <BuildTitle>
           <Container>
             <Box sx={{ flexGrow: 1,marginTop:10 }}>
+              <Grid container spacing = {8} alignItems="stretch">
+                <Grid item xs={15} sm={4} style={{textAlign: "center"}}>
+                <ResizingTitle>
+                  <a style={{ color: 'white' }}>Race </a>
               <Grid container spacing = {8}alignItems="stretch">
                 <Grid item xs={15} sm={4}> 
                   <a style={{ color: 'white' }}>Race</a>
-
                   <select value={selectedRace} onChange={handleChange}>
                       <option value = 'none'> Select a race </option>
                       {raceOptions.map((race) => {
@@ -74,15 +78,17 @@ const RaceSelect = ({selectedRace, handleChange, race, raceOptions}) => {
                       })}
                   </select>
 
-                  <h1>
+                  <RaceImageBox>
                   {
                       selectedRace != 'none'?
                       <img src={imgMap[race.index]}></img>
                       : null
                   }   
-                  </h1>
+                  </RaceImageBox>
+                  </ResizingTitle>
                 </Grid>
-                  
+          
+          
                 <Grid item xs={30} sm={4}>
                       {
                           //if selectedValue is not none, show all attributes

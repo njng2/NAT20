@@ -7,7 +7,7 @@ import {
     ClassSectionStyle, 
     ClassTextBox, 
     ClassImageBox,
-    
+    ResizingTitle
 } from './BuildsElements';
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -68,31 +68,19 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
 
   const startEquipArr2 = startEquip.substr(0,startEquip.length-1);
   const startEquipArr = startEquipArr2.split("*");
+
     return (
         <ClassTitle>
             <Container>
-                <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                <Grid container spacing = {4}>
-                <Grid item xs={6} columns={18}>
-                </Grid>
-                <Grid  item xs={1}>
-                <h1>
-                {
-                    selectedClass !== 'none' ?
-                    <ClassImageBox>
-                    <img src={ClassImageMap[classes.index]}></img> 
-                    </ClassImageBox>
-                    : null
-                }
-            </h1>
-            </Grid>
-            
            
-                <Grid Grid item xs={6} alignItems="stretch">
-                <br /><br />
-                <a style={{ color: 'white' }}>Class</a>
+                <Box sx={{ flexGrow: 1,marginTop:10 }}>
+                <Grid container spacing = {8}alignItems="stretch">
+               
+                <Grid item xs={15} sm={4} style={{textAlign: "center", position: "relative"}}>
+                <ResizingTitle>
+                <a style={{ color: 'white' }} >Class </a>
 
-                <select value={selectedClass} onChange={handleChange2}>
+                <select  value={selectedClass} onChange={handleChange2}>
                     <option value = 'none'> Select a class </option>
                     {classOptions.map((classes) => {
                         return(
@@ -102,9 +90,22 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                         )
                     })}
                 </select>
+
+                <h1>
+                {
+                    selectedClass !== 'none' ?
+                    <ClassImageBox>
+                    <img src={ClassImageMap[classes.index]}></img> 
+                    </ClassImageBox>
+                    : null
+                }
+              </h1>
+              </ResizingTitle>
+              </Grid>
+              
                 
                 
-                <br /><br />
+                <Grid item xs={30} sm={4}>
                 {
                     //if selectedValue is not none, show all attributes
                     selectedClass !== 'none' ?  
@@ -120,7 +121,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                                         font ="font-family: Arial"
                                     >
                                         <Tab label="Stat Bonuses" {...a11yProps(0)} />
-                                        <Tab label="Start Equiptment" {...a11yProps(1)} />
+                                        <Tab label="Start Equipment" {...a11yProps(1)} />
                                         <Tab label="Hit Die" {...a11yProps(2)} />
                                         <Tab label="Proficiences" {...a11yProps(3)} />
                                         <Tab label="Equipment Proficiencies" {...a11yProps(4)} />
@@ -130,22 +131,25 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                                     <TabPanel value={value} index={0}>
                                      <li>{classStatBonus.split("",3)}</li> 
                                      <li>{classStatBonus.slice(4,-1)}</li> 
-
                                     </TabPanel>
-                                    <TabPanel value={value} index={1}>
+
+                                    <TabPanel value ={value} index={1}>
                                     {startEquipArr.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
+
                                     <TabPanel value={value} index={2}>
                                     {classes.hit_die}
                                     </TabPanel>
+                                    
                                     <TabPanel value={value} index={3}>
                                     {IfteArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
-                                    <TabPanel value={value} index={5}>
-                                   
+
+                                    <TabPanel value={value} index={4}>
                                     {EquipArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
                                     </Box>
+                           
                     </ClassTextBox>
                     //else render nothing  
                     : null
@@ -156,9 +160,6 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                 </Box>
                 
             </Container>
-            {/* {
-            document.getElementById('classprof2').innerHTML = classProf
-            } */}
         </ClassTitle>
     )
 }
