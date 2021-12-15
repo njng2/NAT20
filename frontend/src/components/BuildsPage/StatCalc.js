@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
+import HelpIcon from '@mui/icons-material/Help';
+import Button from '@mui/material/Button';
 import PopUp from '../PopUp/index';
 import Incrementor from '../Incrementor/Inc';
 import {Cursor} from '../PopUp/PopUpElements';
+import Help from '@mui/icons-material/Help';
 
 const StatCalc = ({usedPoints, availablePoints, totalPoints, trackUsedPoints, trackAvailablePoints, min, max, valueStr, valueDex, valueCon, valueInt, valueWis, valueCha, StrCount, setStrValue, setStrCounter, DexCount, setDexValue, setDexCounter, ConCount, setConValue, setConCounter, IntCount, setIntValue, setIntCounter, WisCount, setWisValue, setWisCounter, ChaCount, setChaValue, setChaCounter,}) => {
 const [buttonPopup, setButtonPopup] = useState(false);
@@ -31,8 +34,20 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                         </tr>
                         <tr id="str" class="stats-row">
                             
-                            <th button onClick={() => setButtonPopup(true)}><Cursor>STR</Cursor></th>
-                            
+                            <th button onClick={() => setButtonPopup(true)}><Cursor>STR <HelpIcon/></Cursor></th>
+                           
+                            {/* <Button 
+                                variant="contained"
+                                endIcon={<HelpIcon/>}
+                                size="large" 
+                                onClick={() => setButtonPopup(true)}
+                                            // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                >
+                              
+                                    STR
+                                
+                            </Button> */}
+                           
                             <PopUp trigger ={buttonPopup} setTrigger = {setButtonPopup}>
                                 <h1>Strength</h1>
 
@@ -115,7 +130,20 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                         </tr>
                         <tr id="dex" class="stats-row">
                         
-                            <th id button onClick={() => setButtonPopup2(true)}><Cursor>DEX</Cursor></th>
+                            <th id button onClick={() => setButtonPopup2(true)}><Cursor>DEX <HelpIcon/></Cursor></th>
+                            {/* <th>
+                            <Button 
+                                variant="contained"
+                                endIcon={<HelpIcon/>}
+                                size="large" 
+                                onClick={() => setButtonPopup2(true)}
+                                            // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                >
+                                <Cursor>
+                                    DEX
+                                </Cursor>
+                            </Button>
+                            </th> */}
                             
                             <PopUp trigger ={buttonPopup2} setTrigger = {setButtonPopup2}>
                             <h1>Dexterity</h1>
@@ -200,8 +228,20 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                         </tr>
                         <tr id="con" class="stats-row">
                         
-                            <th button onClick={() => setButtonPopup3(true)}><Cursor>CON</Cursor></th>
-                            
+                            <th button onClick={() => setButtonPopup3(true)}><Cursor>CON <HelpIcon/></Cursor></th>
+                            {/* <th>
+                            <Button 
+                                variant="contained"
+                                endIcon={<HelpIcon/>}
+                                size="large" 
+                                onClick={() => setButtonPopup3(true)}
+                                            // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                >
+                                <Cursor>
+                                    CON
+                                </Cursor>
+                            </Button>
+                            </th> */}
                             <PopUp trigger ={buttonPopup3} setTrigger = {setButtonPopup3}>
 
                             <h1>Constitution</h1>
@@ -279,7 +319,20 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                             </td>
                         </tr>
                         <tr id="int" class="stats-row">
-                            <th button onClick={() => setButtonPopup4(true)}><Cursor> INT </Cursor> </th>
+                            <th button onClick={() => setButtonPopup4(true)}><Cursor>INT <HelpIcon/></Cursor> </th>
+                            {/* <th>
+                            <Button 
+                                variant="contained"
+                                endIcon={<HelpIcon/>}
+                                size="large" 
+                                onClick={() => setButtonPopup4(true)}
+                                            // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                >
+                                <Cursor>
+                                    INT
+                                </Cursor>
+                            </Button>
+                            </th> */}
                             
                             <PopUp trigger ={buttonPopup4} setTrigger = {setButtonPopup4}>
                                 <h1>Intelligence</h1>
@@ -363,7 +416,20 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                         </tr>
                         <tr id="wis" class="stats-row">
                         
-                            <th button onClick={() => setButtonPopup5(true)}><Cursor>WIS</Cursor> </th>
+                            <th button onClick={() => setButtonPopup5(true)}><Cursor>WIS <HelpIcon/></Cursor> </th>
+                            {/* <th>
+                            <Button 
+                                variant="contained"
+                                endIcon={<HelpIcon/>}
+                                size="large" 
+                                onClick={() => setButtonPopup5(true)}
+                                            // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                >
+                                <Cursor>
+                                    WIS
+                                </Cursor>
+                            </Button>
+                            </th> */}
                             
                             <PopUp trigger ={buttonPopup5} setTrigger = {setButtonPopup5}>
                             <h1>Wisdom</h1>
@@ -448,8 +514,20 @@ const [buttonPopup6, setButtonPopup6] = useState(false);
                         </tr>
                         <tr id="cha" class="stats-row">
                         
-                            <th button onClick={() => setButtonPopup6(true)}><Cursor>CHA</Cursor> </th>
-                            
+                            <th button onClick={() => setButtonPopup6(true)}><Cursor>CHA <HelpIcon/></Cursor> </th>
+                            {/* <th>
+                            <Button 
+                                variant="contained"
+                                endIcon={<HelpIcon/>}
+                                size="large" 
+                                onClick={() => setButtonPopup6(true)}
+                                            // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                                >
+                                <Cursor>
+                                    CHA
+                                </Cursor>
+                            </Button>
+                            </th> */}
                             <PopUp trigger ={buttonPopup6} setTrigger = {setButtonPopup6}>
                             <h1>Charisma</h1>
                             <p>Charisma measures your ability to interact effectively with others. 

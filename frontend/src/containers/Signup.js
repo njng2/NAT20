@@ -27,7 +27,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         method: 'post',
         url: 'https://api.chatengine.io/users/',
         headers: {
-            'PRIVATE-KEY': '4f66f971-b1d8-4cc8-8dd5-0983f10c4cd1'
+            'PRIVATE-KEY': '6c169374-7184-472a-bb90-fada17490580'
         },
         data : data
     };

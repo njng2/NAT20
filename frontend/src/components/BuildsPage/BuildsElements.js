@@ -48,9 +48,9 @@ export const ClassTextBox = styled.div`
 `
 
 export const ClassImageBox = styled.div`
-    position: absolute;
-    left: 150px;
-    justify-content: center;
+    @media(max-width: 700px){
+        display: none;
+    }
 `
 
 
@@ -84,6 +84,7 @@ export const BuildTitle = styled.div`
     height: 100vh;
     overflow: hidden;
     padding-top: 25px;
+    
 `
 export const RaceTextBox = styled.div`
     position: absolute;
@@ -104,9 +105,9 @@ export const RaceTextBox = styled.div`
 `
 
 export const RaceImageBox = styled.div`
-    position: absolute;
-    left: 150px;
-    height: 100vh;
+    @media(max-width: 700px){
+        display: none;
+    }
     
 `
 //***************************************************************************************************************** */
@@ -138,4 +139,11 @@ background-size: cover;
 justify-content: center;
 width: 100%;
 height: 100%;
+`
+//media queries for resizing
+
+export const ResizingTitle = styled.div`
+
+@media(max-width: 700px){
+    text-align: left;
 `

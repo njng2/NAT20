@@ -7,7 +7,7 @@ import {
     ClassSectionStyle, 
     ClassTextBox, 
     ClassImageBox,
-    
+    ResizingTitle
 } from './BuildsElements';
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -48,36 +48,39 @@ function TabPanel(props) {
   }
 
 
-const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
+
+const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classProf,equipProf,classStatBonus,startEquip}) => {
     const [value, setValue] = React.useState(0);
     const tabChange = (event, newValue) => {
         setValue(newValue);
   };
+  console.log(classes);
+  console.log("classprof",classProf);
+  console.log("equipprof",equipProf);
+  console.log("dsfsdf",startEquip);
+  // document.getElementById('classprof2').innerHTML = classProf;
+  // const Whatever = document.getElementById('classprof2').innerHTML;
+  const EquipArray2 = equipProf.substr(0,equipProf.length-1);
+  const EquipArray = EquipArray2.split("*");
+
+  const IfteArray2 = classProf.substr(0,classProf.length-1);
+  const IfteArray =  IfteArray2.split("*");
+
+  const startEquipArr2 = startEquip.substr(0,startEquip.length-1);
+  const startEquipArr = startEquipArr2.split("*");
+
     return (
         <ClassTitle>
             <Container>
+           
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                <Grid container spacing = {4}>
-                <Grid item xs={6} columns={18}>
-                </Grid>
-                <Grid  item xs={1}>
-                <h1>
-                {
-                    selectedClass !== 'none' ?
-                    <ClassImageBox>
-                    <img src={ClassImageMap[classes.index]}></img> 
-                    </ClassImageBox>
-                    : null
-                }
-            </h1>
-            </Grid>
-            
-            <ClassSectionStyle>
-                <Grid Grid item xs={6} alignItems="stretch">
-                <br /><br />
-                <a style={{ color: 'white' }}>Class</a>
+                <Grid container spacing = {8}alignItems="stretch">
+               
+                <Grid item xs={15} sm={4} style={{textAlign: "center", position: "relative"}}>
+                <ResizingTitle>
+                <a style={{ color: 'white' }} >Class </a>
 
-                <select value={selectedClass} onChange={handleChange2}>
+                <select  value={selectedClass} onChange={handleChange2}>
                     <option value = 'none'> Select a class </option>
                     {classOptions.map((classes) => {
                         return(
@@ -87,14 +90,27 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                         )
                     })}
                 </select>
+
+                <h1>
+                {
+                    selectedClass !== 'none' ?
+                    <ClassImageBox>
+                    <img src={ClassImageMap[classes.index]}></img> 
+                    </ClassImageBox>
+                    : null
+                }
+              </h1>
+              </ResizingTitle>
+              </Grid>
+              
                 
                 
-                <br /><br />
+                <Grid item xs={30} sm={4}>
                 {
                     //if selectedValue is not none, show all attributes
                     selectedClass !== 'none' ?  
                     <ClassTextBox>
-                        <Box sx={{ maxWidth: 500 }}>
+                        <Box sx={{ maxWidth: "auto" }}>
                                     <Tabs
                                         value={value}
                                         onChange={tabChange}
@@ -104,36 +120,41 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
                                         aria-label="scrollable auto tabs example"
                                         font ="font-family: Arial"
                                     >
-                                        <Tab label="Class Description" {...a11yProps(0)} />
-                                        <Tab label="Stat Bonuses" {...a11yProps(1)} />
+                                        <Tab label="Stat Bonuses" {...a11yProps(0)} />
+                                        <Tab label="Start Equipment" {...a11yProps(1)} />
                                         <Tab label="Hit Die" {...a11yProps(2)} />
                                         <Tab label="Proficiences" {...a11yProps(3)} />
                                         <Tab label="Equipment Proficiencies" {...a11yProps(4)} />
                                     </Tabs>
 
                                     <TabPanel value={value} index={0}>
-                                    Item
+                                     <li>{classStatBonus.split("",3)}</li> 
+                                     <li>{classStatBonus.slice(4,-1)}</li> 
                                     </TabPanel>
-                                    <TabPanel value={value} index={1}>
-                                    <div id="statBonus"> </div>
-                                    {/* {classes.bonus} */}
+
+                                    <TabPanel value ={value} index={1}>
+                                    {startEquipArr.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
+
                                     <TabPanel value={value} index={2}>
                                     {classes.hit_die}
                                     </TabPanel>
+                                    
                                     <TabPanel value={value} index={3}>
-                                    <div id="profChoices"></div>
+                                    {IfteArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
+
                                     <TabPanel value={value} index={4}>
-                                    <div id="equipChoices"></div>
+                                    {EquipArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
                                     </Box>
+                           
                     </ClassTextBox>
                     //else render nothing  
                     : null
                 }
                 </Grid>
-                </ClassSectionStyle>
+                
                 </Grid>
                 </Box>
             </Container>

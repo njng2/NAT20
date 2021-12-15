@@ -19,7 +19,7 @@ const ChatSection = () => {
             // userSecret='123'
             userName={userName}
             userSecret={userPass}
-            projectID='df4300d4-fab2-4fac-a16f-6b7e007f7a8d'
+            projectID='d15e3c7f-446d-4171-b09c-8f4cf651cc69'
             renderChatFeed={(chatAppProps)=> <ChatFeed {... chatAppProps}/>}
 		/>
     )

@@ -7,7 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import imgMap from '../../media/raceImages/index';
 import { makeStyles } from '@mui/styles';
-import { buttonBaseClasses } from '@mui/material';
+import { buttonBaseClasses, IconButton } from '@mui/material';
+import Axios from 'axios';
+import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 const useStyles = makeStyles({ //this dont work ?? idk
     media: {
@@ -19,9 +22,22 @@ const useStyles = makeStyles({ //this dont work ?? idk
       objectPosition: "left top"
 
     },
-  });
+});
+
+
+
+const onDelete = (id) =>{
+    Axios.delete(`${process.env.REACT_APP_API_URL}/heroes/${id}/`)
+    .then(res =>{
+        console.log("Delete Response: ", res);
+        window.location.reload();
+    })
+    // console.log(getData)
+    // Axios.delete(getData[name])
+};
 
 const MediaCard = ({build}) => {
+    // console.log("Here is build: ", build.id);
     const classes = useStyles;
     return (
         <Card sx={{ maxWidth: 345}} style={{backgroundColor: "black",color:"white"}}>
@@ -56,8 +72,15 @@ const MediaCard = ({build}) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button 
+                    variant="contained"
+                    startIcon={<DeleteIcon/>}
+                    size="large" 
+                     onClick={()=>onDelete(build.id)}
+                                // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
+                    >
+                    Delete
+                    </Button>
             </CardActions>
         </Card>
     );
