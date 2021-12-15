@@ -4,7 +4,8 @@ import {
     BuildTitle,
     DropDownStyle, 
     RaceTextBox, 
-    RaceImageBox
+    RaceImageBox,
+    ResizingTitle
  } from './BuildsElements';
 import { Container, Grid,Paper } from '@mui/material';
 import { Box, grid } from '@mui/system';
@@ -57,32 +58,14 @@ const tabChange = (event, newValue) => {
       setValue(newValue);
 };
 
-
-    return (
-        <BuildTitle style>
-            <Container>
-                <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                    <Grid container spacing = {10} alignItems="stretch">
-                    <Grid item xs={4} columns={18}> 
-
-                    </Grid>
-                    <Grid item xs={2}>
-                    <h1>
-                    {
-                        selectedRace != 'none'?
-                        <RaceImageBox>
-                        <img src={imgMap[race.index]}></img> 
-                        </RaceImageBox>
-                        : null
-                    }   
-                    </h1>
-                    </Grid>
-
-                    
-                    
-                        <Grid item xs={2} alignItems="stretch">
-                        <br /><br />
-                        <a style={{ color: 'white' }}>Race</a>
+  return (
+      <BuildTitle>
+          <Container>
+            <Box sx={{ flexGrow: 1,marginTop:10 }}>
+              <Grid container spacing = {8} alignItems="stretch">
+                <Grid item xs={15} sm={4} style={{textAlign: "center"}}>
+                <ResizingTitle>
+                  <a style={{ color: 'white' }}>Race </a>
 
                         <select value={selectedRace} onChange={handleChange}>
                             <option value = 'none'> Select a race </option>
@@ -95,31 +78,41 @@ const tabChange = (event, newValue) => {
                             })}
                         </select>
 
-                    
-                        
-                        <br /><br />
-                        {
-                            //if selectedValue is not none, show all attributes
-                            
-                            selectedRace !== 'none' ?  
-                            <RaceTextBox>
-                                <Box sx={{ maxWidth: "auto" }}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={tabChange}
-                                        variant="scrollable"
-                                        scrollButtons
-                                        allowScrollButtonsMobile
-                                        aria-label="scrollable auto tabs example"
-                                    >
-                                        
-                                        <Tab label="Alignment" {...a11yProps(0)}/> 
-                                        <Tab label="Age" {...a11yProps(1)} />
-                                        <Tab label="Size" {...a11yProps(2)} />
-                                        <Tab label="Size Description" {...a11yProps(3)} />
-                                        <Tab label="Speed" {...a11yProps(4)} />
-                                        <Tab label="Languages" {...a11yProps(5)} />
-                                    </Tabs>
+
+                  <RaceImageBox>
+                  {
+                      selectedRace != 'none'?
+                      <img src={imgMap[race.index]}></img>
+                      : null
+                  }   
+                  </RaceImageBox>
+                  </ResizingTitle>
+                </Grid>
+                
+                  
+                <Grid item xs={30} sm={4}>
+                      {
+                          //if selectedValue is not none, show all attributes
+                          
+                          selectedRace !== 'none' ?  
+                          <RaceTextBox>
+                              <Box sx={{ maxWidth: "auto" }}>
+                                  <Tabs
+                                      value={value}
+                                      onChange={tabChange}
+                                      variant="scrollable"
+                                      scrollButtons
+                                      allowScrollButtonsMobile
+                                      aria-label="scrollable auto tabs example"
+                                  >
+                                      
+                                      <Tab label="Alignment" {...a11yProps(0)}/> 
+                                      <Tab label="Age" {...a11yProps(1)} />
+                                      <Tab label="Size" {...a11yProps(2)} />
+                                      <Tab label="Size Description" {...a11yProps(3)} />
+                                      <Tab label="Speed" {...a11yProps(4)} />
+                                      <Tab label="Languages" {...a11yProps(5)} />
+                                  </Tabs>
 
                                     <TabPanel value={value} index={0}>
                                     {race.alignment}
