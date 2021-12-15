@@ -57,20 +57,18 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
   console.log(classes);
   console.log("classprof",classProf);
   console.log("equipprof",equipProf);
-  console.log("classstatebonus",classStatBonus);
+  console.log("dsfsdf",startEquip);
   // document.getElementById('classprof2').innerHTML = classProf;
   // const Whatever = document.getElementById('classprof2').innerHTML;
-  const EquipArray2 = equipProf.substr(0,equipProf.length-1)
-  const EquipArray = EquipArray2.split("*")
+  const EquipArray2 = equipProf.substr(0,equipProf.length-1);
+  const EquipArray = EquipArray2.split("*");
 
-  const IfteArray2 = classProf.substr(0,classProf.length-1)
-  const IfteArray =  IfteArray2.split("*")
+  const IfteArray2 = classProf.substr(0,classProf.length-1);
+  const IfteArray =  IfteArray2.split("*");
 
   const startEquipArr2 = startEquip.substr(0,startEquip.length-1);
   const startEquipArr = startEquipArr2.split("*");
 
-
-  
     return (
         <ClassTitle>
             <Container>
@@ -112,7 +110,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                     //if selectedValue is not none, show all attributes
                     selectedClass !== 'none' ?  
                     <ClassTextBox>
-                        <Box sx={{ maxWidth: 480 }}>
+                        <Box sx={{ maxWidth: "auto" }}>
                                     <Tabs
                                         value={value}
                                         onChange={tabChange}
@@ -133,7 +131,6 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                                     <TabPanel value={value} index={0}>
                                      <li>{classStatBonus.split("",3)}</li> 
                                      <li>{classStatBonus.slice(4,-1)}</li> 
-
                                     </TabPanel>
 
                                     <TabPanel value ={value} index={1}>
@@ -143,11 +140,12 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                                     <TabPanel value={value} index={2}>
                                     {classes.hit_die}
                                     </TabPanel>
+                                    
                                     <TabPanel value={value} index={3}>
                                     {IfteArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
+
                                     <TabPanel value={value} index={4}>
-      
                                     {EquipArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
                                     </Box>

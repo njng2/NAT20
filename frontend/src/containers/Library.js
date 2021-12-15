@@ -43,7 +43,7 @@ const Library = () => {
         <LibraryContainer>
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                    <Grid container spacing={3} alignItems="stretch">
+                    <Grid container spacing={4} alignItems="stretch">
                         {allBuilds.map((build) => (
                             <Grid item xs={12} sm={4}>
                                 <MediaCard build={build}/>
