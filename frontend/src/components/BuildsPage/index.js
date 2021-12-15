@@ -52,9 +52,9 @@ const BuildsPage = (props) => {
     const[ChaModCount, setChaModCounter] = useState(-1)
 
 
-    // const [heroId, setHeroId] = useState(0);
+    const [heroId, setHeroId] = useState(0);
     const storeState = store.getState();
-    // const userId = storeState.auth.user.id;
+    const userId = storeState.auth.user.id;
     //*********************   End of push API ****************************/
     // console.log("Here is the store stuff:", user);
 
@@ -105,7 +105,7 @@ const BuildsPage = (props) => {
             INT: valueInt,
             WIS: valueWis,
             CHA: valueCha,
-            // hero: userId
+            hero: userId
         };
 
         Axios.post(`${process.env.REACT_APP_API_URL}/heroes/`,
