@@ -66,18 +66,16 @@ const tabChange = (event, newValue) => {
                 <Grid item xs={15} sm={4} style={{textAlign: "center"}}>
                 <ResizingTitle>
                   <a style={{ color: 'white' }}>Race </a>
-
-                        <select value={selectedRace} onChange={handleChange}>
-                            <option value = 'none'> Select a race </option>
-                            {raceOptions.map((race) => {
-                                return(
-                                    <option value={race.value}>
-                                        {race.label}
-                                    </option>
-                                )
-                            })}
-                        </select>
-
+                  <select value={selectedRace} onChange={handleChange}>
+                      <option value = 'none'> Select a race </option>
+                      {raceOptions.map((race) => {
+                          return(
+                              <option value={race.value}>
+                                  {race.label}
+                              </option>
+                          )
+                      })}
+                  </select>
 
                   <RaceImageBox>
                   {
