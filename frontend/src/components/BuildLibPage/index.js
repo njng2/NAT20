@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import imgMap from '../../media/raceImages/index';
 import { makeStyles } from '@mui/styles';
 import { buttonBaseClasses } from '@mui/material';
-import Axios from 'axios';
 
 const useStyles = makeStyles({ //this dont work ?? idk
     media: {
@@ -20,22 +19,9 @@ const useStyles = makeStyles({ //this dont work ?? idk
       objectPosition: "left top"
 
     },
-});
-
-
-
-const onDelete = (id) =>{
-    Axios.delete(`${process.env.REACT_APP_API_URL}/heroes/${id}/`)
-    .then(res =>{
-        console.log("Delete Response: ", res);
-        window.location.reload();
-    })
-    // console.log(getData)
-    // Axios.delete(getData[name])
-};
+  });
 
 const MediaCard = ({build}) => {
-    // console.log("Here is build: ", build.id);
     const classes = useStyles;
     return (
         <Card sx={{ maxWidth: 345}} style={{backgroundColor: "black",color:"white"}}>
@@ -70,13 +56,8 @@ const MediaCard = ({build}) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button 
-                    // variant="contained" 
-                     onClick={()=>onDelete(build.id)}
-                                // style={{backgroundColor: '#12824C', color: '#FFFFFF'}}
-                    >
-                    Delete
-                    </Button>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
             </CardActions>
         </Card>
     );

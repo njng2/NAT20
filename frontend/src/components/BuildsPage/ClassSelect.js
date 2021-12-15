@@ -48,24 +48,11 @@ function TabPanel(props) {
   }
 
 
-
-const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classProf,equipProf,classStatBonus}) => {
+const ClassSelect = ({selectedClass, classes, classOptions, handleChange2}) => {
     const [value, setValue] = React.useState(0);
     const tabChange = (event, newValue) => {
         setValue(newValue);
   };
-  console.log(classes);
-  console.log("classprof",classProf);
-  console.log("equipprof",equipProf);
-  console.log("classstatebonus",classStatBonus);
-  // document.getElementById('classprof2').innerHTML = classProf;
-  // const Whatever = document.getElementById('classprof2').innerHTML;
-  const EquipArray2 = equipProf.substr(0,equipProf.length-1)
-  const EquipArray = EquipArray2.split("*")
-
-  const IfteArray2 = classProf.substr(0,classProf.length-1)
-  const IfteArray =  IfteArray2.split("*")
-
     return (
         <ClassTitle>
             <Container>
@@ -85,7 +72,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
             </h1>
             </Grid>
             
-           
+            <ClassSectionStyle>
                 <Grid Grid item xs={6} alignItems="stretch">
                 <br /><br />
                 <a style={{ color: 'white' }}>Class</a>
@@ -107,7 +94,7 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                     //if selectedValue is not none, show all attributes
                     selectedClass !== 'none' ?  
                     <ClassTextBox>
-                        <Box sx={{ maxWidth: 480 }}>
+                        <Box sx={{ maxWidth: 500 }}>
                                     <Tabs
                                         value={value}
                                         onChange={tabChange}
@@ -117,27 +104,28 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                                         aria-label="scrollable auto tabs example"
                                         font ="font-family: Arial"
                                     >
-                                        <Tab label="Stat Bonuses" {...a11yProps(0)} />
-                                        <Tab label="Hit Die" {...a11yProps(1)} />
-                                        <Tab label="Proficiences" {...a11yProps(2)} />
-                                        <Tab label="Equipment Proficiencies" {...a11yProps(3)} />
+                                        <Tab label="Class Description" {...a11yProps(0)} />
+                                        <Tab label="Stat Bonuses" {...a11yProps(1)} />
+                                        <Tab label="Hit Die" {...a11yProps(2)} />
+                                        <Tab label="Proficiences" {...a11yProps(3)} />
+                                        <Tab label="Equipment Proficiencies" {...a11yProps(4)} />
                                     </Tabs>
 
-                                    
                                     <TabPanel value={value} index={0}>
-                                     <li>{classStatBonus.split("",3)}</li> 
-                                     <li>{classStatBonus.slice(4,-1)}</li> 
-
+                                    Item
                                     </TabPanel>
                                     <TabPanel value={value} index={1}>
-                                    {classes.hit_die}
+                                    <div id="statBonus"> </div>
+                                    {/* {classes.bonus} */}
                                     </TabPanel>
                                     <TabPanel value={value} index={2}>
-                                    {IfteArray.map((item) => (<li>{item}</li>))}
+                                    {classes.hit_die}
                                     </TabPanel>
                                     <TabPanel value={value} index={3}>
-                                   
-                                    {EquipArray.map((item) => (<li>{item}</li>))}
+                                    <div id="profChoices"></div>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={4}>
+                                    <div id="equipChoices"></div>
                                     </TabPanel>
                                     </Box>
                     </ClassTextBox>
@@ -145,14 +133,10 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                     : null
                 }
                 </Grid>
-                
+                </ClassSectionStyle>
                 </Grid>
                 </Box>
-                
             </Container>
-            {/* {
-            document.getElementById('classprof2').innerHTML = classProf
-            } */}
         </ClassTitle>
     )
 }
