@@ -49,7 +49,7 @@ function TabPanel(props) {
 
 
 
-const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classProf,equipProf,classStatBonus}) => {
+const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classProf,equipProf,classStatBonus,startEquip}) => {
     const [value, setValue] = React.useState(0);
     const tabChange = (event, newValue) => {
         setValue(newValue);
@@ -123,9 +123,10 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                                         font ="font-family: Arial"
                                     >
                                         <Tab label="Stat Bonuses" {...a11yProps(0)} />
-                                        <Tab label="Hit Die" {...a11yProps(1)} />
-                                        <Tab label="Proficiences" {...a11yProps(2)} />
-                                        <Tab label="Equipment Proficiencies" {...a11yProps(3)} />
+                                        <Tab label="Start Equipment" {...a11yProps(1)} />
+                                        <Tab label="Hit Die" {...a11yProps(2)} />
+                                        <Tab label="Proficiences" {...a11yProps(3)} />
+                                        <Tab label="Equipment Proficiencies" {...a11yProps(4)} />
                                     </Tabs>
 
                                     
@@ -134,14 +135,19 @@ const ClassSelect = ({selectedClass, classes, classOptions, handleChange2,classP
                                      <li>{classStatBonus.slice(4,-1)}</li> 
 
                                     </TabPanel>
-                                    <TabPanel value={value} index={1}>
+
+                                    <TabPanel value ={value} index={1}>
+                                    {startEquipArr.map((item) => (<li>{item}</li>))}
+                                    </TabPanel>
+
+                                    <TabPanel value={value} index={2}>
                                     {classes.hit_die}
                                     </TabPanel>
-                                    <TabPanel value={value} index={2}>
+                                    <TabPanel value={value} index={3}>
                                     {IfteArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
                                     <TabPanel value={value} index={4}>
-                                   
+      
                                     {EquipArray.map((item) => (<li>{item}</li>))}
                                     </TabPanel>
                                     </Box>

@@ -210,6 +210,7 @@ const BuildsPage = (props) => {
     const [classProf,setClassProf] = useState("");
     const [equipProf,setEquipProf] = useState("");
     const [classStatBonus,setStatBonus] = useState ("");
+    const [startEquip,setStartEquip] = useState("");
     const getClass = (label) =>{
 
         Axios.get(`https://www.dnd5eapi.co/api/classes/${label}`).then(resp =>{
@@ -249,6 +250,13 @@ const BuildsPage = (props) => {
             // console.log(html3)
             // document.querySelector('#statBonus').innerHTML = html3;
             //end of stat bonus
+            let html4 = '';
+            (resp.data.starting_equipment).forEach(function(bonus) {
+                console.log("test",bonus);
+                console.log(bonus.equipment.name);
+                html4+= bonus.equipment.name + "*";
+            });
+            setStartEquip(html4);
         }).catch(err =>{
             console.error(err);
         })
@@ -291,6 +299,8 @@ const BuildsPage = (props) => {
                 classProf={classProf}
                 equipProf={equipProf}
                 classStatBonus={classStatBonus}
+                startEquip={startEquip}
+
 
             />
 
