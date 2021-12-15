@@ -5,7 +5,6 @@ import MediaCard from '../components/BuildLibPage';
 import { Container, Grid,Paper } from '@mui/material';
 import { Box } from '@mui/system';
 import Axios from 'axios'; 
-import { RaceImageBox } from '../components/BuildsPage/BuildsElements';
 import { LibraryContainer } from '../components/BuildsPage/BuildsElements';
 
 
@@ -43,7 +42,7 @@ const Library = () => {
         <LibraryContainer>
             <Container>
                 <Box sx={{ flexGrow: 1,marginTop:10 }}>
-                    <Grid container spacing={3} alignItems="stretch">
+                    <Grid container spacing={4} alignItems="stretch">
                         {allBuilds.map((build) => (
                             <Grid item xs={12} sm={4}>
                                 <MediaCard build={build}/>

@@ -219,7 +219,7 @@ const BuildsPage = (props) => {
             // //makes the list for skill proficiencies
             let html = '';
             (resp.data.proficiency_choices[0].from).forEach(function(prof) {
-                html +=  prof.index + "*" ;
+                html +=  prof.name + "*" ;
             });
             //  html = '<ul>' + html +'<ul>';
             setClassProf(html);
@@ -230,7 +230,7 @@ const BuildsPage = (props) => {
             //make list for the equipment proficiencies
             let html2 = '';
             (resp.data.proficiencies).forEach(function(prof) {
-                html2+= prof.index + "*";
+                html2+= prof.name + "*";
             });
             setEquipProf(html2);
             console.log(html2)
@@ -300,8 +300,6 @@ const BuildsPage = (props) => {
                 equipProf={equipProf}
                 classStatBonus={classStatBonus}
                 startEquip={startEquip}
-
-
             />
 
             {/* Stat Calculator */}
